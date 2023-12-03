@@ -261,3 +261,131 @@
   color: #1f3332;
   border-width: 2px;
 }
+.containerCards {
+  background-image: url("https://wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-bg-img-01.jpg?v=1698815628");
+  background-position: center;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 100px;
+}
+.titleBest {
+  text-align: center;
+  font-family: cursive;
+}
+.titleBest h3 {
+  color: #1f3332;
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+.titleBest p {
+  font-family: cursive;
+  color: #262626;
+}
+.containerAge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 100px;
+  font-family: cursive;
+}
+.containerAge h3 {
+  font-size: 25px;
+}
+.containerAge .items {
+  text-align: center;
+}
+.containerAge .items .icons .age1 {
+  border-radius: 50%;
+  /* z-index: 1; */
+  width: 125px;
+  height: 125px;
+  background-image: url("../../../assets/image/childAge/ageImg1.avif");
+
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10px;
+}
+.containerAge .items .icons .age2 {
+  border-radius: 50%;
+  /* z-index: 1; */
+  width: 125px;
+  height: 125px;
+  background-image: url("../../../assets/image/childAge/ageImg2.avif");
+
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10px;
+}
+.containerAge .items .icons .age3 {
+  border-radius: 50%;
+  /* z-index: 1; */
+  width: 125px;
+  height: 125px;
+  background-image: url("../../../assets/image/childAge/ageImg3.avif");
+
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10px;
+}
+.containerAge .items .icons .age4 {
+  border-radius: 50%;
+  /* z-index: 1; */
+  width: 125px;
+  height: 125px;
+  background-image: url("../../../assets/image/childAge/ageImg4.avif");
+
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10px;
+}
+.containerAge .items .icons .age5 {
+  border-radius: 50%;
+  /* z-index: 1; */
+  width: 125px;
+  height: 125px;
+  background-image: url("../../../assets/image/childAge/ageImg5.avif");
+
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10px;
+}
+.containerAge .items .icons .age6 {
+  border-radius: 50%;
+  /* z-index: 1; */
+  width: 125px;
+  height: 125px;
+  background-image: url("../../../assets/image/childAge/ageImg6.avif");
+
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10px;
+}
+.containerAge .items .categoriesAge {
+  text-decoration: none;
+  color: black;
+  font-size: 17px;
+  font-weight: 600;
+}
+.containerPopularCards {
+  margin-bottom: 100px;
+}
