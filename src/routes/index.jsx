@@ -8,6 +8,13 @@ import Register from "../pages/user/register";
 import Products from "../pages/user/products";
 import Details from "../pages/user/details";
 
+import AdminRoot from "../pages/admin/adminRoot";
+import Dashboard from "../pages/admin/dashboard";
+import AdminProducts from "../pages/admin/products";
+import AddProducts from "../pages/admin/addProducts";
+import AddUser from "../pages/admin/addUser";
+import Users from "../pages/admin/users";
+
 export const routes = [
   {
     path: "/",
@@ -41,6 +48,33 @@ export const routes = [
       },
     ],
   },
+  {
+    path: "/admin",
+    element: <AdminRoot />,
+    children: [
+      {
+        path: "/admin",
+        element: <Dashboard />,
+      },
+      {
+        path: "/admin/adminProducts",
+        element: <AdminProducts />,
+      },
+      {
+        path: "/admin/addProducts",
+        element: <AddProducts />,
+      },
+      {
+        path: "/admin/addUser",
+        element: <AddUser />,
+      },
+      {
+        path: "/admin/users",
+        element: <Users />,
+      },
+    ],
+  },
+
   {
     path: "*",
     element: <NoPage />,
