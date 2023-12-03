@@ -412,6 +412,8 @@ function Home() {
           </Grid>
         </Box>
       </Container>
+
+      <Container maxWidth="xl"></Container>
     </>
   );
 }
