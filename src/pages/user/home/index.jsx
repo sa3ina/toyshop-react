@@ -12,9 +12,30 @@ import sliderImg1 from "../../../assets/image/headerSlider/sliderImg1.webp";
 import { Link, useNavigate, useNavigation } from "react-router-dom";
 // Import Swiper styles
 import "swiper/css";
+import { Typography } from "@mui/material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronRight,
+  faStar,
+  faHeart,
+} from "@fortawesome/free-solid-svg-icons";
+import { cardProducts } from "../../../redux/slices/cardSlice";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import styles from "./index.module.css";
 
 function Home() {
   const navigate = useNavigate();
+  const cardProd = useSelector((state) => state.products.posts);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(cardProducts());
+    console.log(cardProducts());
+  }, [dispatch]);
   return (
     <>
       <div style={{ backgroundColor: "#88A9A8" }}>
@@ -413,7 +434,304 @@ function Home() {
         </Box>
       </Container>
 
-      <Container maxWidth="xl"></Container>
+      <Container maxWidth="xl">
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid container spacing={5} style={{ marginBottom: "100px" }}>
+            <Grid tem xl={12} lg={12} md={12} sm={12} xs={12}>
+              <p
+                style={{
+                  textAlign: "center",
+                  fontFamily: "cursive",
+                  fontWeight: "500",
+                  fontSize: "20px",
+                  color: "#1f3332;",
+                }}
+              >
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0770/8701/5196/files/rainbow-icon.jpg?v=1695205444"
+                  alt=""
+                />
+                Greatest prices and deals{" "}
+                <span
+                  style={{
+                    color: "red",
+                    textDecoration: "underline",
+                    textDecorationThickness: "3px",
+                  }}
+                >
+                  save 20%off
+                </span>{" "}
+                baby and kids wears.
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0770/8701/5196/files/rainbow-icon-1.jpg?v=1695205468"
+                  alt=""
+                />
+              </p>
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
+
+      <Container maxWidth="xl">
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid
+            className={style.containerCards}
+            marginTop={0}
+            container
+            spacing={8}
+            justifyContent="center"
+            alignItems="center"
+            style={{ minHeight: "100vh" }}
+          >
+            <Grid item xs={12}>
+              <div className={style.titleBest}>
+                <h3>Best selling</h3>
+                <p>
+                  It has survived not only five centuries, but also the leap
+                  into <br />
+                  electronic typesetting, remaining essentially unchanged.
+                </p>
+              </div>
+            </Grid>
+            {/* {Array.from(Array(6)).map((_, index) => ( */}
+            {cardProd.map((elem, i) => (
+              <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
+                <Card
+                  className={styles.cardd}
+                  sx={{ minWidth: 275 }}
+                  style={{ marginBottom: "15px" }}
+                >
+                  <CardContent
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      minHeight: "100%",
+                    }}
+                  >
+                    <div className={styles.heart}>
+                      <FontAwesomeIcon icon={faHeart} />
+                    </div>
+                    <div className={styles.addtoCart}>ADD TO CART</div>
+
+                    <img
+                      className={styles.card}
+                      style={{
+                        height: "290px",
+                        width: "280px",
+                        objectFit: "cover",
+                      }}
+                      src={elem.image}
+                      alt=""
+                    />
+                  </CardContent>
+                </Card>
+                <Typography
+                  // align="center"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                  }}
+                >
+                  <div>
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                  </div>
+                  <div> {elem.name}</div>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      gap: "8px",
+                    }}
+                  >
+                    <p style={{ textDecoration: "line-through" }}>
+                      {elem.price}.00$
+                    </p>{" "}
+                    <p>
+                      {Math.round(
+                        elem.price - (elem.discountPercent / 100) * elem.price
+                      )}
+                      .00$
+                    </p>
+                  </div>
+                </Typography>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Container>
+
+      <Container maxWidth="xl">
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid container spacing={7} className={style.containerAge}>
+            <Grid item xs={12}>
+              <h3>Shop by age</h3>
+            </Grid>
+
+            <Grid item className={style.items}>
+              <Link to="/" className={style.icons}>
+                <div className={style.age1}></div>
+              </Link>
+              <Link to="/" className={style.categoriesAge}>
+                0-12 Months
+              </Link>
+            </Grid>
+            <Grid item className={style.items}>
+              <Link to="/" className={style.icons}>
+                <div className={style.age2}></div>
+              </Link>
+              <Link to="/" className={style.categoriesAge}>
+                1-2 Years
+              </Link>
+            </Grid>
+            <Grid item className={style.items}>
+              <Link to="/" className={style.icons}>
+                <div className={style.age3}></div>
+              </Link>
+              <Link to="/" className={style.categoriesAge}>
+                2-4 Years
+              </Link>
+            </Grid>
+            <Grid item className={style.items}>
+              <Link to="/" className={style.icons}>
+                <div className={style.age4}></div>
+              </Link>
+              <Link to="/" className={style.categoriesAge}>
+                4-6 Years
+              </Link>
+            </Grid>
+            <Grid item className={style.items}>
+              <Link to="/" className={style.icons}>
+                <div className={style.age5}></div>
+              </Link>
+              <Link to="/" className={style.categoriesAge}>
+                5-8 Years
+              </Link>
+            </Grid>
+            <Grid item className={style.items}>
+              <Link to="/" className={style.icons}>
+                <div className={style.age6}></div>
+              </Link>
+              <Link to="/" className={style.categoriesAge}>
+                8-12 Years
+              </Link>
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
+
+      <Container maxWidth="xl">
+        <div>
+          <img
+            src="https://wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-separation-line.jpg?v=1698815628"
+            alt=""
+          />
+        </div>
+      </Container>
+      <Container maxWidth="xl">
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid
+            className={style.containerPopularCards}
+            marginTop={0}
+            container
+            spacing={8}
+            justifyContent="center"
+            alignItems="center"
+            style={{ minHeight: "100vh" }}
+          >
+            <Grid item xs={12}>
+              <div className={style.titleBest}>
+                <h3>Popular products</h3>
+                <p>
+                  It has survived not only five centuries, but also the leap
+                  into <br />
+                  electronic typesetting, remaining essentially unchanged.
+                </p>
+              </div>
+            </Grid>
+            {/* {Array.from(Array(6)).map((_, index) => ( */}
+            {cardProd.map((elem, i) => (
+              <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
+                <Card
+                  className={styles.cardd}
+                  sx={{ minWidth: 275 }}
+                  style={{ marginBottom: "15px" }}
+                >
+                  <CardContent
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      minHeight: "100%",
+                    }}
+                  >
+                    <div className={styles.heart}>
+                      <FontAwesomeIcon icon={faHeart} />
+                    </div>
+                    <div className={styles.addtoCart}>ADD TO CART</div>
+
+                    <img
+                      className={styles.card}
+                      style={{
+                        height: "290px",
+                        width: "280px",
+                        objectFit: "cover",
+                      }}
+                      src={elem.image}
+                      alt=""
+                    />
+                  </CardContent>
+                </Card>
+                <Typography
+                  // align="center"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                  }}
+                >
+                  <div>
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                  </div>
+                  <div> {elem.name}</div>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      gap: "8px",
+                    }}
+                  >
+                    <p style={{ textDecoration: "line-through" }}>
+                      {elem.price}.00$
+                    </p>{" "}
+                    <p>
+                      {Math.round(
+                        elem.price - (elem.discountPercent / 100) * elem.price
+                      )}
+                      .00$
+                    </p>
+                  </div>
+                </Typography>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Container>
     </>
   );
 }
