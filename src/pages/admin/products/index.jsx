@@ -62,7 +62,7 @@ function AdminProducts() {
                         style={{ width: "32px", height: "32px" }}
                       />
                     </TableCell>
-                    <TableCell>{product.price}</TableCell>
+                    <TableCell>{product.price}$</TableCell>
                     <TableCell>{product.brand}</TableCell>
                     <TableCell>{product.collection}</TableCell>
                     <TableCell>{product.rating}</TableCell>
