@@ -34,6 +34,7 @@ p {
 .create {
   padding: 15px;
   background-color: white;
+  cursor: pointer;
 }
 .create:hover {
   background-color: #262626;
