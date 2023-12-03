@@ -50,7 +50,7 @@ function Navbar() {
     //     <Link to="/products">Product</Link>
     //   </li>
     // </ul>
-    <AppBar position="static" sx={{ backgroundColor: "white" }}>
+    <AppBar position="sticky" sx={{ backgroundColor: "white" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} to="/">
