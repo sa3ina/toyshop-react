@@ -26,6 +26,11 @@ import CardContent from "@mui/material/CardContent";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./index.module.css";
+import gucci from "../../../assets/image/brandes/gucci.avif";
+import chanel from "../../../assets/image/brandes/chanel.avif";
+import asos from "../../../assets/image/brandes/asos.avif";
+import prada from "../../../assets/image/brandes/prada.avif";
+import celine from "../../../assets/image/brandes/celine.avif";
 
 function Home() {
   const navigate = useNavigate();
@@ -636,6 +641,7 @@ function Home() {
           />
         </div>
       </Container>
+
       <Container maxWidth="xl">
         <Box sx={{ flexGrow: 1 }}>
           <Grid
@@ -732,6 +738,50 @@ function Home() {
           </Grid>
         </Box>
       </Container>
+
+      <Container maxWidth="xl">
+        <Box sx={{ flexGrow: 1, marginBottom: "100px" }}>
+          <Grid container spacing={7}>
+            <Grid item>
+              <Link to="/">
+                <img src={gucci} alt="" />
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link to="/">
+                <img src={chanel} alt="" />
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link to="/">
+                <img src={asos} alt="" />
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link to="/">
+                <img src={prada} alt="" />
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link to="/">
+                <img src={celine} alt="" />
+              </Link>
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
+
+      <div className="threeCards">
+        <div className={style.one}>
+          <div className={style.title}></div>
+        </div>
+        <div className={style.two}>
+          <div className={style.title}></div>
+        </div>
+        <div className={style.three}>
+          <div className={style.title}></div>
+        </div>
+      </div>
     </>
   );
 }
