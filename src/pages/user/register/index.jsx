@@ -17,7 +17,10 @@ import { useEffect } from "react";
 import styles from "./index.module.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 function Register() {
+  const navigate = useNavigate();
   const cardProd = useSelector((state) => state.products.posts);
 
   const dispatch = useDispatch();
@@ -55,7 +58,16 @@ function Register() {
             }}
           >
             <Typography style={{ fontFamily: "Mali" }} variant="subtitle1">
-              Home
+              <Link
+                to="/"
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                  cursor: "pointer",
+                }}
+              >
+                Home
+              </Link>
             </Typography>
             <Typography style={{ marginTop: "3px" }}>
               <FontAwesomeIcon icon={faChevronRight} />
@@ -86,7 +98,14 @@ function Register() {
             <p>Forgot your password?</p>
             <button className={styles.signin}> Create now</button>
 
-            <button className={styles.create}>Login</button>
+            <button
+              className={styles.create}
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Login
+            </button>
           </div>
         </Grid>
       </Grid>

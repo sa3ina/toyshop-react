@@ -36,6 +36,7 @@ function AddUser() {
               color: "black ",
               padding: "10px",
               border: "none",
+              cursor: "pointer",
             }}
           >
             Add user

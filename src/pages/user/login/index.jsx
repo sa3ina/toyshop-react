@@ -17,7 +17,10 @@ import { useEffect } from "react";
 import styles from "./index.module.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function Login() {
+  const navigate = useNavigate();
   const cardProd = useSelector((state) => state.products.posts);
 
   const dispatch = useDispatch();
@@ -57,7 +60,16 @@ function Login() {
               }}
             >
               <Typography style={{ fontFamily: "Mali" }} variant="subtitle1">
-                Home
+                <Link
+                  to="/"
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                    cursor: "pointer",
+                  }}
+                >
+                  Home
+                </Link>
               </Typography>
               <Typography style={{ marginTop: "3px" }}>
                 <FontAwesomeIcon icon={faChevronRight} />
@@ -90,16 +102,23 @@ function Login() {
                 <div className={styles.line}></div>
               </div>
 
-              <button className={styles.create}>Create account</button>
+              <button
+                onClick={() => {
+                  navigate("/register");
+                }}
+                className={styles.create}
+              >
+                Create account
+              </button>
             </div>
           </Grid>
         </Grid>
       </Container>
-      <img
+      {/* <img
         src="https://hongotheme.myshopify.com/cdn/shop/files/demo-kids-toy-bg-img-03.jpg?v=1698815628"
         alt=""
-      />
-      <footer
+      /> */}
+      {/* <footer
         className={styles.footer}
         style={{ marginBottom: "300px", backgroundColor: "#D8E9E8" }}
       >
@@ -131,7 +150,7 @@ function Login() {
             </Grid>
           </Grid>
         </Container>
-      </footer>
+      </footer> */}
     </>
   );
 }

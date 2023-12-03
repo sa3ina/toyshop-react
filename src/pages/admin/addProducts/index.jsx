@@ -36,6 +36,7 @@ function AddProducts() {
                 color: "black ",
                 padding: "10px",
                 border: "none",
+                cursor: "pointer",
               }}
             >
               Add product
