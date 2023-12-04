@@ -13,8 +13,13 @@ const cardSlice = createSlice({
     posts: [],
     status: "idle",
     error: null,
+    check: false,
   },
-  reducers: {},
+  reducers: {
+    setCheck: (state, action) => {
+      state.check = action.payload;
+    },
+  },
   extraReducers: {
     [cardProducts.pending]: (state) => {
       state.status = "loading";
@@ -31,4 +36,5 @@ const cardSlice = createSlice({
 });
 
 export default cardSlice.reducer;
+export const { setCheck } = cardSlice.actions;
 export { cardSlice };

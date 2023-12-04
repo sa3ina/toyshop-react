@@ -46,3 +46,14 @@
 .cardd:hover .addtoCart {
   opacity: 1;
 }
+.basket {
+  display: none;
+}
+.images {
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 4px;
+}
+.inc {
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 4px;
+}
