@@ -1,3 +1,69 @@
 .footer {
-  background-color: crimson;
+  min-height: 40vh;
+  /* width: 100vw; */
+  background-color: #d8e9e8;
+  margin: 0;
+}
+.footer img {
+  margin-bottom: 15px;
+  padding-left: 20px;
+  width: 100%;
+}
+.footer .box1 {
+  border-right: 1px solid #626262;
+  padding: 20px;
+}
+.footer .box1 p {
+  color: #626262;
+  word-break: break-all;
+  margin-bottom: 15px;
+}
+
+.footer .box1 .sosialIcon ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.footer .box1 .sosialIcon ul li :hover {
+  color: #c0bbbb;
+}
+.footer .box2 {
+  border-right: 1px solid #626262;
+  /* padding: 20px; */
+  text-align: center;
+}
+.footer .box2 .information {
+  color: #3f3f3f;
+  word-break: break-all;
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-family: cursive;
+}
+
+.footer .box2 .about ul {
+  list-style: none;
+  text-decoration: none;
+}
+.footer .box2 .about ul li .links {
+  text-decoration: none;
+  color: #626262;
+  font-size: 20px;
+}
+.linksHover {
+  text-decoration: none;
+  color: #626262;
+  font-size: 20px;
+}
+.linksHover:hover {
+  text-decoration: underline;
+  text-decoration-color: black;
+}
+.linksPhone {
+  text-decoration: none;
+  color: #626262;
+  font-size: 20px;
+}
+.linksPhone:hover {
+  color: #3f3f3f;
 }
