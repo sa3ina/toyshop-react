@@ -114,43 +114,6 @@ function Login() {
           </Grid>
         </Grid>
       </Container>
-      {/* <img
-        src="https://hongotheme.myshopify.com/cdn/shop/files/demo-kids-toy-bg-img-03.jpg?v=1698815628"
-        alt=""
-      /> */}
-      {/* <footer
-        className={styles.footer}
-        style={{ marginBottom: "300px", backgroundColor: "#D8E9E8" }}
-      >
-        <Container>
-          <Grid container spacing={3}>
-            <Grid item xs={12} sm={6} md={3}>
-              <div className={styles.column}>
-                <Typography variant="h6">Column 1</Typography>
-                <Typography variant="body2">Content for column 1</Typography>
-              </div>
-            </Grid>
-            <Grid item xs={12} sm={6} md={3}>
-              <div className={styles.column}>
-                <Typography variant="h6">Column 2</Typography>
-                <Typography variant="body2">Content for column 2</Typography>
-              </div>
-            </Grid>
-            <Grid item xs={12} sm={6} md={3}>
-              <div className={styles.column}>
-                <Typography variant="h6">Column 3</Typography>
-                <Typography variant="body2">Content for column 3</Typography>
-              </div>
-            </Grid>
-            <Grid item xs={12} sm={6} md={3}>
-              <div className={styles.column}>
-                <Typography variant="h6">Column 4</Typography>
-                <Typography variant="body2">Content for column 4</Typography>
-              </div>
-            </Grid>
-          </Grid>
-        </Container>
-      </footer> */}
     </>
   );
 }
