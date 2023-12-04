@@ -771,16 +771,59 @@ function Home() {
         </Box>
       </Container>
 
-      <div className="threeCards">
-        <div className={style.one}>
-          <div className={style.title}></div>
-        </div>
-        <div className={style.two}>
-          <div className={style.title}></div>
-        </div>
-        <div className={style.three}>
-          <div className={style.title}></div>
-        </div>
+      <div className={style.threeCards}>
+        <Grid container spacing={0}>
+          <Grid item xl={6} lg={6} md={12} sm={12} xs={12}>
+            <div className={style.one}>
+              <Link to="/products" className={style.links}>
+                <Container maxWidth="xl">
+                  <div className={style.title}>
+                    <img
+                      src="https://wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-02.svg?v=1698815628"
+                      alt=""
+                    />
+                    <h2>
+                      Best choice <br />
+                      for your kids
+                    </h2>
+                    <p>Our baby stuffs are affordable & stylish.</p>
+                    <button>SHOP NOW</button>
+                  </div>
+                </Container>
+              </Link>
+            </div>
+          </Grid>
+          <Grid item xl={3} lg={3} md={3} sm={6} xs={12}>
+            <div className={style.two}>
+              <Link to="/products" className={style.links}>
+                <Container maxWidth="xl">
+                  <div className={style.title}>
+                    <p>Up to 30% discount</p>
+                    <h2>
+                      Out door <br /> adventure toys
+                    </h2>
+                    <button>SHOP NOW</button>
+                  </div>
+                </Container>
+              </Link>
+            </div>
+          </Grid>
+          <Grid item xl={3} lg={3} md={3} sm={6} xs={12}>
+            <div className={style.three}>
+              <Link to="/products" className={style.links}>
+                <Container maxWidth="xl">
+                  <div className={style.title}>
+                    <p>Up to 50% discount</p>
+                    <h2>
+                      Imaginative <br /> playsets
+                    </h2>
+                    <button>SHOP NOW</button>
+                  </div>
+                </Container>
+              </Link>
+            </div>
+          </Grid>
+        </Grid>
       </div>
     </>
   );

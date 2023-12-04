@@ -438,3 +438,152 @@
 .containerPopularCards {
   margin-bottom: 100px;
 }
+.threeCards {
+  margin-bottom: 100px;
+}
+
+.threeCards .one {
+  min-height: 75vh;
+  background-image: url("../../../assets/image/threecards/cardImg1.webp");
+  background-position: center;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
+.threeCards .one .links {
+  text-decoration: none;
+}
+.threeCards .one .title h2 {
+  font-size: 50px;
+  font-family: cursive;
+  font-weight: 600;
+  color: #262626;
+  margin-bottom: 15px;
+}
+.threeCards .one .title p {
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 400;
+  color: #808080;
+  margin-bottom: 15px;
+}
+.threeCards .one .title button {
+  background-color: #272727;
+  color: white;
+  border-radius: 100px;
+  border-width: 1px;
+  padding: 16px 32px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  display: flex;
+  cursor: pointer;
+}
+
+.threeCards .one .title button:hover {
+  background-color: #e4f2f0;
+  color: #1f3332;
+  border-width: 2px;
+}
+
+.threeCards .two {
+  min-height: 75vh;
+  background-image: url("../../../assets/image/threecards/cardImg2.webp");
+  background-position: center;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
+.threeCards .two .links {
+  text-decoration: none;
+}
+.threeCards .two .title h2 {
+  font-size: 50px;
+  font-family: cursive;
+  font-weight: 600;
+  color: #262626;
+  margin-bottom: 15px;
+}
+.threeCards .two .title p {
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 400;
+  color: #1f3332;
+  text-decoration: underline;
+  margin-bottom: 15px;
+}
+.threeCards .two .title button {
+  background-color: #272727;
+  color: white;
+  border-radius: 100px;
+  border-width: 1px;
+  padding: 16px 32px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  display: flex;
+  cursor: pointer;
+}
+
+.threeCards .two .title button:hover {
+  background-color: #e4f2f0;
+  color: #1f3332;
+  border-width: 2px;
+}
+
+.threeCards .three {
+  min-height: 75vh;
+  background-image: url("../../../assets/image/threecards/cardImg3.webp");
+  background-position: center;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
+.threeCards .three .links {
+  text-decoration: none;
+}
+.threeCards .three .title h2 {
+  font-size: 50px;
+  font-family: cursive;
+  font-weight: 600;
+  color: #262626;
+  margin-bottom: 15px;
+}
+.threeCards .three .title p {
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 400;
+  color: #1f3332;
+  text-decoration: underline;
+  margin-bottom: 15px;
+}
+.threeCards .three .title button {
+  background-color: #272727;
+  color: white;
+  border-radius: 100px;
+  border-width: 1px;
+  padding: 16px 32px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  display: flex;
+  cursor: pointer;
+}
+
+.threeCards .three .title button:hover {
+  background-color: #e4f2f0;
+  color: #1f3332;
+  border-width: 2px;
+}
