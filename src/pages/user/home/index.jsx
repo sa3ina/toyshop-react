@@ -892,6 +892,7 @@ function Home() {
               marginBottom: "100px",
               display: "flex",
               justifyContent: "center",
+              padding: "10%",
             }}
           >
             <Grid tem xl={3} lg={3} md={6} sm={12} xs={12}>
