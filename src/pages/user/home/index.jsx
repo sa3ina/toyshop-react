@@ -20,6 +20,7 @@ import {
   faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import { cardProducts } from "../../../redux/slices/cardSlice";
+// import { userSlice } from "../../../redux/slices/usersSlice";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -35,6 +36,7 @@ import celine from "../../../assets/image/brandes/celine.avif";
 function Home() {
   const navigate = useNavigate();
   const cardProd = useSelector((state) => state.products.posts);
+  // const userCommet = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -825,6 +827,184 @@ function Home() {
           </Grid>
         </Grid>
       </div>
+
+      <Container maxWidth="xl">
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid
+            className={style.sliderCoomet}
+            marginTop={0}
+            container
+            spacing={8}
+            justifyContent="center"
+            alignItems="center"
+            style={{ minHeight: "100vh" }}
+          >
+            <Grid item xs={12}>
+              <div className={style.titleHappy}>
+                <h3>Happy customer</h3>
+                <p>
+                  It has survived not only five centuries, but also the leap
+                  into <br />
+                  electronic typesetting, remaining essentially unchanged.
+                </p>
+              </div>
+            </Grid>
+            {/* {Array.from(Array(6)).map((_, index) => ( */}
+            {/* {cardProd.map((elem, i) => (
+              <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
+                <Card
+                  className={styles.cardd}
+                  sx={{ minWidth: 275 }}
+                  style={{ marginBottom: "15px" }}
+                >
+                  <CardContent
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      minHeight: "100%",
+                    }}
+                  >
+                    <div className={styles.heart}>
+                      <FontAwesomeIcon icon={faHeart} />
+                    </div>
+                    <div className={styles.addtoCart}>ADD TO CART</div>
+
+                    <img
+                      className={styles.card}
+                      style={{
+                        height: "290px",
+                        width: "280px",
+                        objectFit: "cover",
+                      }}
+                      src={elem.image}
+                      alt=""
+                    />
+                  </CardContent>
+                </Card>
+                <Typography
+                  // align="center"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                  }}
+                >
+                  <div>
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                  </div>
+                  <div> {elem.name}</div>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      gap: "8px",
+                    }}
+                  >
+                    <p style={{ textDecoration: "line-through" }}>
+                      {elem.price}.00$
+                    </p>{" "}
+                    <p>
+                      {Math.round(
+                        elem.price - (elem.discountPercent / 100) * elem.price
+                      )}
+                      .00$
+                    </p>
+                  </div>
+                </Typography>
+              </Grid>
+            ))} */}
+          </Grid>
+        </Box>
+      </Container>
+
+      <Container maxWidth="xl">
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid container spacing={5} style={{ marginBottom: "100px" }}>
+            <Grid tem xl={12} lg={12} md={12} sm={12} xs={12}>
+              <p
+                style={{
+                  textAlign: "center",
+                  fontFamily: "cursive",
+                  fontWeight: "500",
+                  fontSize: "20px",
+                  color: "#1f3332;",
+                }}
+              >
+                Trusted by
+                <span
+                  style={{
+                    color: "red",
+                    textDecoration: "underline",
+                    textDecorationThickness: "3px",
+                  }}
+                >
+                  250.000+
+                </span>{" "}
+                happy customers are using crafto toys.
+              </p>
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
+
+      <Container maxWidth="xl">
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid
+            container
+            spacing={5}
+            style={{
+              marginBottom: "100px",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Grid tem xl={3} lg={3} md={6} sm={12} xs={12}>
+              <div className={style.freeShipping}>
+                <div className={style.image}></div>
+                <div className="titles">
+                  <p>Free shipping</p>
+                  <p>Orders from all item</p>
+                </div>
+              </div>
+            </Grid>
+            <Grid tem xl={3} lg={3} md={6} sm={12} xs={12}>
+              <div className={style.freeShipping}>
+                <div className={style.image}></div>
+                <div className="titles">
+                  <p>Secure payment</p>
+                  <p>100% Secure payment.</p>
+                </div>
+              </div>
+            </Grid>
+            <Grid tem xl={3} lg={3} md={6} sm={12} xs={12}>
+              <div className={style.freeShipping}>
+                <div className={style.image}></div>
+                <div className="titles">
+                  <p>24/7 Support</p>
+                  <p>Dedicated support.</p>
+                </div>
+              </div>
+            </Grid>
+            <Grid tem xl={3} lg={3} md={6} sm={12} xs={12}>
+              <div className={style.freeShipping}>
+                <div className={style.image}></div>
+                <div className="titles">
+                  <p>90 days return</p>
+                  <p>If goods have problems. .</p>
+                </div>
+              </div>
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
     </>
   );
 }
