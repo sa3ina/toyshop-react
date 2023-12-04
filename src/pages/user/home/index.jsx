@@ -19,6 +19,9 @@ import {
   faStar,
   faHeart,
   faBox,
+  faCircleCheck,
+  faCommentDots,
+  faCalendar,
 } from "@fortawesome/free-solid-svg-icons";
 import { cardProducts } from "../../../redux/slices/cardSlice";
 // import { userSlice } from "../../../redux/slices/usersSlice";
@@ -900,38 +903,44 @@ function Home() {
             <Grid tem xl={3} lg={3} md={6} sm={12} xs={12}>
               <div className={style.freeShipping}>
                 <div className={style.image}>
-                  <FontAwesomeIcon icon={faBox} />
+                  <FontAwesomeIcon icon={faBox} className={style.icons} />
                 </div>
-                <div className="titles">
-                  <p>Free shipping</p>
-                  <p>Orders from all item</p>
-                </div>
-              </div>
-            </Grid>
-            <Grid tem xl={3} lg={3} md={6} sm={12} xs={12}>
-              <div className={style.freeShipping}>
-                <div className={style.image}></div>
-                <div className="titles">
-                  <p>Secure payment</p>
-                  <p>100% Secure payment.</p>
+                <div>
+                  <p className={style.paragraf}>Free shipping</p>
+                  <p className={style.paragraf2}>Orders from all item</p>
                 </div>
               </div>
             </Grid>
             <Grid tem xl={3} lg={3} md={6} sm={12} xs={12}>
               <div className={style.freeShipping}>
-                <div className={style.image}></div>
+                <div className={style.image}>
+                  <FontAwesomeIcon icon={faCircleCheck} />
+                </div>
                 <div className="titles">
-                  <p>24/7 Support</p>
-                  <p>Dedicated support.</p>
+                  <p className={style.paragraf}>Secure payment</p>
+                  <p className={style.paragraf2}>100% Secure payment.</p>
                 </div>
               </div>
             </Grid>
             <Grid tem xl={3} lg={3} md={6} sm={12} xs={12}>
               <div className={style.freeShipping}>
-                <div className={style.image}></div>
+                <div className={style.image}>
+                  <FontAwesomeIcon icon={faCommentDots} />
+                </div>
                 <div className="titles">
-                  <p>90 days return</p>
-                  <p>If goods have problems. .</p>
+                  <p className={style.paragraf}>24/7 Support</p>
+                  <p className={style.paragraf2}>Dedicated support.</p>
+                </div>
+              </div>
+            </Grid>
+            <Grid tem xl={3} lg={3} md={6} sm={12} xs={12}>
+              <div className={style.freeShipping}>
+                <div className={style.image}>
+                  <FontAwesomeIcon icon={faCalendar} />
+                </div>
+                <div className="titles">
+                  <p className={style.paragraf}>90 days return</p>
+                  <p className={style.paragraf2}>If goods have problems.</p>
                 </div>
               </div>
             </Grid>
