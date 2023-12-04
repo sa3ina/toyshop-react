@@ -16,16 +16,21 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import { useDispatch } from "react-redux";
+import { setCheck } from "../../redux/slices/cardSlice";
 import { Link } from "react-router-dom";
-
+import { useSelector } from "react-redux";
+import { useState } from "react";
 // import { Link } from "@mui/material";
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
+  const dispatch = useDispatch();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+  const checkValue = useSelector((state) => state.products.check);
+  console.log(checkValue);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -42,14 +47,6 @@ function Navbar() {
   };
 
   return (
-    // <ul>
-    //   <li>
-    //     <Link to="/">Home</Link>
-    //   </li>
-    //   <li>
-    //     <Link to="/products">Product</Link>
-    //   </li>
-    // </ul>
     <AppBar position="sticky" sx={{ backgroundColor: "white" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -106,11 +103,6 @@ function Navbar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {/* {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))} */}
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">Shop</Typography>
               </MenuItem>
@@ -130,13 +122,6 @@ function Navbar() {
               </MenuItem>
             </Menu>
           </Box>
-
-          {/* <Link sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}>
-            <img
-              src="https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-header-logo.svg?v=1698918200"
-              alt=""
-            />
-          </Link> */}
 
           <Typography
             variant="h5"
@@ -237,37 +222,21 @@ function Navbar() {
                   <FavoriteBorderIcon />
                 </Link>
                 <Link style={{ color: "grey" }}>
-                  <ShoppingBagOutlinedIcon />
+                  <button
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "none",
+                      color: "grey",
+                    }}
+                    onClick={() => {
+                      dispatch(setCheck(!checkValue));
+                    }}
+                  >
+                    <ShoppingBagOutlinedIcon />
+                  </button>
                 </Link>
               </IconButton>
             </Tooltip>
-            {/* <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Link to="/login">
-                  <PersonOutlineIcon />
-                </Link>
-                <Link to="/wishlist">
-                  <FavoriteBorderIcon />
-                </Link>
-
-                <ShoppingBagOutlinedIcon />
-              </IconButton>
-            </Menu> */}
           </Box>
         </Toolbar>
       </Container>

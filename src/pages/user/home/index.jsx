@@ -37,11 +37,15 @@ import asos from "../../../assets/image/brandes/asos.avif";
 import prada from "../../../assets/image/brandes/prada.avif";
 import celine from "../../../assets/image/brandes/celine.avif";
 
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+
+import { setCheck } from "../../../redux/slices/cardSlice";
 function Home() {
   const navigate = useNavigate();
   const cardProd = useSelector((state) => state.products.posts);
   // const userCommet = useSelector((state) => state.user);
-
+  const checkValue = useSelector((state) => state.products.check);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(cardProducts());
@@ -524,7 +528,15 @@ function Home() {
                     <div className={styles.heart}>
                       <FontAwesomeIcon icon={faHeart} />
                     </div>
-                    <div className={styles.addtoCart}>ADD TO CART</div>
+                    <button
+                      className={styles.addtoCart}
+                      style={{ cursor: "pointer", border: "none" }}
+                      onClick={() => {
+                        dispatch(setCheck(true));
+                      }}
+                    >
+                      ADD TO CART
+                    </button>
 
                     <img
                       className={styles.card}
@@ -690,7 +702,15 @@ function Home() {
                     <div className={styles.heart}>
                       <FontAwesomeIcon icon={faHeart} />
                     </div>
-                    <div className={styles.addtoCart}>ADD TO CART</div>
+                    <button
+                      className={styles.addtoCart}
+                      style={{ cursor: "pointer", border: "none" }}
+                      onClick={() => {
+                        dispatch(setCheck(true));
+                      }}
+                    >
+                      ADD TO CART
+                    </button>
 
                     <img
                       className={styles.card}
@@ -833,32 +853,6 @@ function Home() {
         </Grid>
       </div>
 
-      {/* <Container maxWidth="xl">
-        <Box sx={{ flexGrow: 1 }}>
-          <Grid
-            className={style.sliderCoomet}
-            marginTop={0}
-            container
-            spacing={8}
-            justifyContent="center"
-            alignItems="center"
-            style={{ minHeight: "100vh" }}
-          >
-            <Grid item xs={12}>
-              <div className={style.titleHappy}>
-                <h3>Happy customer</h3>
-                <p>
-                  It has survived not only five centuries, but also the leap
-                  into <br />
-                  electronic typesetting, remaining essentially unchanged.
-                </p>
-              </div>
-            </Grid>
-           
-          </Grid>
-        </Box>
-      </Container> */}
-
       <Container maxWidth="xl">
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={5} style={{ marginBottom: "100px" }}>
@@ -947,6 +941,204 @@ function Home() {
           </Grid>
         </Box>
       </Container>
+
+      <Grid
+        item
+        lg={3}
+        md={4}
+        xs={12}
+        style={{
+          display: checkValue ? "block" : "none",
+          position: "fixed",
+          top: "0",
+          right: "0",
+          zIndex: "1000",
+          height: "100vh",
+          width: "30vw",
+        }}
+        className={styles.basket}
+      >
+        <Paper
+          elevation={3}
+          style={{
+            backgroundColor: "#fff",
+            padding: "16px",
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <button
+            style={{
+              position: "absolute",
+              top: "100px",
+              right: "30px",
+              fontSize: "30px",
+              fontFamily: "arial",
+              border: "none",
+              cursor: "pointer",
+              backgroundColor: "transparent",
+            }}
+            onClick={() => {
+              dispatch(setCheck(false));
+            }}
+          >
+            x
+          </button>
+          <div
+            className="m-2"
+            style={{ display: "flex", flexDirection: "column" }}
+          >
+            <i className="bi bi-bootstrap-fill me-3 fs-4"></i>
+
+            <Typography
+              variant="h6"
+              className="brand-name fs-4"
+              style={{ fontSize: "30px", marginTop: "80px" }}
+            >
+              {" "}
+              Shopping cart
+            </Typography>
+          </div>
+          <hr className="text-dark" />
+          <List component="nav">
+            <ListItem>
+              <i className="bi bi-speedometer2 fs-5 me-3"></i>
+              <div>
+                <Typography
+                  variant="subtitle1"
+                  style={{
+                    display: "flex",
+                    gap: "20px",
+                  }}
+                >
+                  <div style={{ display: "flex", marginBottom: "10px" }}>
+                    {" "}
+                    <img
+                      src="https://cdn.shopify.com/s/files/1/0524/8555/4369/products/kids-toy-product-06.jpg?v=1698814397&width=140"
+                      alt=""
+                      width={"100px"}
+                      height={"100px"}
+                      className={styles.images}
+                    />
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                      alignItems: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <p style={{ fontWeight: "600" }}>Soft panda teddy</p>
+                    <p>$27.00</p>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                      alignItems: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <button
+                      style={{
+                        position: "absolute",
+                        top: "15px",
+                        right: "23px",
+                        borderRadius: "50%",
+                        padding: "0 5px",
+                        cursor: "pointer",
+                      }}
+                    >
+                      x
+                    </button>
+                    <div
+                      className={styles.inc}
+                      style={{
+                        position: "absolute",
+                        top: "80px",
+                        right: "23px",
+                        display: "flex",
+                        gap: "20px",
+                        padding: "0 7px",
+                      }}
+                    >
+                      <p>-</p>
+                      <p>1</p>
+                      <p>+</p>
+                    </div>
+                  </div>
+                </Typography>
+                <Typography
+                  variant="subtitle1"
+                  style={{
+                    display: "flex",
+                    gap: "20px",
+                  }}
+                >
+                  <div>
+                    {" "}
+                    <img
+                      src="https://cdn.shopify.com/s/files/1/0524/8555/4369/products/kids-toy-product-13.jpg?v=1698814434&width=140"
+                      alt=""
+                      width={"100px"}
+                      height={"100px"}
+                      className={styles.images}
+                    />
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                      alignItems: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <p style={{ fontWeight: "600" }}>Soft panda teddy</p>
+                    <p>$45.00</p>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                      alignItems: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <button
+                      style={{
+                        position: "absolute",
+                        top: "15px",
+                        right: "23px",
+                        borderRadius: "50%",
+                        padding: "0 5px",
+                        cursor: "pointer",
+                      }}
+                    >
+                      x
+                    </button>
+                    <div
+                      className={styles.inc}
+                      style={{
+                        position: "absolute",
+                        bottom: "22px",
+                        right: "23px",
+                        display: "flex",
+                        gap: "20px",
+                        padding: "0 7px",
+                      }}
+                    >
+                      <p>-</p>
+                      <p>1</p>
+                      <p>+</p>
+                    </div>
+                  </div>
+                </Typography>
+              </div>
+            </ListItem>
+          </List>
+        </Paper>
+      </Grid>
     </>
   );
 }
