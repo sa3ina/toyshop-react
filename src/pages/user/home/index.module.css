@@ -661,3 +661,7 @@
   font-size: 18px;
   color: #808080;
 }
+.addtoCart:hover {
+  background-color: black;
+  color: white;
+}

@@ -30,9 +30,7 @@ function Wishlist() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(cardProducts());
-    console.log(cardProducts());
   }, [dispatch]);
-  console.log(cardProd);
   return (
     <>
       <Container>

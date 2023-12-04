@@ -24,7 +24,7 @@ import {
   faCalendar,
 } from "@fortawesome/free-solid-svg-icons";
 import { cardProducts } from "../../../redux/slices/cardSlice";
-// import { userSlice } from "../../../redux/slices/usersSlice";
+import { basketProducts } from "../../../redux/slices/basketSlice";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -41,6 +41,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 
 import { setCheck } from "../../../redux/slices/cardSlice";
+import { addToCart } from "../../../redux/slices/basketSlice";
 function Home() {
   const navigate = useNavigate();
   const cardProd = useSelector((state) => state.products.posts);
@@ -49,8 +50,12 @@ function Home() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(cardProducts());
-    console.log(cardProducts());
   }, [dispatch]);
+  useEffect(() => {
+    dispatch(basketProducts());
+  }, [dispatch]);
+  const basketProd = useSelector((state) => state.basket.basketItems);
+  console.log(basketProd);
   return (
     <>
       <div style={{ backgroundColor: "#88A9A8" }}>
@@ -533,6 +538,7 @@ function Home() {
                       style={{ cursor: "pointer", border: "none" }}
                       onClick={() => {
                         dispatch(setCheck(true));
+                        dispatch(addToCart(elem.id));
                       }}
                     >
                       ADD TO CART
