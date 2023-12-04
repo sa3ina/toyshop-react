@@ -305,8 +305,28 @@
   border-radius: 20px;
   padding: 14px;
   transition: opacity 0.3s ease;
+  margin-bottom: 50px;
+}
+.details {
+  position: absolute;
+  opacity: 0;
+  font-size: 13px;
+  text-decoration: none;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  z-index: 1000;
+  top: 60%;
+  right: 60%;
+  transform: translate(80%, 10%);
+  background-color: white;
+  border-radius: 20px;
+  padding: 14px;
+  transition: opacity 0.3s ease;
 }
 .cardd:hover .addtoCart {
+  opacity: 1;
+}
+.cardd:hover .details {
   opacity: 1;
 }
 

@@ -537,6 +537,14 @@ function Home() {
                     >
                       ADD TO CART
                     </button>
+                    <button style={{ cursor: "pointer", border: "none" }}>
+                      <Link
+                        className={styles.details}
+                        to={"/products/" + elem.id}
+                      >
+                        Quick view
+                      </Link>
+                    </button>
 
                     <img
                       className={styles.card}
