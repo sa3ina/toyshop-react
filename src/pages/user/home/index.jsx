@@ -18,6 +18,7 @@ import {
   faChevronRight,
   faStar,
   faHeart,
+  faBox,
 } from "@fortawesome/free-solid-svg-icons";
 import { cardProducts } from "../../../redux/slices/cardSlice";
 // import { userSlice } from "../../../redux/slices/usersSlice";
@@ -635,14 +636,15 @@ function Home() {
         </Box>
       </Container>
 
-      <Container maxWidth="xl">
-        <div>
-          <img
-            src="https://wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-separation-line.jpg?v=1698815628"
-            alt=""
-          />
-        </div>
-      </Container>
+      {/* <Container maxWidth="xl">
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid container spacing={0}>
+            <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+              <div className={style.imageUnderline}></div>
+            </Grid>
+          </Grid>
+        </Box>
+      </Container> */}
 
       <Container maxWidth="xl">
         <Box sx={{ flexGrow: 1 }}>
@@ -828,7 +830,7 @@ function Home() {
         </Grid>
       </div>
 
-      <Container maxWidth="xl">
+      {/* <Container maxWidth="xl">
         <Box sx={{ flexGrow: 1 }}>
           <Grid
             className={style.sliderCoomet}
@@ -849,81 +851,10 @@ function Home() {
                 </p>
               </div>
             </Grid>
-            {/* {Array.from(Array(6)).map((_, index) => ( */}
-            {/* {cardProd.map((elem, i) => (
-              <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
-                <Card
-                  className={styles.cardd}
-                  sx={{ minWidth: 275 }}
-                  style={{ marginBottom: "15px" }}
-                >
-                  <CardContent
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      minHeight: "100%",
-                    }}
-                  >
-                    <div className={styles.heart}>
-                      <FontAwesomeIcon icon={faHeart} />
-                    </div>
-                    <div className={styles.addtoCart}>ADD TO CART</div>
-
-                    <img
-                      className={styles.card}
-                      style={{
-                        height: "290px",
-                        width: "280px",
-                        objectFit: "cover",
-                      }}
-                      src={elem.image}
-                      alt=""
-                    />
-                  </CardContent>
-                </Card>
-                <Typography
-                  // align="center"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                  }}
-                >
-                  <div>
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                  </div>
-                  <div> {elem.name}</div>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      gap: "8px",
-                    }}
-                  >
-                    <p style={{ textDecoration: "line-through" }}>
-                      {elem.price}.00$
-                    </p>{" "}
-                    <p>
-                      {Math.round(
-                        elem.price - (elem.discountPercent / 100) * elem.price
-                      )}
-                      .00$
-                    </p>
-                  </div>
-                </Typography>
-              </Grid>
-            ))} */}
+           
           </Grid>
         </Box>
-      </Container>
+      </Container> */}
 
       <Container maxWidth="xl">
         <Box sx={{ flexGrow: 1 }}>
@@ -968,7 +899,9 @@ function Home() {
           >
             <Grid tem xl={3} lg={3} md={6} sm={12} xs={12}>
               <div className={style.freeShipping}>
-                <div className={style.image}></div>
+                <div className={style.image}>
+                  <FontAwesomeIcon icon={faBox} />
+                </div>
                 <div className="titles">
                   <p>Free shipping</p>
                   <p>Orders from all item</p>

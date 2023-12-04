@@ -442,6 +442,14 @@
   margin-bottom: 70px;
 }
 
+/* .imageUnderline {
+  background-image: url("https://wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-separation-line.jpg?v=1698815628");
+  background-position: center;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
 .threeCards .one {
   min-height: 75vh;
   background-image: url("../../../assets/image/threecards/cardImg1.webp");
