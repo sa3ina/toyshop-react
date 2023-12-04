@@ -612,6 +612,7 @@
   font-family: cursive;
   color: #262626;
 }
+
 .basket {
   display: none;
 }
@@ -622,4 +623,22 @@
 .inc {
   border: 1px solid rgb(217, 217, 217);
   border-radius: 4px;
+
+.freeShipping {
+  display: flex;
+}
+.freeShipping .image {
+  font-size: 40px;
+  margin-right: 7px;
+}
+.paragraf {
+  font-size: 18px;
+
+  color: #262626;
+  font-weight: 600;
+}
+.paragraf2 {
+  font-size: 18px;
+  color: #808080;
+
 }
