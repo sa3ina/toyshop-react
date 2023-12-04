@@ -439,7 +439,7 @@
   margin-bottom: 100px;
 }
 .threeCards {
-  margin-bottom: 100px;
+  margin-bottom: 70px;
 }
 
 .threeCards .one {
@@ -586,4 +586,21 @@
   background-color: #e4f2f0;
   color: #1f3332;
   border-width: 2px;
+}
+
+.sliderCoomet {
+  margin-bottom: 100px;
+}
+.titleHappy {
+  text-align: center;
+  font-family: cursive;
+}
+.titleHappy h3 {
+  color: #1f3332;
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+.titleHappy p {
+  font-family: cursive;
+  color: #262626;
 }
