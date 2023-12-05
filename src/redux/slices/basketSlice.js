@@ -7,15 +7,14 @@ export const addToCart = createAsyncThunk(
     try {
       const response = await axios.get(`http://localhost:3000/users/${userId}`);
       const currentUserData = response.data;
-      console.log(currentUserData.basket);
-      console.log(productId.id);
+
       const existingItem = currentUserData.basket.find(
         (item) => item.id === productId.id
       );
-
+      let updatedBasket;
       if (existingItem) {
-        console.log("Item already exists in the basket");
-        // Change the quantity of the existing item
+        console.log("already exists in the basket");
+
         const updatedBasket = currentUserData.basket.map((item) =>
           item.id === productId.id
             ? { ...item, quantity: item.quantity + 1 }
@@ -24,22 +23,17 @@ export const addToCart = createAsyncThunk(
 
         const updatedUser = { ...currentUserData, basket: updatedBasket };
         await axios.patch(`http://localhost:3000/users/${userId}`, updatedUser);
-        console.log("Item already exists in the basket");
+        console.log("already exists in the basket");
       } else {
-        console.log("Item does not exist in the basket");
+        console.log("does not exist in the basket");
         const updatedBasket = [...currentUserData.basket, productId];
         const updatedUser = { ...currentUserData, basket: updatedBasket };
         await axios.patch(`http://localhost:3000/users/${userId}`, updatedUser);
       }
 
-      // const updatedBasket = [...currentUserData.basket, productId];
-      // const updatedUser = { ...currentUserData, basket: updatedBasket };
-
-      // await axios.patch(`http://localhost:3000/users/${userId}`, updatedUser);
-
       return { updatedBasket };
     } catch (error) {
-      console.error("Error adding to cart:", error);
+      console.error("error:", error);
       throw error;
     }
   }
@@ -52,9 +46,20 @@ const basketSlice = createSlice({
     status: "idle",
     error: null,
   },
+
   reducers: {
     clearCart: (state) => {
-      state.basketItems = [];
+      return { ...state, basketItems: [] };
+      // state.basketItems = [];
+    },
+    removeFromCart: (state, action) => {
+      const productId = action.payload.prodId;
+
+      console.log(productId);
+      console.log(state.basketItems);
+      state.basketItems = state.basketItems.filter(
+        (item) => item.id !== productId
+      );
     },
   },
   extraReducers: (builder) => {
@@ -72,4 +77,5 @@ const basketSlice = createSlice({
   },
 });
 export const { clearCart } = basketSlice.actions;
+export const { removeFromCart } = basketSlice.actions;
 export default basketSlice.reducer;
