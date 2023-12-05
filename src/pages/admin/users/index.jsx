@@ -43,6 +43,8 @@ function Users() {
                   <TableCell>Surname</TableCell>
                   <TableCell>Email</TableCell>
                   <TableCell>Balance</TableCell>
+                  <TableCell>Delete</TableCell>
+                  <TableCell>Edit</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -53,6 +55,34 @@ function Users() {
                     <TableCell>{user.surname}</TableCell>
                     <TableCell>{user.email}</TableCell>
                     <TableCell>{user.balance}$</TableCell>
+                    <TableCell>
+                      <button
+                        style={{
+                          backgroundColor: "#BF211E",
+                          color: "white",
+                          border: "none",
+                          padding: "10px",
+                          borderRadius: "5px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        delete
+                      </button>
+                    </TableCell>
+                    <TableCell>
+                      <button
+                        style={{
+                          backgroundColor: "#E5F993",
+                          color: "black",
+                          border: "none",
+                          padding: "10px",
+                          borderRadius: "5px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        edit
+                      </button>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>

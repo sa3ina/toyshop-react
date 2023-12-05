@@ -48,6 +48,8 @@ function AdminProducts() {
                   <TableCell>Rating</TableCell>
                   <TableCell>Sold</TableCell>
                   <TableCell>Availability</TableCell>
+                  <TableCell>Delete</TableCell>
+                  <TableCell>Edit</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -69,6 +71,34 @@ function AdminProducts() {
                     <TableCell>{product.sold}</TableCell>
                     <TableCell>
                       {product.availability ? "true" : "false"}
+                    </TableCell>
+                    <TableCell>
+                      <button
+                        style={{
+                          backgroundColor: "#BF211E",
+                          color: "white",
+                          border: "none",
+                          padding: "10px",
+                          borderRadius: "5px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        delete
+                      </button>
+                    </TableCell>
+                    <TableCell>
+                      <button
+                        style={{
+                          backgroundColor: "#E5F993",
+                          color: "black",
+                          border: "none",
+                          padding: "10px",
+                          borderRadius: "5px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        edit
+                      </button>
                     </TableCell>
                   </TableRow>
                 ))}
