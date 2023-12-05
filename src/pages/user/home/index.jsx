@@ -63,6 +63,21 @@ function Home({ product }) {
   const handleCheckout = () => {
     dispatch(clearCart());
   };
+  const handleIncrement = (index) => {
+    const updatedBasket = [...userBasket]; // Create a copy of the basket
+    updatedBasket[index].quantity++; // Increment the quantity of the item at the given index
+    setUserBasket(updatedBasket); // Update the state with the new basket
+  };
+
+  // Function to handle decrementing the quantity
+  const handleDecrement = (index) => {
+    const updatedBasket = [...userBasket]; // Create a copy of the basket
+    if (updatedBasket[index].quantity > 1) {
+      updatedBasket[index].quantity--; // Decrement the quantity if it's greater than 1
+      setUserBasket(updatedBasket); // Update the state with the new basket
+    }
+  };
+
   // useEffect(() => {
   //   dispatch(basketProducts());
   // }, [dispatch]);
@@ -128,7 +143,16 @@ function Home({ product }) {
       setUserBasket(loggedInUser.basket);
     }
   }, []);
+  const calculateTotalPrice = () => {
+    let totalPrice = 0;
+    userBasket.forEach((item) => {
+      totalPrice += item.price * item.quantity;
+    });
+    return totalPrice;
+  };
 
+  // To display the total price
+  const totalPrice = calculateTotalPrice();
   return (
     <>
       <div style={{ backgroundColor: "#88A9A8" }}>
@@ -1174,9 +1198,9 @@ function Home({ product }) {
                         padding: "0 7px",
                       }}
                     >
-                      <p>-</p>
+                      <p onClick={() => handleDecrement(index)}>-</p>
                       <p>{item.quantity}</p>
-                      <p>+</p>
+                      <p onClick={() => handleIncrement(index)}>+</p>
                     </div>
                   </div>
                 </Typography>
@@ -1185,7 +1209,15 @@ function Home({ product }) {
 
             <ListItem>
               <i className="bi bi-speedometer2 fs-5 me-3"></i>
-              <div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  gap: "40px",
+                  fontWeight: "600",
+                }}
+              >
                 {" "}
                 <button
                   style={{
@@ -1193,13 +1225,14 @@ function Home({ product }) {
                     color: "white",
                     padding: "10px",
                     borderRadius: "5px",
-                    marginLeft: "150px",
+
                     cursor: "pointer",
                   }}
                   onClick={handleCheckout}
                 >
                   Checkout
                 </button>
+                <p>Total count {totalPrice}.00$</p>
               </div>
             </ListItem>
           </List>
