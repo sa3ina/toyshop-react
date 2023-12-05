@@ -1,3 +1,129 @@
-.aboutUs {
-  color: red;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.section {
+  background-image: url(//wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-about-title-bg-01.jpg?v=1698815628);
+  width: 100%;
+  height: 300px;
+  background-repeat: repeat-x;
+}
+.item1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+.text1 {
+  width: 350px;
+  text-align: center;
+}
+.text1 h3 {
+  font-size: 40px;
+  font-family: "Mali", cursive;
+}
+.text1 p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+.item2 {
+  display: flex;
+}
+span {
+  color: #f96835;
+  font-size: 20px;
+}
+.item2 {
+  padding-top: 100px;
+}
+.text2 {
+  padding-top: 50px;
+}
+.text2 h3 {
+  margin-top: 20px;
+  font-size: 35px;
+  font-family: "Mali", cursive;
+}
+.text2 p {
+  margin-top: 20px;
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+  color: #626262;
+}
+.btn {
+  margin-top: 30px;
+  width: 200px;
+  height: 50px;
+  border-radius: 50px;
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: white;
+  color: black;
+}
+.text3 {
+  display: flex;
+  justify-content: end;
+}
+.text3 h3 {
+  font-size: 50px;
+  margin-right: 100px;
+  text-align: center;
+}
+.text3 p {
+  font-size: 15px;
+  margin-right: 100px;
+  font-family: "Inter", sans-serif;
+  color: #626262;
+}
+.section4 {
+  margin-top: 40px;
+}
+.item3 {
+  margin-top: 50px;
+  background-image: url(//wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-about-img-02.jpg?v=1698815629);
+  width: 100%;
+  height: 630px;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h3 {
+  font-size: 40px;
+  font-family: "Mali", cursive;
+}
+h4 {
+  font-size: 20px;
+  font-family: "Mali", cursive;
+}
+.items {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 30px;
+}
+.videoIcon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+p {
+  font-family: "Inter", sans-serif;
+  color: #626262;
+}
+.imagess {
+  transition: transform 0.8s ease-in-out;
+}
+.items:hover .imagess {
+  transform: translateY(100px);
 }
