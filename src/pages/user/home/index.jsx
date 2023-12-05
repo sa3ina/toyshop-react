@@ -42,9 +42,19 @@ import ListItem from "@mui/material/ListItem";
 
 import { setCheck } from "../../../redux/slices/cardSlice";
 import { addToCart } from "../../../redux/slices/basketSlice";
+
+import {
+  addToWishlist,
+  removeFromWishlist,
+} from "../../../redux/slices/wishlistSlice";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+function Home({ product }) {
+
 import { clearCart } from "../../../redux/slices/basketSlice";
 function Home() {
   let user = JSON.parse(localStorage.getItem("loggedInUser")) || [];
+
 
   const navigate = useNavigate();
   const cardProd = useSelector((state) => state.products.posts);
@@ -73,6 +83,20 @@ function Home() {
     }
   };
   const basketProd = useSelector((state) => state.basket.basketItems);
+
+  console.log(basketProd);
+  const wishlist = useSelector((state) => state.wishlist);
+  const isWishlistItem = wishlist.some((item) => item.id === product.id);
+
+  const handleWishlistClick = () => {
+    if (isWishlistItem) {
+      dispatch(removeFromWishlist(product.id));
+    } else {
+      dispatch(addToWishlist(product));
+    }
+  };
+  console.log(product.id);
+
   const [userBasket, setUserBasket] = useState([]);
 
   useEffect(() => {
@@ -98,6 +122,7 @@ function Home() {
       setUserBasket(loggedInUser.basket);
     }
   }, []);
+
   return (
     <>
       <div style={{ backgroundColor: "#88A9A8" }}>
@@ -571,9 +596,21 @@ function Home() {
                       minHeight: "100%",
                     }}
                   >
-                    <div className={styles.heart}>
-                      <FontAwesomeIcon icon={faHeart} />
-                    </div>
+                    <button
+                      className={styles.heart}
+                      onClick={handleWishlistClick}
+                    >
+                      {isWishlistItem ? (
+                        <>
+                          {" "}
+                          <FavoriteIcon color="error" />
+                        </>
+                      ) : (
+                        <>
+                          <FavoriteBorderIcon color="error" />
+                        </>
+                      )}
+                    </button>
                     <button
                       className={styles.addtoCart}
                       style={{ cursor: "pointer", border: "none" }}

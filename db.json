@@ -148,27 +148,14 @@
       "email": "bob@example.com",
       "password": "pass456",
       "orders": [],
-      "balance": 370,
-      "basket": [
-        {
-          "id": "7",
-          "name": "Soft dinosaur toy",
-          "price": 34,
-          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-04_002bd689-de4b-459e-af7c-974cb9116516.jpg?v=1698814487&width=720",
-          "quantity": 1
-        },
-        {
-          "id": "6",
-          "name": "Peace with buddha",
-          "price": 34,
-          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-07_b33bfe7a-a128-4314-a4b0-43634287ad92.jpg?v=1698814475&width=720",
-          "quantity": 1
-        }
-      ],
-      "favorites": [],
-      "isAdmin": false,
-      "comments": "An avid collector of action figures and often offers valuable insights into popular toy trends.",
-      "reviews": "Great variety of toys available! Love the action figures section.",
+
+      "balance": 253,
+      "basket": [],
+      "wishlist": [],
+      "isAdmin": true,
+      "comments": "Oversees inventory management, coordinates with suppliers, and ensures smooth toyshop operations.",
+      "reviews": "Exceptional customer service and fast shipping.",
+
       "id": "1"
     },
     {
@@ -179,7 +166,7 @@
       "orders": [],
       "balance": 370,
       "basket": [],
-      "favorites": [],
+      "wishlist": [],
       "isAdmin": false,
       "comments": "An avid collector of action figures and often offers valuable insights into popular toy trends.",
       "reviews": "Great variety of toys available! Love the action figures section.",
@@ -193,7 +180,7 @@
       "orders": [],
       "balance": 66,
       "basket": [],
-      "favorites": [],
+      "wishlist": [],
       "isAdmin": false,
       "comments": "Frequently brainstorming innovative toy designs, contributing fresh ideas to the shop's collection.",
       "reviews": "Unique and creative toys available, though pricing could be more competitive.",
@@ -207,7 +194,7 @@
       "orders": [],
       "balance": 7,
       "basket": [],
-      "favorites": [],
+      "wishlist": [],
       "isAdmin": false,
       "comments": "Passionate about curating educational toys that foster creativity and learning in children.",
       "reviews": "Impressive selection of educational toys. My kids love them!",
@@ -221,7 +208,7 @@
       "orders": [],
       "balance": 51,
       "basket": [],
-      "favorites": [],
+      "wishlist": [],
       "isAdmin": false,
       "comments": "Actively involved in organizing charity drives and events to provide toys for less fortunate kids.",
       "reviews": "Love the initiative to organize charity drives. Keep up the good work!",
