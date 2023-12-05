@@ -92,7 +92,6 @@ function Home({ product }) {
       dispatch(addToWishlist(product));
     }
   };
-  console.log(product.id);
 
   const [userBasket, setUserBasket] = useState([]);
 
