@@ -85,14 +85,24 @@ function Home({ product }) {
   const wishlist = useSelector((state) => state.wishlist);
   const isWishlistItem = wishlist.some((item) => item.id === product.id);
 
+  // const handleWishlistClick = () => {
+  //   if (isWishlistItem) {
+  //     dispatch(removeFromWishlist(product.id));
+  //   } else {
+  //     dispatch(addToWishlist(product));
+  //   }
+  // };
   const handleWishlistClick = () => {
-    if (isWishlistItem) {
-      dispatch(removeFromWishlist(product.id));
+    if (product && product.id) {
+      if (isWishlistItem) {
+        dispatch(removeFromWishlist(product.id));
+      } else {
+        dispatch(addToWishlist(product));
+      }
     } else {
-      dispatch(addToWishlist(product));
+      console.error("Product ID is undefined or does not exist.");
     }
   };
-
   const [userBasket, setUserBasket] = useState([]);
 
   useEffect(() => {
@@ -623,14 +633,14 @@ function Home({ product }) {
                     >
                       ADD TO CART
                     </button>
-                    <button style={{ cursor: "pointer", border: "none" }}>
+                    {/* <button style={{ cursor: "pointer", border: "none" }}>
                       <Link
                         className={styles.details}
                         to={"/products/" + elem.id}
                       >
                         Quick view
                       </Link>
-                    </button>
+                    </button> */}
 
                     <img
                       className={styles.card}

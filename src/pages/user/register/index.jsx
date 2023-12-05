@@ -134,7 +134,7 @@ function Register() {
                 style={{
                   height: "60px",
                   color: "grey",
-                  fontSize: "26px",
+                  fontSize: "22px",
                   color: "black",
                 }}
                 onChange={(e) => setName(e.target.value)}
@@ -146,7 +146,7 @@ function Register() {
                 style={{
                   height: "60px",
                   color: "grey",
-                  fontSize: "26px",
+                  fontSize: "22px",
                   color: "black",
                 }}
                 onChange={(e) => setLastname(e.target.value)}
