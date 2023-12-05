@@ -64,17 +64,16 @@ function Home({ product }) {
     dispatch(clearCart());
   };
   const handleIncrement = (index) => {
-    const updatedBasket = [...userBasket]; // Create a copy of the basket
-    updatedBasket[index].quantity++; // Increment the quantity of the item at the given index
-    setUserBasket(updatedBasket); // Update the state with the new basket
+    const updatedBasket = [...userBasket];
+    updatedBasket[index].quantity++;
+    setUserBasket(updatedBasket);
   };
 
-  // Function to handle decrementing the quantity
   const handleDecrement = (index) => {
-    const updatedBasket = [...userBasket]; // Create a copy of the basket
+    const updatedBasket = [...userBasket];
     if (updatedBasket[index].quantity > 1) {
-      updatedBasket[index].quantity--; // Decrement the quantity if it's greater than 1
-      setUserBasket(updatedBasket); // Update the state with the new basket
+      updatedBasket[index].quantity--;
+      setUserBasket(updatedBasket);
     }
   };
 
@@ -151,7 +150,6 @@ function Home({ product }) {
     return totalPrice;
   };
 
-  // To display the total price
   const totalPrice = calculateTotalPrice();
   return (
     <>
