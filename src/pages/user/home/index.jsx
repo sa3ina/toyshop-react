@@ -50,6 +50,7 @@ import {
 } from "../../../redux/slices/wishlistSlice";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import Wishlist from "../wishlist";
 function Home({ product }) {
   let user = JSON.parse(localStorage.getItem("loggedInUser")) || [];
 
@@ -66,6 +67,8 @@ function Home({ product }) {
   // useEffect(() => {
   //   dispatch(basketProducts());
   // }, [dispatch]);
+  const [userWishlist, setUserWishlist] = useState([]);
+
   const handleAddToCart = async (userId, productId) => {
     await dispatch(addToCart({ userId, productId }));
     try {
@@ -79,30 +82,53 @@ function Home({ product }) {
       console.error("Error fetching user basket:", error);
     }
   };
+
+  let local = JSON.parse(localStorage.getItem("loggedInUser"));
+  console.log(local.wishlist);
+  // let icon=local.wishlist.find((x)=>x.id==)
+
+  const handleAddToWishlist = async (userId, productId) => {
+    await dispatch(addToWishlist({ userId, productId }));
+    try {
+      const response = await fetch(`http://localhost:3000/users/${user.id}`);
+      const userData = await response.json();
+
+      if (userData && userData.wishlist) {
+        setUserWishlist(userData.wishlist);
+      }
+    } catch (error) {
+      console.error("Error fetching user wishlist:", error);
+    }
+    let currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+    if (currentUser.wishlist.find((x) => x.id == productId.id)) {
+      let idx = currentUser.wishlist.findIndex((x) => x.id == productId.id);
+      currentUser.wishlist.splice(idx, 1);
+      localStorage.setItem("loggedInUser", JSON.stringify(currentUser));
+    } else {
+      let find = cardProd.find((elem) => elem.id == productId.id);
+      currentUser.wishlist.push(find);
+      console.log("pushed: ", currentUser);
+      localStorage.setItem("loggedInUser", JSON.stringify(currentUser));
+    }
+    setUserWishlist(currentUser.wishlist);
+  };
+
   const basketProd = useSelector((state) => state.basket.basketItems);
 
-  console.log(basketProd);
-  const wishlist = useSelector((state) => state.wishlist);
-  const isWishlistItem = wishlist.some((item) => item.id === product.id);
+  const wishlistProd = useSelector((state) => state.wishlist.wishlistItem);
 
   // const handleWishlistClick = () => {
-  //   if (isWishlistItem) {
-  //     dispatch(removeFromWishlist(product.id));
+  //   if (product && product.id) {
+  //     if (isWishlistItem) {
+  //       dispatch(removeFromWishlist(product.id));
+  //     } else {
+  //       dispatch(addToWishlist(product));
+  //     }
   //   } else {
-  //     dispatch(addToWishlist(product));
+  //     console.error("Product ID is undefined or does not exist.");
   //   }
   // };
-  const handleWishlistClick = () => {
-    if (product && product.id) {
-      if (isWishlistItem) {
-        dispatch(removeFromWishlist(product.id));
-      } else {
-        dispatch(addToWishlist(product));
-      }
-    } else {
-      console.error("Product ID is undefined or does not exist.");
-    }
-  };
   const [userBasket, setUserBasket] = useState([]);
 
   useEffect(() => {
@@ -121,11 +147,37 @@ function Home({ product }) {
 
     fetchUserBasket();
   }, []);
+
+  useEffect(() => {
+    const fetchUserWishlist = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/users/${user.id}`);
+        const userData = await response.json();
+
+        if (userData && userData.wishlist) {
+          setUserWishlist(userData.wishlist);
+        }
+      } catch (error) {
+        console.error("Error fetching user wishlist:", error);
+      }
+    };
+
+    fetchUserWishlist();
+  }, []);
+
   useEffect(() => {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
 
     if (loggedInUser && loggedInUser.basket) {
       setUserBasket(loggedInUser.basket);
+    }
+  }, []);
+
+  useEffect(() => {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
+
+    if (loggedInUser && loggedInUser) {
+      localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
     }
   }, []);
 
@@ -603,18 +655,22 @@ function Home({ product }) {
                     }}
                   >
                     <button
+                      name={elem.id}
                       className={styles.heart}
-                      onClick={handleWishlistClick}
+                      onClick={() => {
+                        handleAddToWishlist(user.id, {
+                          id: elem.id,
+                          name: elem.name,
+                          price: elem.price,
+                          image: elem.image,
+                        });
+                        dispatch(setCheck(true));
+                      }}
                     >
-                      {isWishlistItem ? (
-                        <>
-                          {" "}
-                          <FavoriteIcon color="error" />
-                        </>
+                      {elem.id && localStorage.getItem(elem.id) ? (
+                        <FavoriteIcon color="error" />
                       ) : (
-                        <>
-                          <FavoriteBorderIcon color="error" />
-                        </>
+                        <FavoriteBorderIcon color="error" />
                       )}
                     </button>
                     <button
@@ -803,9 +859,29 @@ function Home({ product }) {
                       minHeight: "100%",
                     }}
                   >
-                    <div className={styles.heart}>
-                      <FontAwesomeIcon icon={faHeart} />
-                    </div>
+                    <button
+                      className={styles.heart}
+                      onClick={() => {
+                        handleAddToWishlist(user.id, {
+                          id: elem.id,
+                          name: elem.name,
+                          price: elem.price,
+                          image: elem.image,
+                        });
+                        dispatch(setCheck(true));
+                      }}
+                    >
+                      {wishlistProd ? (
+                        <>
+                          {" "}
+                          <FavoriteIcon color="error" />
+                        </>
+                      ) : (
+                        <>
+                          <FavoriteBorderIcon color="error" />
+                        </>
+                      )}
+                    </button>
                     <button
                       className={styles.addtoCart}
                       style={{ cursor: "pointer", border: "none" }}
