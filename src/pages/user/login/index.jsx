@@ -120,7 +120,7 @@ function Login() {
                   style={{
                     height: "60px",
                     color: "grey",
-                    fontSize: "26px",
+                    fontSize: "22px",
                     color: "black",
                   }}
                   onChange={(e) => setEmail(e.target.value)}
@@ -132,13 +132,17 @@ function Login() {
                   style={{
                     height: "60px",
                     color: "grey",
-                    fontSize: "26px",
+                    fontSize: "22px",
                     color: "black",
                   }}
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <p>Forgot your password?</p>
-                <button className={styles.signin} type="submit">
+                <button
+                  className={styles.signin}
+                  type="submit"
+                  style={{ cursor: "pointer" }}
+                >
                   {" "}
                   Sign in
                 </button>
