@@ -214,43 +214,41 @@ function Navbar() {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <SearchOutlinedIcon />
-                <Link to="/login" style={{ color: "grey" }}>
-                  <PersonOutlineIcon />
-                </Link>
-                <Link to="/wishlist" style={{ color: "grey" }}>
-                  <FavoriteBorderIcon />
-                </Link>
-                <Link style={{ color: "grey" }}>
-                  <button
-                    style={{
-                      backgroundColor: "transparent",
-                      border: "none",
-                      color: "grey",
-                    }}
-                    onClick={() => {
-                      dispatch(setCheck(!checkValue));
-                    }}
-                  >
-                    <ShoppingBagOutlinedIcon />
-                  </button>
-                </Link>
-                <Link>
-                  <button
-                    style={{
-                      backgroundColor: "transparent",
-                      border: "none",
-                      color: "grey",
-                    }}
-                    onClick={() => {
-                      localStorage.removeItem("loggedInUser");
-                    }}
-                  >
-                    <LogoutOutlinedIcon />
-                  </button>
-                </Link>
-              </IconButton>
+              {/* <SearchOutlinedIcon /> */}
+              <Link to="/login" style={{ color: "grey" }}>
+                <PersonOutlineIcon />
+              </Link>
+              <Link to="/wishlist" style={{ color: "grey" }}>
+                <FavoriteBorderIcon />
+              </Link>
+              <Link style={{ color: "grey" }}>
+                <button
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "none",
+                    color: "grey",
+                  }}
+                  onClick={() => {
+                    dispatch(setCheck(!checkValue));
+                  }}
+                >
+                  <ShoppingBagOutlinedIcon />
+                </button>
+              </Link>
+              <Link>
+                <button
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "none",
+                    color: "grey",
+                  }}
+                  onClick={() => {
+                    localStorage.removeItem("loggedInUser");
+                  }}
+                >
+                  <LogoutOutlinedIcon />
+                </button>
+              </Link>
             </Tooltip>
           </Box>
         </Toolbar>

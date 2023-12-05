@@ -12,6 +12,7 @@ import { useState } from "react";
 import { Link, useNavigate, useNavigation } from "react-router-dom";
 // Import Swiper styles
 import "swiper/css";
+import axios from "axios";
 import { Typography } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -41,7 +42,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 
 import { setCheck } from "../../../redux/slices/cardSlice";
-import { addToCart } from "../../../redux/slices/basketSlice";
+import { addToCart, removeFromCart } from "../../../redux/slices/basketSlice";
 import { clearCart } from "../../../redux/slices/basketSlice";
 
 import {
@@ -61,13 +62,27 @@ function Home({ product }) {
   useEffect(() => {
     dispatch(cardProducts());
   }, [dispatch]);
-  const handleCheckout = () => {
-    dispatch(clearCart());
+
+  const handleIncrement = (index) => {
+    const updatedBasket = [...userBasket];
+    updatedBasket[index].quantity++;
+    setUserBasket(updatedBasket);
   };
+
+  const handleDecrement = (index) => {
+    const updatedBasket = [...userBasket];
+    if (updatedBasket[index].quantity > 1) {
+      updatedBasket[index].quantity--;
+      setUserBasket(updatedBasket);
+    }
+  };
+
   // useEffect(() => {
   //   dispatch(basketProducts());
   // }, [dispatch]);
   const [userWishlist, setUserWishlist] = useState([]);
+
+
 
   const handleAddToCart = async (userId, productId) => {
     await dispatch(addToCart({ userId, productId }));
@@ -129,6 +144,22 @@ function Home({ product }) {
   //     console.error("Product ID is undefined or does not exist.");
   //   }
   // };
+
+  const wishlist = useSelector((state) => state.wishlist);
+  const isWishlistItem = wishlist.some((item) => item.id === product.id);
+
+  const handleWishlistClick = () => {
+    if (product && product.id) {
+      if (isWishlistItem) {
+        dispatch(removeFromWishlist(product.id));
+      } else {
+        dispatch(addToWishlist(product));
+      }
+    } else {
+      console.error("Product ID is undefined or does not exist.");
+    }
+  };
+
   const [userBasket, setUserBasket] = useState([]);
 
   useEffect(() => {
@@ -172,6 +203,28 @@ function Home({ product }) {
       setUserBasket(loggedInUser.basket);
     }
   }, []);
+  const calculateTotalPrice = () => {
+    let totalPrice = 0;
+    userBasket.forEach((item) => {
+      totalPrice += item.price * item.quantity;
+    });
+    return totalPrice;
+  };
+
+  const totalPrice = calculateTotalPrice();
+  const productIdToRemove = 1;
+
+  // const handleRemoveFromCart = async (productIdToRemove) => {
+  //   try {
+  //     await axios.put(`http://localhost:3000/users/${user.id}`, {
+  //       basket: [...basket],
+  //     });
+
+  //     dispatch(removeFromCart(user.id, productIdToRemove));
+  //   } catch (error) {
+  //     console.error("Error during removal:", error);
+  //   }
+  // };
 
   useEffect(() => {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
@@ -180,6 +233,18 @@ function Home({ product }) {
       localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
     }
   }, []);
+
+  const handleCheckout = async () => {
+    try {
+      await axios.put(`http://localhost:3000/users/${user.id}`, {
+        basket: [],
+      });
+      setUserBasket([]);
+      dispatch(clearCart());
+    } catch (error) {
+      console.error("Error during checkout:", error);
+    }
+  };
 
   return (
     <>
@@ -1212,12 +1277,14 @@ function Home({ product }) {
                     style={{
                       display: "flex",
                       justifyContent: "space-around",
-                      alignItems: "center",
+                      // alignItems: "center",
                       flexDirection: "column",
                     }}
                   >
                     <p style={{ fontWeight: "600" }}>{item.name}</p>
-                    <p>${item.price * item.quantity}.00</p>
+                    <p style={{ textAlign: "left" }}>
+                      ${item.price * item.quantity}.00
+                    </p>
                   </div>
                   <div
                     style={{
@@ -1236,6 +1303,11 @@ function Home({ product }) {
                         padding: "0 5px",
                         cursor: "pointer",
                       }}
+                      onClick={() =>
+                        dispatch(
+                          removeFromCart({ id: user.id, prodId: item.id })
+                        )
+                      }
                     >
                       x
                     </button>
@@ -1247,12 +1319,38 @@ function Home({ product }) {
                         right: "23px",
                         display: "flex",
                         gap: "20px",
-                        padding: "0 7px",
+                        padding: "2px 5px",
                       }}
                     >
-                      <p>-</p>
-                      <p>{item.quantity}</p>
-                      <p>+</p>
+                      <button
+                        style={{
+                          backgroundColor: "transparent",
+                          border: "none",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => handleDecrement(index)}
+                      >
+                        -
+                      </button>
+                      <button
+                        style={{
+                          backgroundColor: "transparent",
+                          border: "none",
+                          cursor: "pointer",
+                        }}
+                      >
+                        {item.quantity}
+                      </button>
+                      <button
+                        style={{
+                          backgroundColor: "transparent",
+                          border: "none",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => handleIncrement(index)}
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
                 </Typography>
@@ -1261,7 +1359,15 @@ function Home({ product }) {
 
             <ListItem>
               <i className="bi bi-speedometer2 fs-5 me-3"></i>
-              <div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  gap: "40px",
+                  fontWeight: "600",
+                }}
+              >
                 {" "}
                 <button
                   style={{
@@ -1269,13 +1375,14 @@ function Home({ product }) {
                     color: "white",
                     padding: "10px",
                     borderRadius: "5px",
-                    marginLeft: "150px",
+
                     cursor: "pointer",
                   }}
                   onClick={handleCheckout}
                 >
                   Checkout
                 </button>
+                <p>Total count: {totalPrice}.00$</p>
               </div>
             </ListItem>
           </List>

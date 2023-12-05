@@ -8,16 +8,12 @@ import wishlistReducer from "./slices/wishlistSlice";
 
 import loginReducer from "./slices/loginSlice";
 
-
 export const store = configureStore({
   reducer: {
     products: cardProducts,
     user: usersSlice,
     basket: basketProducts,
-
     wishlist: wishlistReducer,
-
     login: loginReducer,
-
   },
 });
