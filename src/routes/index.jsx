@@ -14,6 +14,7 @@ import AdminProducts from "../pages/admin/products";
 import AddProducts from "../pages/admin/addProducts";
 import AddUser from "../pages/admin/addUser";
 import Users from "../pages/admin/users";
+import AboutUs from "../pages/user/aboutUs";
 
 export const routes = [
   {
@@ -45,6 +46,10 @@ export const routes = [
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/aboutUs",
+        element: <AboutUs />,
       },
     ],
   },
