@@ -206,7 +206,15 @@
       "orders": [],
       "balance": 51,
       "basket": [],
-      "wishlist": [],
+      "wishlist": [
+        {
+          "id": "1",
+          "name": "Cute teddy bear toy",
+          "price": 49,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-13.jpg?v=1698814434&width=720",
+          "quantity": null
+        }
+      ],
       "isAdmin": false,
       "comments": "Actively involved in organizing charity drives and events to provide toys for less fortunate kids.",
       "reviews": "Love the initiative to organize charity drives. Keep up the good work!",
@@ -239,8 +247,54 @@
       "orders": [],
       "balance": 0,
       "basket": [],
-      "favorites": [],
+      "wishlist": [],
       "isAdmin": false,
+
+      "comments": "Actively involved in organizing charity drives and events to provide toys for less fortunate kids.",
+      "reviews": "Love the initiative to organize charity drives. Keep up the good work!",
+      "id": "6"
+    },
+    {
+      "name": "qurban",
+      "lastname": "qurban",
+      "email": "qurban",
+      "password": "qurban",
+      "orders": [],
+      "balance": 0,
+      "basket": [],
+      "wishlist": [],
+      "isAdmin": false,
+      "comments": "",
+      "reviews": "",
+      "id": "4KOffMw"
+    },
+    {
+      "name": "fatma",
+      "lastname": "fatma",
+      "email": "fatma",
+      "password": "123",
+      "orders": [],
+      "balance": 0,
+      "basket": [],
+      "wishlist": [
+        {
+          "id": "5",
+          "name": "Perk penguin stuffed",
+          "price": 39,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-12.jpg?v=1698814426&width=535"
+        },
+        {
+          "id": "7",
+          "name": "Soft dinosaur toy",
+          "price": 34,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-04_002bd689-de4b-459e-af7c-974cb9116516.jpg?v=1698814487&width=720"
+        }
+      ],
+      "isAdmin": false,
+      "comments": "",
+      "reviews": "",
+      "id": "vxlib0q"
+
       "comments": "",
       "reviews": "",
       "id": "OYbA9yW"
@@ -300,6 +354,7 @@
       "comments": "",
       "reviews": "",
       "id": "rHtZgHD"
+
     }
   ]
 }
