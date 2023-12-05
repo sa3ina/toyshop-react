@@ -8,7 +8,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import { Swiper, SwiperSlide } from "swiper/react";
-import sliderImg1 from "../../../assets/image/headerSlider/sliderImg1.webp";
+import { useState } from "react";
 import { Link, useNavigate, useNavigation } from "react-router-dom";
 // Import Swiper styles
 import "swiper/css";
@@ -24,7 +24,7 @@ import {
   faCalendar,
 } from "@fortawesome/free-solid-svg-icons";
 import { cardProducts } from "../../../redux/slices/cardSlice";
-import { basketProducts } from "../../../redux/slices/basketSlice";
+// import { basketProducts } from "../../../redux/slices/basketSlice";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -42,6 +42,7 @@ import ListItem from "@mui/material/ListItem";
 
 import { setCheck } from "../../../redux/slices/cardSlice";
 import { addToCart } from "../../../redux/slices/basketSlice";
+
 import {
   addToWishlist,
   removeFromWishlist,
@@ -49,18 +50,40 @@ import {
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 function Home({ product }) {
+
+import { clearCart } from "../../../redux/slices/basketSlice";
+function Home() {
+  let user = JSON.parse(localStorage.getItem("loggedInUser")) || [];
+
+
   const navigate = useNavigate();
   const cardProd = useSelector((state) => state.products.posts);
-  // const userCommet = useSelector((state) => state.user);
   const checkValue = useSelector((state) => state.products.check);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(cardProducts());
   }, [dispatch]);
-  useEffect(() => {
-    dispatch(basketProducts());
-  }, [dispatch]);
+  const handleCheckout = () => {
+    dispatch(clearCart());
+  };
+  // useEffect(() => {
+  //   dispatch(basketProducts());
+  // }, [dispatch]);
+  const handleAddToCart = async (userId, productId) => {
+    await dispatch(addToCart({ userId, productId }));
+    try {
+      const response = await fetch(`http://localhost:3000/users/${user.id}`);
+      const userData = await response.json();
+
+      if (userData && userData.basket) {
+        setUserBasket(userData.basket);
+      }
+    } catch (error) {
+      console.error("Error fetching user basket:", error);
+    }
+  };
   const basketProd = useSelector((state) => state.basket.basketItems);
+
   console.log(basketProd);
   const wishlist = useSelector((state) => state.wishlist);
   const isWishlistItem = wishlist.some((item) => item.id === product.id);
@@ -73,6 +96,32 @@ function Home({ product }) {
     }
   };
   console.log(product.id);
+
+  const [userBasket, setUserBasket] = useState([]);
+
+  useEffect(() => {
+    const fetchUserBasket = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/users/${user.id}`);
+        const userData = await response.json();
+
+        if (userData && userData.basket) {
+          setUserBasket(userData.basket);
+        }
+      } catch (error) {
+        console.error("Error fetching user basket:", error);
+      }
+    };
+
+    fetchUserBasket();
+  }, []);
+  useEffect(() => {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
+
+    if (loggedInUser && loggedInUser.basket) {
+      setUserBasket(loggedInUser.basket);
+    }
+  }, []);
 
   return (
     <>
@@ -531,7 +580,6 @@ function Home({ product }) {
                 </p>
               </div>
             </Grid>
-            {/* {Array.from(Array(6)).map((_, index) => ( */}
             {cardProd.map((elem, i) => (
               <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
                 <Card
@@ -567,8 +615,14 @@ function Home({ product }) {
                       className={styles.addtoCart}
                       style={{ cursor: "pointer", border: "none" }}
                       onClick={() => {
+                        handleAddToCart(user.id, {
+                          id: elem.id,
+                          name: elem.name,
+                          price: elem.price,
+                          image: elem.image,
+                          quantity: 1,
+                        });
                         dispatch(setCheck(true));
-                        dispatch(addToCart(elem.id));
                       }}
                     >
                       ADD TO CART
@@ -750,6 +804,13 @@ function Home({ product }) {
                       className={styles.addtoCart}
                       style={{ cursor: "pointer", border: "none" }}
                       onClick={() => {
+                        handleAddToCart(user.id, {
+                          id: elem.id,
+                          name: elem.name,
+                          price: elem.price,
+                          image: elem.image,
+                          quantity: 1,
+                        });
                         dispatch(setCheck(true));
                       }}
                     >
@@ -1046,9 +1107,8 @@ function Home({ product }) {
           </div>
           <hr className="text-dark" />
           <List component="nav">
-            <ListItem>
-              <i className="bi bi-speedometer2 fs-5 me-3"></i>
-              <div>
+            {userBasket.map((item, index) => (
+              <ListItem key={index}>
                 <Typography
                   variant="subtitle1"
                   style={{
@@ -1059,7 +1119,7 @@ function Home({ product }) {
                   <div style={{ display: "flex", marginBottom: "10px" }}>
                     {" "}
                     <img
-                      src="https://cdn.shopify.com/s/files/1/0524/8555/4369/products/kids-toy-product-06.jpg?v=1698814397&width=140"
+                      src={item.image}
                       alt=""
                       width={"100px"}
                       height={"100px"}
@@ -1074,8 +1134,8 @@ function Home({ product }) {
                       flexDirection: "column",
                     }}
                   >
-                    <p style={{ fontWeight: "600" }}>Soft panda teddy</p>
-                    <p>$27.00</p>
+                    <p style={{ fontWeight: "600" }}>{item.name}</p>
+                    <p>${item.price * item.quantity}.00</p>
                   </div>
                   <div
                     style={{
@@ -1101,7 +1161,7 @@ function Home({ product }) {
                       className={styles.inc}
                       style={{
                         position: "absolute",
-                        top: "80px",
+                        top: "75px",
                         right: "23px",
                         display: "flex",
                         gap: "20px",
@@ -1109,76 +1169,31 @@ function Home({ product }) {
                       }}
                     >
                       <p>-</p>
-                      <p>1</p>
+                      <p>{item.quantity}</p>
                       <p>+</p>
                     </div>
                   </div>
                 </Typography>
-                <Typography
-                  variant="subtitle1"
+              </ListItem>
+            ))}
+
+            <ListItem>
+              <i className="bi bi-speedometer2 fs-5 me-3"></i>
+              <div>
+                {" "}
+                <button
                   style={{
-                    display: "flex",
-                    gap: "20px",
+                    backgroundColor: "black",
+                    color: "white",
+                    padding: "10px",
+                    borderRadius: "5px",
+                    marginLeft: "150px",
+                    cursor: "pointer",
                   }}
+                  onClick={handleCheckout}
                 >
-                  <div>
-                    {" "}
-                    <img
-                      src="https://cdn.shopify.com/s/files/1/0524/8555/4369/products/kids-toy-product-13.jpg?v=1698814434&width=140"
-                      alt=""
-                      width={"100px"}
-                      height={"100px"}
-                      className={styles.images}
-                    />
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-around",
-                      alignItems: "center",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <p style={{ fontWeight: "600" }}>Soft panda teddy</p>
-                    <p>$45.00</p>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-around",
-                      alignItems: "center",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <button
-                      style={{
-                        position: "absolute",
-                        top: "15px",
-                        right: "23px",
-                        borderRadius: "50%",
-                        padding: "0 5px",
-                        cursor: "pointer",
-                      }}
-                    >
-                      x
-                    </button>
-                    <div
-                      className={styles.inc}
-                      style={{
-                        position: "absolute",
-                        bottom: "22px",
-                        right: "23px",
-                        display: "flex",
-                        gap: "20px",
-                        padding: "0 7px",
-                      }}
-                    >
-                      <p>-</p>
-                      <p>1</p>
-                      <p>+</p>
-                    </div>
-                  </div>
-                </Typography>
+                  Checkout
+                </button>
               </div>
             </ListItem>
           </List>

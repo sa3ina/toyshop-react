@@ -19,16 +19,55 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 function Register() {
   const navigate = useNavigate();
-  const cardProd = useSelector((state) => state.products.posts);
 
+  const cardProd = useSelector((state) => state.products.posts);
+  const [name, setName] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          lastname,
+          email,
+          password,
+          orders: [],
+          balance: 0,
+          basket: [],
+          favorites: [],
+          isAdmin: false,
+          comments: "",
+          reviews: "",
+        }),
+      });
+
+      if (response.ok) {
+        navigate("/login");
+      } else {
+        console.error("Registration failed");
+        // Handle error scenarios based on API response
+      }
+    } catch (error) {
+      console.error("Error occurred during registration:", error);
+      // Handle any other error scenarios, e.g., network issues
+    }
+  };
+
   useEffect(() => {
     dispatch(cardProducts());
-    console.log(cardProducts());
   }, [dispatch]);
-  console.log(cardProd);
+
   return (
     <Container>
       <Grid
@@ -79,34 +118,79 @@ function Register() {
               Create Account
             </Typography>
           </div>{" "}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              gap: "20px",
-            }}
-          >
-            <label htmlFor="">First name</label>
-            <TextField variant="outlined" />
-            <label htmlFor="">Last name</label>
-            <TextField variant="outlined" />
-            <label htmlFor="">Email</label>
-            <TextField variant="outlined" />
-            <label htmlFor="">Password</label>
-            <TextField variant="outlined" />
-            <p>Forgot your password?</p>
-            <button className={styles.signin}> Create now</button>
-
-            <button
-              className={styles.create}
-              onClick={() => {
-                navigate("/login");
+          <form action="" onSubmit={handleFormSubmit}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                gap: "20px",
               }}
             >
-              Login
-            </button>
-          </div>
+              <label htmlFor="">First name</label>
+              <input
+                value={name}
+                type="text"
+                style={{
+                  height: "60px",
+                  color: "grey",
+                  fontSize: "26px",
+                  color: "black",
+                }}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <label htmlFor="">Last name</label>
+              <input
+                value={lastname}
+                type="text"
+                style={{
+                  height: "60px",
+                  color: "grey",
+                  fontSize: "26px",
+                  color: "black",
+                }}
+                onChange={(e) => setLastname(e.target.value)}
+              />
+              <label htmlFor="">Email</label>
+              <input
+                value={email}
+                type="text"
+                style={{
+                  height: "60px",
+                  color: "grey",
+                  fontSize: "26px",
+                  color: "black",
+                }}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <label htmlFor="">Password</label>
+              <input
+                value={password}
+                type="password"
+                style={{
+                  height: "60px",
+                  color: "grey",
+                  fontSize: "26px",
+                  color: "black",
+                }}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <p>Forgot your password?</p>
+              <button type="submit" className={styles.signin}>
+                {" "}
+                Create now
+              </button>
+
+              <button
+                className={styles.create}
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
+                Login
+              </button>
+            </div>
+          </form>
         </Grid>
       </Grid>
     </Container>
