@@ -42,6 +42,7 @@ import ListItem from "@mui/material/ListItem";
 
 import { setCheck } from "../../../redux/slices/cardSlice";
 import { addToCart } from "../../../redux/slices/basketSlice";
+import { clearCart } from "../../../redux/slices/basketSlice";
 
 import {
   addToWishlist,
@@ -50,11 +51,7 @@ import {
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 function Home({ product }) {
-
-import { clearCart } from "../../../redux/slices/basketSlice";
-function Home() {
   let user = JSON.parse(localStorage.getItem("loggedInUser")) || [];
-
 
   const navigate = useNavigate();
   const cardProd = useSelector((state) => state.products.posts);
