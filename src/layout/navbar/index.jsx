@@ -16,6 +16,7 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { useDispatch } from "react-redux";
 import { setCheck } from "../../redux/slices/cardSlice";
 import { Link } from "react-router-dom";
@@ -233,6 +234,20 @@ function Navbar() {
                     }}
                   >
                     <ShoppingBagOutlinedIcon />
+                  </button>
+                </Link>
+                <Link>
+                  <button
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "none",
+                      color: "grey",
+                    }}
+                    onClick={() => {
+                      localStorage.removeItem("loggedInUser");
+                    }}
+                  >
+                    <LogoutOutlinedIcon />
                   </button>
                 </Link>
               </IconButton>
