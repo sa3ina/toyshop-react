@@ -1,0 +1,150 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.section {
+  background-image: url(//wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-about-title-bg-01.jpg?v=1698815628);
+  width: 100%;
+  height: 300px;
+  background-repeat: repeat-x;
+}
+.item1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+.text1 {
+  width: 350px;
+  text-align: center;
+}
+.tag {
+  width: 200px;
+}
+.btn {
+  color: #626262;
+  background-color: white;
+  border-color: #626262;
+  width: 80px;
+  height: 30px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.btn:hover {
+  color: white;
+  background-color: black;
+}
+.collection h3 {
+  font-size: 20px;
+  font-family: "Mali", cursive;
+}
+.collection p {
+  font-size: 18px;
+  font-family: "Mali", cursive;
+}
+.image {
+  width: 200px;
+  margin-top: 20px;
+}
+.price {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  width: 200px;
+}
+.collection {
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  width: 200px;
+}
+.brand {
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.brand h3 {
+  font-family: "Mali", cursive;
+  font-size: 20px;
+  padding-top: 5px;
+}
+.price p {
+  font-family: "Mali", cursive;
+}
+.price h3 {
+  font-family: "Mali", cursive;
+  font-size: 20px;
+}
+label {
+  font-size: 15px;
+  color: #626262;
+}
+span {
+  color: #7e7777;
+}
+.availability h3 {
+  font-family: "Mali", cursive;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+.availability {
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.list {
+  width: 200px;
+  height: 150px;
+  overflow: auto;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #c8c3c3;
+}
+li {
+  padding: 5px;
+}
+.disabled input[type="checkbox"] {
+  cursor: not-allowed;
+}
+.disabled label {
+  color: #cfc4c4;
+}
+.check input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid #626262;
+}
+.check input[type="radio"]:checked {
+  background-color: black;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+ul {
+  list-style: none;
+}
+.zoom {
+  width: 25px;
+  height: 25px;
+  border: 1px solid rgb(180, 169, 169);
+  background-color: white;
+  font-weight: bold;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+.item {
+  padding-left: 40px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.sort span {
+}
