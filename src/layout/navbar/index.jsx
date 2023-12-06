@@ -27,6 +27,7 @@ const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
   const dispatch = useDispatch();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -246,7 +247,7 @@ function Navbar() {
                     localStorage.removeItem("loggedInUser");
                   }}
                 >
-                  <LogoutOutlinedIcon />
+                  {loggedInUser ? <LogoutOutlinedIcon /> : null}
                 </button>
               </Link>
             </Tooltip>

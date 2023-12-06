@@ -12,6 +12,7 @@ export const addToWishlist = createAsyncThunk(
       const existingItemIndex = currentUserData.wishlist.findIndex(
         (item) => item.id === productId.id
       );
+      console.log(existingItemIndex);
 
       if (existingItemIndex !== -1) {
         console.log("Item already exists in the wishlist. Removing it.");
