@@ -123,6 +123,12 @@ function Home({ product }) {
     setUserWishlist(currentUser.wishlist);
   };
 
+
+  const basketProd = useSelector((state) => state.basket.basketItems);
+
+  const wishlistProd = useSelector((state) => state.wishlist.wishlistItem);
+
+
   const [userBasket, setUserBasket] = useState([]);
 
   useEffect(() => {
