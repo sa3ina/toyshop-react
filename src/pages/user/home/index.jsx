@@ -80,7 +80,6 @@ function Home({ product }) {
   // useEffect(() => {
   //   dispatch(basketProducts());
   // }, [dispatch]);
-  const [userWishlist, setUserWishlist] = useState([]);
 
   const handleAddToCart = async (userId, productId) => {
     await dispatch(addToCart({ userId, productId }));
