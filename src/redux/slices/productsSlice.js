@@ -17,6 +17,7 @@ export const deleteProduct = createAsyncThunk(
     return productId; // Return the ID of the deleted product
   }
 );
+
 const productsSlice = createSlice({
   name: "products",
   initialState: {

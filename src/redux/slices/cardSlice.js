@@ -16,6 +16,24 @@ export const deleteProduct = createAsyncThunk(
   }
 );
 
+
+export const editProductInDB = createAsyncThunk(
+  "users/editUser",
+  async ({ productId, updatedProduct }) => {
+    const response = await fetch(`http://localhost:3000/users/${productId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedProduct),
+    });
+
+    const data = await response.json();
+    return data;
+  }
+);
+
+
 const cardSlice = createSlice({
   name: "product",
   initialState: {
@@ -48,6 +66,17 @@ const cardSlice = createSlice({
     },
     [deleteProduct.fulfilled]: (state, action) => {
       state.posts = state.posts.filter((user) => user.id !== action.payload);
+    },
+
+    [editProductInDB.fulfilled]: (state, action) => {
+      const updatedProduct = action.payload;
+      const index = state.posts.findIndex(
+        (post) => post.id === updatedProduct.id
+      );
+
+      if (index != -1) {
+        state.posts[index] = updatedProduct;
+      }
     },
   },
 });

@@ -1,20 +1,6 @@
 {
   "posts": [
     {
-      "name": "Wooden stacking rings",
-      "price": 52,
-      "discountPercent": 23,
-      "commentArray": [],
-      "rating": 5,
-      "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
-      "brand": "Massive",
-      "collection": "dolls",
-      "sold": 12,
-      "availability": true,
-      "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-14.jpg?v=1698814441&width=535",
-      "id": "2"
-    },
-    {
       "name": "Cotton rope storage bag",
       "price": 39,
       "discountPercent": 33,
@@ -111,6 +97,20 @@
       "availability": true,
       "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-16.jpg?v=1698814455&width=535",
       "id": "10"
+    },
+    {
+      "name": "Jessamine Calderon",
+      "price": "Nita Goodwin",
+      "discountPercent": 10,
+      "commentArray": "",
+      "rating": "",
+      "description": "",
+      "brand": "Martha England",
+      "collection": "Erin Walls",
+      "sold": "",
+      "availability": false,
+      "image": "https://source.unsplash.com/random/?toy",
+      "id": "2T8E8Ed"
     }
   ],
   "users": [
@@ -120,7 +120,7 @@
       "email": "charlie@example.com",
       "password": "qwerty",
       "orders": [],
-      "balance": 66,
+      "balance": "800",
       "basket": [],
       "wishlist": [],
       "isAdmin": false,
@@ -129,6 +129,18 @@
       "id": "3"
     },
     {
+
+      "name": "Daisy",
+      "surname": "Miller 2",
+      "email": "daisy@example.com",
+      "password": "daisy123",
+      "orders": [],
+      "balance": 7,
+      "basket": [],
+      "wishlist": [],
+      "isAdmin": false,
+      "comments": "Passionate about curating educational toys that foster creativity and learning in children.",
+      "reviews": "Impressive selection of educational toys. My kids love them!",
       "basket": [
         {
           "id": "4",
@@ -152,7 +164,6 @@
           "quantity": 1
         }
       ],
-      "id": "4"
     },
     {
       "name": "Ethan",
@@ -188,7 +199,7 @@
       "email": "qurban",
       "password": "qurban",
       "orders": [],
-      "balance": 0,
+      "balance": "120",
       "basket": [
         {
           "id": "1",
@@ -217,7 +228,8 @@
       "isAdmin": false,
       "comments": "",
       "reviews": "",
-      "id": "4KOffMw"
+      "id": "4KOffMw",
+      "surname": "qurban"
     },
     {
       "name": "fatma",
@@ -225,7 +237,7 @@
       "email": "fatma",
       "password": "123",
       "orders": [],
-      "balance": 0,
+      "balance": "2000",
       "basket": [
         {
           "id": "1",
@@ -254,7 +266,8 @@
       "isAdmin": false,
       "comments": "",
       "reviews": "",
-      "id": "vxlib0q"
+      "id": "vxlib0q",
+      "surname": "quliyeva"
     },
     {
       "name": "Christensen",
@@ -304,7 +317,7 @@
       "email": "fatma",
       "password": "fatma",
       "orders": [],
-      "balance": 0,
+      "balance": "100",
       "basket": [
         {
           "id": "2",
@@ -328,6 +341,7 @@
           "quantity": 1
         }
       ],
+
       "wishlist": [
         {
           "id": "8",
@@ -357,7 +371,8 @@
       "isAdmin": false,
       "comments": "",
       "reviews": "",
-      "id": "0F4ZLPF"
+      "id": "0F4ZLPF",
+      "surname": "quliyeve"
     }
   ]
 }
