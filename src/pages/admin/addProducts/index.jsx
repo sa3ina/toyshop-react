@@ -71,7 +71,6 @@ function AddProducts() {
                 type="text"
                 style={{
                   height: "60px",
-                  color: "grey",
                   fontSize: "22px",
                   color: "black",
                 }}
@@ -83,7 +82,6 @@ function AddProducts() {
                 type="text"
                 style={{
                   height: "60px",
-                  color: "grey",
                   fontSize: "22px",
                   color: "black",
                 }}
@@ -95,7 +93,6 @@ function AddProducts() {
                 type="text"
                 style={{
                   height: "60px",
-                  color: "grey",
                   fontSize: "22px",
                   color: "black",
                 }}
@@ -107,7 +104,6 @@ function AddProducts() {
                 type="text"
                 style={{
                   height: "60px",
-                  color: "grey",
                   fontSize: "22px",
                   color: "black",
                 }}

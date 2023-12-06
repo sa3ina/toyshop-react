@@ -117,24 +117,18 @@ function Wishlist() {
 
   const wishlistProd = useSelector((state) => state.wishlist.wishlistItem);
 
+
   console.log(wishlistProd);
 
+
   let arrWishlist = JSON.parse(localStorage.getItem("loggedInUser"));
-  console.log(arrWishlist.wishlist);
+  console.log(arrWishlist?.wishlist);
 
   const handleRemoveToWishlist = async (userId, productId) => {
     await dispatch(addToWishlist({ userId, productId }));
-    try {
-      const response = await fetch(`http://localhost:3000/users/${user.id}`);
-      const userData = await response.json();
 
-      if (userData && userData.wishlist) {
-        setUserWishlist(userData.wishlist);
-      }
-    } catch (error) {
-      console.error("Error fetching user wishlist:", error);
-    }
     let currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
     console.log(productId);
     if (currentUser.wishlist.find((x) => x.id == productId.id)) {
       let idx = currentUser.wishlist.findIndex((x) => x.id == productId.id);
@@ -200,8 +194,8 @@ function Wishlist() {
           </Grid>
 
           {/* {Array.from(Array(6)).map((_, index) => ( */}
-          {arrWishlist.wishlist &&
-            arrWishlist.wishlist.map((elem, i) => (
+          {arrWishlist?.wishlist &&
+            arrWishlist?.wishlist.map((elem, i) => (
               <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
                 <Card
                   className={styles.cardd}
@@ -221,12 +215,15 @@ function Wishlist() {
                       name={elem.id}
                       className={styles.heart}
                       onClick={() => {
+
                         handleRemoveToWishlist(user.id, {
                           id: elem.id,
                           name: elem.name,
                           price: elem.price,
                           image: elem.image,
                         });
+
+          
                         dispatch(setCheck(true));
                       }}
                     >

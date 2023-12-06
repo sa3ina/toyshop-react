@@ -80,7 +80,6 @@ function Home({ product }) {
   // useEffect(() => {
   //   dispatch(basketProducts());
   // }, [dispatch]);
-  const [userWishlist, setUserWishlist] = useState([]);
 
   const handleAddToCart = async (userId, productId) => {
     await dispatch(addToCart({ userId, productId }));
@@ -95,11 +94,8 @@ function Home({ product }) {
       console.error("Error fetching user basket:", error);
     }
   };
-
-  let local = JSON.parse(localStorage.getItem("loggedInUser"));
-  console.log(local?.wishlist);
-  // let icon=local.wishlist.find((x)=>x.id==)
-
+  const basketProd = useSelector((state) => state.basket.basketItems);
+  const [userWishlist, setUserWishlist] = useState([]);
   const handleAddToWishlist = async (userId, productId) => {
     await dispatch(addToWishlist({ userId, productId }));
     try {
@@ -127,10 +123,10 @@ function Home({ product }) {
     setUserWishlist(currentUser.wishlist);
   };
 
+
   const basketProd = useSelector((state) => state.basket.basketItems);
 
   const wishlistProd = useSelector((state) => state.wishlist.wishlistItem);
-
 
 
   const [userBasket, setUserBasket] = useState([]);
@@ -695,21 +691,19 @@ function Home({ product }) {
                     <button
                       name={elem.id}
                       className={styles.heart}
+                      style={{ cursor: "pointer", border: "none" }}
                       onClick={() => {
                         handleAddToWishlist(user.id, {
                           id: elem.id,
                           name: elem.name,
                           price: elem.price,
                           image: elem.image,
+                          quantity: 1,
                         });
                         dispatch(setCheck(true));
                       }}
                     >
-                      {elem.id && localStorage.getItem(elem.id) ? (
-                        <FavoriteIcon color="error" />
-                      ) : (
-                        <FavoriteBorderIcon color="error" />
-                      )}
+                      <FavoriteIcon color="error" />
                     </button>
                     <button
                       className={styles.addtoCart}
@@ -897,28 +891,24 @@ function Home({ product }) {
                       minHeight: "100%",
                     }}
                   >
+                    {/* <div className={styles.heart}>
+                      <FontAwesomeIcon icon={faHeart} />
+                    </div> */}
                     <button
                       className={styles.heart}
+                      style={{ cursor: "pointer", border: "none" }}
                       onClick={() => {
                         handleAddToWishlist(user.id, {
                           id: elem.id,
                           name: elem.name,
                           price: elem.price,
                           image: elem.image,
+                          quantity: 1,
                         });
                         dispatch(setCheck(true));
                       }}
                     >
-                      {wishlistProd ? (
-                        <>
-                          {" "}
-                          <FavoriteIcon color="error" />
-                        </>
-                      ) : (
-                        <>
-                          <FavoriteBorderIcon color="error" />
-                        </>
-                      )}
+                      <FavoriteIcon color="error" />
                     </button>
                     <button
                       className={styles.addtoCart}
