@@ -1,20 +1,6 @@
 {
   "posts": [
     {
-      "name": "Wooden stacking rings",
-      "price": 52,
-      "discountPercent": 23,
-      "commentArray": [],
-      "rating": 5,
-      "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
-      "brand": "Massive",
-      "collection": "dolls",
-      "sold": 12,
-      "availability": true,
-      "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-14.jpg?v=1698814441&width=535",
-      "id": "2"
-    },
-    {
       "name": "Cotton rope storage bag",
       "price": 39,
       "discountPercent": 33,
@@ -111,6 +97,20 @@
       "availability": true,
       "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-16.jpg?v=1698814455&width=535",
       "id": "10"
+    },
+    {
+      "name": "Jessamine Calderon",
+      "price": "Nita Goodwin",
+      "discountPercent": 10,
+      "commentArray": "",
+      "rating": "",
+      "description": "",
+      "brand": "Martha England",
+      "collection": "Erin Walls",
+      "sold": "",
+      "availability": false,
+      "image": "https://source.unsplash.com/random/?toy",
+      "id": "2T8E8Ed"
     }
   ],
   "users": [
@@ -120,7 +120,7 @@
       "email": "charlie@example.com",
       "password": "qwerty",
       "orders": [],
-      "balance": 66,
+      "balance": "800",
       "basket": [],
       "wishlist": [],
       "isAdmin": false,
@@ -130,7 +130,7 @@
     },
     {
       "name": "Daisy",
-      "surname": "Miller",
+      "surname": "Miller 2",
       "email": "daisy@example.com",
       "password": "daisy123",
       "orders": [],
@@ -176,7 +176,7 @@
       "email": "qurban",
       "password": "qurban",
       "orders": [],
-      "balance": 0,
+      "balance": "120",
       "basket": [
         {
           "id": "1",
@@ -205,7 +205,8 @@
       "isAdmin": false,
       "comments": "",
       "reviews": "",
-      "id": "4KOffMw"
+      "id": "4KOffMw",
+      "surname": "qurban"
     },
     {
       "name": "fatma",
@@ -213,7 +214,7 @@
       "email": "fatma",
       "password": "123",
       "orders": [],
-      "balance": 0,
+      "balance": "2000",
       "basket": [
         {
           "id": "1",
@@ -242,7 +243,8 @@
       "isAdmin": false,
       "comments": "",
       "reviews": "",
-      "id": "vxlib0q"
+      "id": "vxlib0q",
+      "surname": "quliyeva"
     },
     {
       "name": "Christensen",
@@ -292,7 +294,7 @@
       "email": "fatma",
       "password": "fatma",
       "orders": [],
-      "balance": 0,
+      "balance": "100",
       "basket": [
         {
           "id": "2",
@@ -309,30 +311,12 @@
           "quantity": 1
         }
       ],
-      "wishlist": [
-        {
-          "id": "1",
-          "name": "Cute teddy bear toy",
-          "price": 49,
-          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-13.jpg?v=1698814434&width=720"
-        },
-        {
-          "id": "2",
-          "name": "Wooden stacking rings",
-          "price": 52,
-          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-14.jpg?v=1698814441&width=535"
-        },
-        {
-          "id": "3",
-          "name": "Tiger on wheels toy",
-          "price": 46,
-          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-07.jpg?v=1698814405&width=535"
-        }
-      ],
+      "wishlist": [],
       "isAdmin": false,
       "comments": "",
       "reviews": "",
-      "id": "0F4ZLPF"
+      "id": "0F4ZLPF",
+      "surname": "quliyeve"
     }
   ]
 }
