@@ -119,7 +119,6 @@ function Login() {
                   type="text"
                   style={{
                     height: "60px",
-                    color: "grey",
                     fontSize: "22px",
                     color: "black",
                   }}
@@ -131,7 +130,6 @@ function Login() {
                   type="password"
                   style={{
                     height: "60px",
-                    color: "grey",
                     fontSize: "22px",
                     color: "black",
                   }}

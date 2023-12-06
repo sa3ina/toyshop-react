@@ -45,7 +45,7 @@ function Register() {
           orders: [],
           balance: 0,
           basket: [],
-          favorites: [],
+          wishlist: [],
           isAdmin: false,
           comments: "",
           reviews: "",
@@ -133,7 +133,7 @@ function Register() {
                 type="text"
                 style={{
                   height: "60px",
-                  color: "grey",
+
                   fontSize: "22px",
                   color: "black",
                 }}
@@ -145,7 +145,6 @@ function Register() {
                 type="text"
                 style={{
                   height: "60px",
-                  color: "grey",
                   fontSize: "22px",
                   color: "black",
                 }}
@@ -157,7 +156,6 @@ function Register() {
                 type="text"
                 style={{
                   height: "60px",
-                  color: "grey",
                   fontSize: "26px",
                   color: "black",
                 }}
@@ -169,7 +167,6 @@ function Register() {
                 type="password"
                 style={{
                   height: "60px",
-                  color: "grey",
                   fontSize: "26px",
                   color: "black",
                 }}
