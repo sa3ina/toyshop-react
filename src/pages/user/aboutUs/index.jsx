@@ -27,7 +27,9 @@ function AboutUs() {
           <Grid spacing={0} className={style.item2}>
             <Grid item lg={6} sm={12}>
               <div className={style.text2}>
-                <span>Start from since 1998</span>
+                <span style={{ color: "#f96835", fontSize: "20px" }}>
+                  Start from since 1998
+                </span>
                 <h3>We provide premium toys and games for your little kids.</h3>
                 <p>
                   Lorem ipsum is simply dummy to text the printing type setting
@@ -50,7 +52,10 @@ function AboutUs() {
             <Grid item sm={12} md={12} lg={3} xl={3}>
               <div>
                 <h3>2250</h3>
-                <span className={style.colors}></span>
+                <span
+                  className={style.colors}
+                  style={{ color: "#f96835", fontSize: "20px" }}
+                ></span>
               </div>
 
               <p>STOCK PRODUCTS</p>
@@ -74,7 +79,10 @@ function AboutUs() {
         <Container>
           <Grid spacing={0}>
             <Grid lg={12} sm={12} item className={style.item3}>
-              <span className={style.videoIcon}>
+              <span
+                className={style.videoIcon}
+                style={{ color: "#f96835", fontSize: "20px" }}
+              >
                 <FontAwesomeIcon icon={faPlay} />
               </span>
             </Grid>

@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import usersSlice, { userInfo } from "../../../redux/slices/usersSlice";
+import { deleteUserInDB } from "../../../redux/slices/usersSlice";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -20,7 +21,10 @@ function Users() {
     dispatch(userInfo());
     console.log(userInfo());
   }, [dispatch]);
-
+  const handleDelete = (userId) => {
+    // Dispatch the deleteUser action with the user ID
+    dispatch(deleteUserInDB(userId));
+  };
   console.log(usersData);
   return (
     <Grid container>
@@ -65,6 +69,7 @@ function Users() {
                           borderRadius: "5px",
                           cursor: "pointer",
                         }}
+                        onClick={() => handleDelete(user.id)}
                       >
                         delete
                       </button>
