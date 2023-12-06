@@ -36,7 +36,7 @@ const localWishlist = JSON.parse(localStorage.getItem("loggedInUser"));
 const wishlistSlice = createSlice({
   name: "wishlist",
   initialState: {
-    wishlistItems: localWishlist.wishlist || [],
+    wishlistItems: localWishlist?.wishlist || [],
     status: "idle",
     error: null,
   },
