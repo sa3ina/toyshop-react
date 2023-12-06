@@ -284,6 +284,20 @@
       "comments": "",
       "reviews": "",
       "id": "MJPsJqA"
+    },
+    {
+      "name": "Hurley",
+      "surname": "Hawkins",
+      "email": "Cortez",
+      "password": "Pa$$w0rd!",
+      "orders": [],
+      "balance": 0,
+      "basket": [],
+      "wishlist": [],
+      "isAdmin": false,
+      "comments": "",
+      "reviews": "",
+      "id": "rHtZgHD"
 
     }
   ]
