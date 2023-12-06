@@ -131,6 +131,9 @@ function Home({ product }) {
 
   const wishlistProd = useSelector((state) => state.wishlist.wishlistItem);
 
+  // const wishlist = useSelector((state) => state.wishlist);
+  // const isWishlistItem = wishlist.some((item) => item.id === product.id);
+
   // const handleWishlistClick = () => {
   //   if (product && product.id) {
   //     if (isWishlistItem) {
