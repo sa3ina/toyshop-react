@@ -26,6 +26,7 @@ import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import { setCheck } from "../../../redux/slices/cardSlice";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+
 function Wishlist() {
   const cardProd = useSelector((state) => state.products.posts);
   const checkValue = useSelector((state) => state.products.check);
@@ -34,14 +35,94 @@ function Wishlist() {
   //   dispatch(cardProducts());
   // }, [dispatch]);
 
+  let user = JSON.parse(localStorage.getItem("loggedInUser")) || [];
+
+  const handleIncrement = (index) => {
+    const updatedBasket = [...userBasket];
+    updatedBasket[index].quantity++;
+    setUserBasket(updatedBasket);
+  };
+
+  const handleDecrement = (index) => {
+    const updatedBasket = [...userBasket];
+    if (updatedBasket[index].quantity > 1) {
+      updatedBasket[index].quantity--;
+      setUserBasket(updatedBasket);
+    }
+  };
+
+  const handleAddToCart = async (userId, productId) => {
+    await dispatch(addToCart({ userId, productId }));
+    try {
+      const response = await fetch(`http://localhost:3000/users/${user.id}`);
+      const userData = await response.json();
+
+      if (userData && userData.basket) {
+        setUserBasket(userData.basket);
+      }
+    } catch (error) {
+      console.error("Error fetching user basket:", error);
+    }
+  };
+  const basketProd = useSelector((state) => state.basket.basketItems);
+
+  const [userBasket, setUserBasket] = useState([]);
+
+  useEffect(() => {
+    const fetchUserBasket = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/users/${user.id}`);
+        const userData = await response.json();
+
+        if (userData && userData.basket) {
+          setUserBasket(userData.basket);
+        }
+      } catch (error) {
+        console.error("Error fetching user basket:", error);
+      }
+    };
+
+    fetchUserBasket();
+  }, []);
+
+  useEffect(() => {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
+
+    if (loggedInUser && loggedInUser.basket) {
+      setUserBasket(loggedInUser.basket);
+    }
+  }, []);
+  const calculateTotalPrice = () => {
+    let totalPrice = 0;
+    userBasket.forEach((item) => {
+      totalPrice += item.price * item.quantity;
+    });
+    return totalPrice;
+  };
+
+  const totalPrice = calculateTotalPrice();
+  const productIdToRemove = 1;
+
+  const handleCheckout = async () => {
+    try {
+      await axios.put(`http://localhost:3000/users/${user.id}`, {
+        basket: [],
+      });
+      setUserBasket([]);
+      dispatch(clearCart());
+    } catch (error) {
+      console.error("Error during checkout:", error);
+    }
+  };
+
   const wishlistProd = useSelector((state) => state.wishlist.wishlistItem);
 
-  console.log(cardProd);
+  console.log(wishlistProd);
 
   let arrWishlist = JSON.parse(localStorage.getItem("loggedInUser"));
   console.log(arrWishlist.wishlist);
 
-  const handleAddToWishlist = async (userId, productId) => {
+  const handleRemoveToWishlist = async (userId, productId) => {
     await dispatch(addToWishlist({ userId, productId }));
     try {
       const response = await fetch(`http://localhost:3000/users/${user.id}`);
@@ -54,18 +135,13 @@ function Wishlist() {
       console.error("Error fetching user wishlist:", error);
     }
     let currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
+    console.log(productId);
     if (currentUser.wishlist.find((x) => x.id == productId.id)) {
       let idx = currentUser.wishlist.findIndex((x) => x.id == productId.id);
       currentUser.wishlist.splice(idx, 1);
       localStorage.setItem("loggedInUser", JSON.stringify(currentUser));
-    } else {
-      let find = cardProd.find((elem) => elem.id == productId.id);
-      currentUser.wishlist.push(find);
-      console.log("pushed: ", currentUser);
-      localStorage.setItem("loggedInUser", JSON.stringify(currentUser));
     }
-    setUserWishlist(currentUser.wishlist);
+    // setUserWishlist(currentUser.wishlist);?
   };
 
   return (
@@ -141,19 +217,45 @@ function Wishlist() {
                       minHeight: "100%",
                     }}
                   >
-                    <div className={styles.heart}>
+                    <button
+                      name={elem.id}
+                      className={styles.heart}
+                      onClick={() => {
+                        handleRemoveToWishlist(user.id, {
+                          id: elem.id,
+                          name: elem.name,
+                          price: elem.price,
+                          image: elem.image,
+                        });
+                        dispatch(setCheck(true));
+                      }}
+                    >
+                      {" "}
                       <FavoriteIcon color="error" />
-                    </div>
+                    </button>
                     <button
                       className={styles.addtoCart}
                       style={{ cursor: "pointer", border: "none" }}
                       onClick={() => {
+                        handleAddToCart(user.id, {
+                          id: elem.id,
+                          name: elem.name,
+                          price: elem.price,
+                          image: elem.image,
+                          quantity: 1,
+                        });
                         dispatch(setCheck(true));
                       }}
                     >
                       ADD TO CART
                     </button>
-
+                    <Link
+                      to={"/products/" + elem.id}
+                      className={styles.details}
+                      style={{ cursor: "pointer", border: "none" }}
+                    >
+                      Details
+                    </Link>
                     <img
                       className={styles.card}
                       style={{
@@ -206,6 +308,7 @@ function Wishlist() {
             ))}
         </Grid>
       </Container>
+
       <Grid
         item
         lg={3}
@@ -265,9 +368,8 @@ function Wishlist() {
           </div>
           <hr className="text-dark" />
           <List component="nav">
-            <ListItem>
-              <i className="bi bi-speedometer2 fs-5 me-3"></i>
-              <div>
+            {userBasket.map((item, index) => (
+              <ListItem key={index}>
                 <Typography
                   variant="subtitle1"
                   style={{
@@ -278,7 +380,7 @@ function Wishlist() {
                   <div style={{ display: "flex", marginBottom: "10px" }}>
                     {" "}
                     <img
-                      src="https://cdn.shopify.com/s/files/1/0524/8555/4369/products/kids-toy-product-06.jpg?v=1698814397&width=140"
+                      src={item.image}
                       alt=""
                       width={"100px"}
                       height={"100px"}
@@ -289,12 +391,14 @@ function Wishlist() {
                     style={{
                       display: "flex",
                       justifyContent: "space-around",
-                      alignItems: "center",
+                      // alignItems: "center",
                       flexDirection: "column",
                     }}
                   >
-                    <p style={{ fontWeight: "600" }}>Soft panda teddy</p>
-                    <p>$27.00</p>
+                    <p style={{ fontWeight: "600" }}>{item.name}</p>
+                    <p style={{ textAlign: "left" }}>
+                      ${item.price * item.quantity}.00
+                    </p>
                   </div>
                   <div
                     style={{
@@ -313,6 +417,11 @@ function Wishlist() {
                         padding: "0 5px",
                         cursor: "pointer",
                       }}
+                      onClick={() =>
+                        dispatch(
+                          removeFromCart({ id: user.id, prodId: item.id })
+                        )
+                      }
                     >
                       x
                     </button>
@@ -320,84 +429,74 @@ function Wishlist() {
                       className={styles.inc}
                       style={{
                         position: "absolute",
-                        top: "80px",
+                        top: "75px",
                         right: "23px",
                         display: "flex",
                         gap: "20px",
-                        padding: "0 7px",
+                        padding: "2px 5px",
                       }}
                     >
-                      <p>-</p>
-                      <p>1</p>
-                      <p>+</p>
+                      <button
+                        style={{
+                          backgroundColor: "transparent",
+                          border: "none",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => handleDecrement(index)}
+                      >
+                        -
+                      </button>
+                      <button
+                        style={{
+                          backgroundColor: "transparent",
+                          border: "none",
+                          cursor: "pointer",
+                        }}
+                      >
+                        {item.quantity}
+                      </button>
+                      <button
+                        style={{
+                          backgroundColor: "transparent",
+                          border: "none",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => handleIncrement(index)}
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
                 </Typography>
-                <Typography
-                  variant="subtitle1"
+              </ListItem>
+            ))}
+
+            <ListItem>
+              <i className="bi bi-speedometer2 fs-5 me-3"></i>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  gap: "40px",
+                  fontWeight: "600",
+                }}
+              >
+                {" "}
+                <button
                   style={{
-                    display: "flex",
-                    gap: "20px",
+                    backgroundColor: "black",
+                    color: "white",
+                    padding: "10px",
+                    borderRadius: "5px",
+
+                    cursor: "pointer",
                   }}
+                  onClick={handleCheckout}
                 >
-                  <div>
-                    {" "}
-                    <img
-                      src="https://cdn.shopify.com/s/files/1/0524/8555/4369/products/kids-toy-product-13.jpg?v=1698814434&width=140"
-                      alt=""
-                      width={"100px"}
-                      height={"100px"}
-                      className={styles.images}
-                    />
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-around",
-                      alignItems: "center",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <p style={{ fontWeight: "600" }}>Soft panda teddy</p>
-                    <p>$45.00</p>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-around",
-                      alignItems: "center",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <button
-                      style={{
-                        position: "absolute",
-                        top: "15px",
-                        right: "23px",
-                        borderRadius: "50%",
-                        padding: "0 5px",
-                        cursor: "pointer",
-                      }}
-                    >
-                      x
-                    </button>
-                    <div
-                      className={styles.inc}
-                      style={{
-                        position: "absolute",
-                        bottom: "22px",
-                        right: "23px",
-                        display: "flex",
-                        gap: "20px",
-                        padding: "0 7px",
-                      }}
-                    >
-                      <p>-</p>
-                      <p>1</p>
-                      <p>+</p>
-                    </div>
-                  </div>
-                </Typography>
+                  Checkout
+                </button>
+                <p>Total count: {totalPrice}.00$</p>
               </div>
             </ListItem>
           </List>

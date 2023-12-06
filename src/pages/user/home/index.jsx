@@ -131,20 +131,7 @@ function Home({ product }) {
 
   const wishlistProd = useSelector((state) => state.wishlist.wishlistItem);
 
-  // const wishlist = useSelector((state) => state.wishlist);
-  // const isWishlistItem = wishlist.some((item) => item.id === product.id);
 
-  // const handleWishlistClick = () => {
-  //   if (product && product.id) {
-  //     if (isWishlistItem) {
-  //       dispatch(removeFromWishlist(product.id));
-  //     } else {
-  //       dispatch(addToWishlist(product));
-  //     }
-  //   } else {
-  //     console.error("Product ID is undefined or does not exist.");
-  //   }
-  // };
 
   const [userBasket, setUserBasket] = useState([]);
 

@@ -1,3 +1,90 @@
+.cardd {
+  position: relative;
+}
+
+.cardd img {
+  height: 290px;
+  width: 280px;
+  object-fit: cover;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.cardd:hover img {
+  filter: blur(4px);
+  transform: scale(1.1);
+}
+
+.heart {
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 10px;
+  position: absolute;
+  opacity: 0;
+  z-index: 500;
+  top: 10px;
+  right: 13px;
+  transition: opacity 0.3s ease;
+}
+
+.cardd:hover .heart {
+  opacity: 1;
+}
+.addtoCart {
+  position: absolute;
+  opacity: 0;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  z-index: 1000;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  background-color: white;
+  border-radius: 20px;
+  padding: 14px;
+  transition: opacity 0.3s ease;
+}
+.cardd:hover .addtoCart {
+  opacity: 1;
+}
+
 .details {
-  color: aqua;
+  position: absolute;
+  opacity: 0;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  z-index: 1000;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, 60%);
+  background-color: white;
+  border-radius: 20px;
+  padding: 14px;
+  transition: opacity 0.3s ease;
+  text-decoration: none;
+  color: black;
+  font-style: italic;
+  font-weight: bolder;
+}
+.cardd:hover .details {
+  opacity: 1;
+}
+
+.basket {
+  display: none;
+}
+.images {
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 4px;
+}
+.inc {
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 4px;
+}
+.addtoCart:hover {
+  background-color: black;
+  color: white;
+}
+.details:hover {
+  background-color: black;
+  color: white;
 }
