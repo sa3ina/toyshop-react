@@ -36,33 +36,18 @@ function Wishlist() {
 
   const wishlistProd = useSelector((state) => state.wishlist.wishlistItem);
 
-  console.log(cardProd);
-
   let arrWishlist = JSON.parse(localStorage.getItem("loggedInUser"));
-  console.log(arrWishlist.wishlist);
+  console.log(arrWishlist?.wishlist);
 
-  const handleAddToWishlist = async (userId, productId) => {
+  const handleRemoveToWishlist = async (userId, productId) => {
     await dispatch(addToWishlist({ userId, productId }));
-    try {
-      const response = await fetch(`http://localhost:3000/users/${user.id}`);
-      const userData = await response.json();
 
-      if (userData && userData.wishlist) {
-        setUserWishlist(userData.wishlist);
-      }
-    } catch (error) {
-      console.error("Error fetching user wishlist:", error);
-    }
     let currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
+    console.log(wishlistProd);
+    console.log(productId);
     if (currentUser.wishlist.find((x) => x.id == productId.id)) {
       let idx = currentUser.wishlist.findIndex((x) => x.id == productId.id);
       currentUser.wishlist.splice(idx, 1);
-      localStorage.setItem("loggedInUser", JSON.stringify(currentUser));
-    } else {
-      let find = cardProd.find((elem) => elem.id == productId.id);
-      currentUser.wishlist.push(find);
-      console.log("pushed: ", currentUser);
       localStorage.setItem("loggedInUser", JSON.stringify(currentUser));
     }
     setUserWishlist(currentUser.wishlist);
@@ -124,8 +109,8 @@ function Wishlist() {
           </Grid>
 
           {/* {Array.from(Array(6)).map((_, index) => ( */}
-          {arrWishlist.wishlist &&
-            arrWishlist.wishlist.map((elem, i) => (
+          {arrWishlist?.wishlist &&
+            arrWishlist?.wishlist.map((elem, i) => (
               <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
                 <Card
                   className={styles.cardd}
@@ -141,9 +126,17 @@ function Wishlist() {
                       minHeight: "100%",
                     }}
                   >
-                    <div className={styles.heart}>
+                    <button
+                      name={elem.id}
+                      className={styles.heart}
+                      onClick={() => {
+                        handleRemoveToWishlist();
+                        dispatch(setCheck(true));
+                      }}
+                    >
+                      {" "}
                       <FavoriteIcon color="error" />
-                    </div>
+                    </button>
                     <button
                       className={styles.addtoCart}
                       style={{ cursor: "pointer", border: "none" }}
