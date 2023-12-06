@@ -25,7 +25,6 @@ import {
   faCalendar,
 } from "@fortawesome/free-solid-svg-icons";
 import { cardProducts } from "../../../redux/slices/cardSlice";
-// import { basketProducts } from "../../../redux/slices/basketSlice";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -123,11 +122,7 @@ function Home({ product }) {
     setUserWishlist(currentUser.wishlist);
   };
 
-
-  const basketProd = useSelector((state) => state.basket.basketItems);
-
   const wishlistProd = useSelector((state) => state.wishlist.wishlistItem);
-
 
   const [userBasket, setUserBasket] = useState([]);
 
