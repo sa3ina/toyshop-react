@@ -72,7 +72,6 @@ function AddUser() {
               type="text"
               style={{
                 height: "60px",
-                color: "grey",
                 fontSize: "22px",
                 color: "black",
               }}
@@ -84,7 +83,6 @@ function AddUser() {
               type="text"
               style={{
                 height: "60px",
-                color: "grey",
                 fontSize: "22px",
                 color: "black",
               }}
@@ -96,7 +94,6 @@ function AddUser() {
               type="text"
               style={{
                 height: "60px",
-                color: "grey",
                 fontSize: "26px",
                 color: "black",
               }}
@@ -108,7 +105,6 @@ function AddUser() {
               type="password"
               style={{
                 height: "60px",
-                color: "grey",
                 fontSize: "26px",
                 color: "black",
               }}
