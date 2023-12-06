@@ -143,17 +143,36 @@
   ],
   "users": [
     {
-      "name": "Bob",
-      "surname": "Smith",
-      "email": "bob@example.com",
-      "password": "pass456",
-      "orders": [],
-      "balance": 253,
-      "basket": [],
-      "wishlist": [],
-      "isAdmin": true,
-      "comments": "Oversees inventory management, coordinates with suppliers, and ensures smooth toyshop operations.",
-      "reviews": "Exceptional customer service and fast shipping.",
+      "basket": [
+        {
+          "id": "6",
+          "name": "Peace with buddha",
+          "price": 34,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-07_b33bfe7a-a128-4314-a4b0-43634287ad92.jpg?v=1698814475&width=720",
+          "quantity": 3
+        },
+        {
+          "id": "1",
+          "name": "Cute teddy bear toy",
+          "price": 49,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-13.jpg?v=1698814434&width=720",
+          "quantity": 2
+        },
+        {
+          "id": "2",
+          "name": "Wooden stacking rings",
+          "price": 52,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-14.jpg?v=1698814441&width=535",
+          "quantity": 1
+        },
+        {
+          "id": "3",
+          "name": "Tiger on wheels toy",
+          "price": 46,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-07.jpg?v=1698814405&width=535",
+          "quantity": 1
+        }
+      ],
       "id": "1"
     },
     {
@@ -163,8 +182,24 @@
       "password": "pass456",
       "orders": [],
       "balance": 370,
-      "basket": [],
-      "wishlist": [],
+      "basket": [
+        {
+          "id": "1",
+          "name": "Cute teddy bear toy",
+          "price": 49,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-13.jpg?v=1698814434&width=720",
+          "quantity": 4
+        }
+      ],
+      "wishlist": [
+        {
+          "id": "6",
+          "name": "Peace with buddha",
+          "price": 34,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-07_b33bfe7a-a128-4314-a4b0-43634287ad92.jpg?v=1698814475&width=720",
+          "quantity": 1
+        }
+      ],
       "isAdmin": false,
       "comments": "An avid collector of action figures and often offers valuable insights into popular toy trends.",
       "reviews": "Great variety of toys available! Love the action figures section.",

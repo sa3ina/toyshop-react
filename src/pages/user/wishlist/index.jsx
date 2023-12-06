@@ -21,16 +21,38 @@ import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { cardProducts } from "../../../redux/slices/cardSlice";
-import { useEffect } from "react";
+import { addToWishlist } from "../../../redux/slices/wishlistSlice";
+import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import { setCheck } from "../../../redux/slices/cardSlice";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 function Wishlist() {
   const cardProd = useSelector((state) => state.products.posts);
   const checkValue = useSelector((state) => state.products.check);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(cardProducts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(cardProducts());
+  // }, [dispatch]);
+
+  const wishlistProd = useSelector((state) => state.wishlist.wishlistItem);
+
+  let arrWishlist = JSON.parse(localStorage.getItem("loggedInUser"));
+  console.log(arrWishlist?.wishlist);
+
+  const handleRemoveToWishlist = async (userId, productId) => {
+    await dispatch(addToWishlist({ userId, productId }));
+
+    let currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    console.log(wishlistProd);
+    console.log(productId);
+    if (currentUser.wishlist.find((x) => x.id == productId.id)) {
+      let idx = currentUser.wishlist.findIndex((x) => x.id == productId.id);
+      currentUser.wishlist.splice(idx, 1);
+      localStorage.setItem("loggedInUser", JSON.stringify(currentUser));
+    }
+    setUserWishlist(currentUser.wishlist);
+  };
+
   return (
     <>
       <Container>
@@ -87,81 +109,94 @@ function Wishlist() {
           </Grid>
 
           {/* {Array.from(Array(6)).map((_, index) => ( */}
-          {cardProd.map((elem, i) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
-              <Card
-                className={styles.cardd}
-                sx={{ minWidth: 275 }}
-                style={{ marginBottom: "15px" }}
-              >
-                <CardContent
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    minHeight: "100%",
-                  }}
+          {arrWishlist?.wishlist &&
+            arrWishlist?.wishlist.map((elem, i) => (
+              <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
+                <Card
+                  className={styles.cardd}
+                  sx={{ minWidth: 275 }}
+                  style={{ marginBottom: "15px" }}
                 >
-                  <div className={styles.heart}>
-                    <FontAwesomeIcon icon={faHeart} />
-                  </div>
-                  <button
-                    className={styles.addtoCart}
-                    style={{ cursor: "pointer", border: "none" }}
-                    onClick={() => {
-                      dispatch(setCheck(true));
+                  <CardContent
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      minHeight: "100%",
                     }}
                   >
-                    ADD TO CART
-                  </button>
+                    <button
+                      name={elem.id}
+                      className={styles.heart}
+                      onClick={() => {
+                        handleRemoveToWishlist();
+                        dispatch(setCheck(true));
+                      }}
+                    >
+                      {" "}
+                      <FavoriteIcon color="error" />
+                    </button>
+                    <button
+                      className={styles.addtoCart}
+                      style={{ cursor: "pointer", border: "none" }}
+                      onClick={() => {
+                        dispatch(setCheck(true));
+                      }}
+                    >
+                      ADD TO CART
+                    </button>
 
-                  <img
-                    className={styles.card}
-                    style={{
-                      height: "290px",
-                      width: "280px",
-                      objectFit: "cover",
-                    }}
-                    src={elem.image}
-                    alt=""
-                  />
-                </CardContent>
-              </Card>
-              <Typography
-                // align="center"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexDirection: "column",
-                }}
-              >
-                <div>
-                  <FontAwesomeIcon icon={faStar} />
-                  <FontAwesomeIcon icon={faStar} />
-                  <FontAwesomeIcon icon={faStar} />
-                  <FontAwesomeIcon icon={faStar} />
-                  <FontAwesomeIcon icon={faStar} />
-                </div>
-                <div> {elem.name}</div>
-
-                <div
-                  style={{ display: "flex", flexDirection: "row", gap: "8px" }}
+                    <img
+                      className={styles.card}
+                      style={{
+                        height: "290px",
+                        width: "280px",
+                        objectFit: "cover",
+                      }}
+                      src={elem.image}
+                      alt=""
+                    />
+                  </CardContent>
+                </Card>
+                <Typography
+                  // align="center"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                  }}
                 >
-                  <p style={{ textDecoration: "line-through" }}>
-                    {elem.price}.00$
-                  </p>{" "}
-                  <p>
-                    {Math.round(
-                      elem.price - (elem.discountPercent / 100) * elem.price
-                    )}
-                    .00$
-                  </p>
-                </div>
-              </Typography>
-            </Grid>
-          ))}
+                  <div>
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                  </div>
+                  <div> {elem.name}</div>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      gap: "8px",
+                    }}
+                  >
+                    <p style={{ textDecoration: "line-through" }}>
+                      {elem.price}.00$
+                    </p>{" "}
+                    <p>
+                      {Math.round(
+                        elem.price - (elem.discountPercent / 100) * elem.price
+                      )}
+                      .00$
+                    </p>
+                  </div>
+                </Typography>
+              </Grid>
+            ))}
         </Grid>
       </Container>
       <Grid
