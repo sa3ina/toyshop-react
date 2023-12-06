@@ -51,7 +51,7 @@ import {
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Wishlist from "../wishlist";
-function Home({ product }) {
+function Home() {
   let user = JSON.parse(localStorage.getItem("loggedInUser")) || [];
 
   const navigate = useNavigate();
@@ -95,6 +95,7 @@ function Home({ product }) {
   };
   const basketProd = useSelector((state) => state.basket.basketItems);
   const [userWishlist, setUserWishlist] = useState([]);
+
   const handleAddToWishlist = async (userId, productId) => {
     await dispatch(addToWishlist({ userId, productId }));
     try {
@@ -208,6 +209,9 @@ function Home({ product }) {
     } catch (error) {
       console.error("Error during checkout:", error);
     }
+
+    let arrWishlist = JSON.parse(localStorage.getItem("loggedInUser"));
+    console.log(arrWishlist.wishlist);
   };
 
   return (
@@ -693,12 +697,14 @@ function Home({ product }) {
                           name: elem.name,
                           price: elem.price,
                           image: elem.image,
-                          quantity: 1,
                         });
-                        dispatch(setCheck(true));
                       }}
                     >
-                      <FavoriteIcon color="error" />
+                      {userWishlist.find((x) => x.id === elem.id) ? (
+                        <FavoriteIcon color="error" />
+                      ) : (
+                        <FavoriteBorderIcon color="error" />
+                      )}
                     </button>
                     <button
                       className={styles.addtoCart}
@@ -898,12 +904,14 @@ function Home({ product }) {
                           name: elem.name,
                           price: elem.price,
                           image: elem.image,
-                          quantity: 1,
                         });
-                        dispatch(setCheck(true));
                       }}
                     >
-                      <FavoriteIcon color="error" />
+                      {userWishlist.find((x) => x.id === elem.id) ? (
+                        <FavoriteIcon color="error" />
+                      ) : (
+                        <FavoriteBorderIcon color="error" />
+                      )}
                     </button>
                     <button
                       className={styles.addtoCart}
