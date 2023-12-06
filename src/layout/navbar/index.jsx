@@ -22,11 +22,13 @@ import { setCheck } from "../../redux/slices/cardSlice";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import { setWishCheck } from "../../redux/slices/cardSlice";
 // import { Link } from "@mui/material";
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
+  const checkWishlist = useSelector((state) => state.products.wishCheck);
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
   const dispatch = useDispatch();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -87,7 +89,7 @@ function Navbar() {
               color="black"
             >
               <MenuIcon />
-              {/* <SearchOutlinedIcon /> */}
+              <SearchOutlinedIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -110,11 +112,11 @@ function Navbar() {
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">Shop</Typography>
               </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
+              {/* <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">Trending</Typography>
-              </MenuItem>
+              </MenuItem> */}
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Pages</Typography>
+                <Typography textAlign="center">About</Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
                 <Link
@@ -163,7 +165,7 @@ function Navbar() {
             >
               Shop
             </Button>
-            <Button
+            {/* <Button
               className={style.button}
               onClick={handleCloseNavMenu}
               sx={{
@@ -175,7 +177,7 @@ function Navbar() {
               }}
             >
               Trending
-            </Button>
+            </Button> */}
             <Button
               className={style.button}
               onClick={handleCloseNavMenu}
@@ -187,7 +189,7 @@ function Navbar() {
                 fontFamily: "Bradley hand,cursive",
               }}
             >
-              Pages
+              About
             </Button>
             <Button
               className={style.button}
@@ -231,8 +233,10 @@ function Navbar() {
                     border: "none",
                     color: "grey",
                   }}
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault();
                     dispatch(setCheck(!checkValue));
+                    dispatch(setWishCheck(!checkWishlist));
                   }}
                 >
                   <ShoppingBagOutlinedIcon />

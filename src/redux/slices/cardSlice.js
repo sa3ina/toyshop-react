@@ -12,9 +12,10 @@ export const deleteProduct = createAsyncThunk(
     await fetch(`http://localhost:3000/posts/${productId}`, {
       method: "DELETE",
     });
-    return productId; // Return the ID of the deleted product
+    return productId;
   }
 );
+
 
 export const editProductInDB = createAsyncThunk(
   "users/editUser",
@@ -32,6 +33,7 @@ export const editProductInDB = createAsyncThunk(
   }
 );
 
+
 const cardSlice = createSlice({
   name: "product",
   initialState: {
@@ -39,12 +41,17 @@ const cardSlice = createSlice({
     status: "idle",
     error: null,
     check: false,
+    wishCheck: false,
   },
   reducers: {
     setCheck: (state, action) => {
       state.check = action.payload;
     },
+    setWishCheck: (state, action) => {
+      state.wishCheck = action.payload;
+    },
   },
+
   extraReducers: {
     [cardProducts.pending]: (state) => {
       state.status = "loading";
@@ -59,7 +66,6 @@ const cardSlice = createSlice({
     },
     [deleteProduct.fulfilled]: (state, action) => {
       state.posts = state.posts.filter((user) => user.id !== action.payload);
-      // Assuming users is an array in your state and you're removing the user by ID
     },
 
     [editProductInDB.fulfilled]: (state, action) => {
@@ -77,5 +83,5 @@ const cardSlice = createSlice({
 
 export default cardSlice.reducer;
 export const { setCheck } = cardSlice.actions;
-
+export const { setWishCheck } = cardSlice.actions;
 export { cardSlice };

@@ -179,17 +179,17 @@ function Home() {
   const totalPrice = calculateTotalPrice();
   const productIdToRemove = 1;
 
-  // const handleRemoveFromCart = async (productIdToRemove) => {
-  //   try {
-  //     await axios.put(`http://localhost:3000/users/${user.id}`, {
-  //       basket: [...basket],
-  //     });
+  const handleRemoveFromCart = async (productIdToRemove) => {
+    try {
+      await axios.put(`http://localhost:3000/users/${user.id}`, {
+        basket: [...basket],
+      });
 
-  //     dispatch(removeFromCart(user.id, productIdToRemove));
-  //   } catch (error) {
-  //     console.error("Error during removal:", error);
-  //   }
-  // };
+      dispatch(removeFromCart(user.id, productIdToRemove));
+    } catch (error) {
+      console.error("Error during removal:", error);
+    }
+  };
 
   useEffect(() => {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
@@ -1243,7 +1243,7 @@ function Home() {
                     style={{
                       display: "flex",
                       justifyContent: "space-around",
-                      // alignItems: "center",
+
                       flexDirection: "column",
                     }}
                   >
@@ -1269,11 +1269,47 @@ function Home() {
                         padding: "0 5px",
                         cursor: "pointer",
                       }}
-                      onClick={() =>
-                        dispatch(
-                          removeFromCart({ id: user.id, prodId: item.id })
-                        )
-                      }
+                      onClick={() => {
+                        axios
+                          .get(`http://localhost:3000/users/${user.id}`)
+                          .then((response) => {
+                            const currentUserData = response.data;
+
+                            const productIndex =
+                              currentUserData.basket.findIndex(
+                                (basketItem) => basketItem.id === item.id
+                              );
+
+                            if (productIndex !== -1) {
+                              currentUserData.basket.splice(productIndex, 1);
+
+                              axios
+                                .put(`http://localhost:3000/users/${user.id}`, {
+                                  ...currentUserData,
+                                })
+                                .then((updateResponse) => {
+                                  console.log(
+                                    "Successfully updated user basket:",
+                                    updateResponse.data
+                                  );
+                                  setUserBasket([...currentUserData.basket]);
+                                })
+                                .catch((updateError) => {
+                                  console.error(
+                                    "Error updating user basket:",
+                                    updateError
+                                  );
+                                });
+                            } else {
+                              console.log(
+                                "Product not found in the user's basket"
+                              );
+                            }
+                          })
+                          .catch((error) => {
+                            console.error("Error fetching user data:", error);
+                          });
+                      }}
                     >
                       x
                     </button>

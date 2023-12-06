@@ -38,7 +38,16 @@ export const addToCart = createAsyncThunk(
     }
   }
 );
+export const removeFromCart = createAsyncThunk(
+  "cart/removeFromCart",
+  async ({ userId, productId }) => {
+    await axios.put(`http://localhost:3000/users/${userId}`, {
+      productIdToRemove: productId,
+    });
 
+    return { userId, productId };
+  }
+);
 const basketSlice = createSlice({
   name: "basket",
   initialState: {
@@ -51,15 +60,6 @@ const basketSlice = createSlice({
     clearCart: (state) => {
       return { ...state, basketItems: [] };
       // state.basketItems = [];
-    },
-    removeFromCart: (state, action) => {
-      const productId = action.payload.prodId;
-
-      console.log(productId);
-      console.log(state.basketItems);
-      state.basketItems = state.basketItems.filter(
-        (item) => item.id !== productId
-      );
     },
   },
   extraReducers: (builder) => {
@@ -74,8 +74,13 @@ const basketSlice = createSlice({
       state.status = "failed";
       state.error = action.error.message;
     });
+    builder.addCase(removeFromCart.fulfilled, (state, action) => {
+      state.basketItems = state.basketItems.filter(
+        (item) => item.id !== action.payload.productId
+      );
+    });
   },
 });
 export const { clearCart } = basketSlice.actions;
-export const { removeFromCart } = basketSlice.actions;
+
 export default basketSlice.reducer;
