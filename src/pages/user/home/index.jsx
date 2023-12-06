@@ -82,8 +82,6 @@ function Home({ product }) {
   // }, [dispatch]);
   const [userWishlist, setUserWishlist] = useState([]);
 
-
-
   const handleAddToCart = async (userId, productId) => {
     await dispatch(addToCart({ userId, productId }));
     try {
@@ -99,7 +97,7 @@ function Home({ product }) {
   };
 
   let local = JSON.parse(localStorage.getItem("loggedInUser"));
-  console.log(local.wishlist);
+  console.log(local?.wishlist);
   // let icon=local.wishlist.find((x)=>x.id==)
 
   const handleAddToWishlist = async (userId, productId) => {
@@ -133,6 +131,9 @@ function Home({ product }) {
 
   const wishlistProd = useSelector((state) => state.wishlist.wishlistItem);
 
+  // const wishlist = useSelector((state) => state.wishlist);
+  // const isWishlistItem = wishlist.some((item) => item.id === product.id);
+
   // const handleWishlistClick = () => {
   //   if (product && product.id) {
   //     if (isWishlistItem) {
@@ -144,21 +145,6 @@ function Home({ product }) {
   //     console.error("Product ID is undefined or does not exist.");
   //   }
   // };
-
-  const wishlist = useSelector((state) => state.wishlist);
-  const isWishlistItem = wishlist.some((item) => item.id === product.id);
-
-  const handleWishlistClick = () => {
-    if (product && product.id) {
-      if (isWishlistItem) {
-        dispatch(removeFromWishlist(product.id));
-      } else {
-        dispatch(addToWishlist(product));
-      }
-    } else {
-      console.error("Product ID is undefined or does not exist.");
-    }
-  };
 
   const [userBasket, setUserBasket] = useState([]);
 
