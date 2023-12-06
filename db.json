@@ -255,6 +255,36 @@
       "comments": "",
       "reviews": "",
       "id": "vxlib0q"
+
+    },
+    {
+      "name": "Christensen",
+      "surname": "Beck",
+      "email": "Phillips",
+      "password": "Pa$$w0rd!",
+      "orders": [],
+      "balance": 0,
+      "basket": [],
+      "wishlist": [],
+      "isAdmin": false,
+      "comments": "",
+      "reviews": "",
+      "id": "E3raAwy"
+    },
+    {
+      "name": "Hinton",
+      "surname": "Murphy",
+      "email": "Rosario",
+      "password": "Pa$$w0rd!",
+      "orders": [],
+      "balance": 0,
+      "basket": [],
+      "wishlist": [],
+      "isAdmin": false,
+      "comments": "",
+      "reviews": "",
+      "id": "MJPsJqA"
+
     }
   ]
 }
