@@ -129,17 +129,29 @@
       "id": "3"
     },
     {
-      "name": "Daisy",
-      "surname": "Miller",
-      "email": "daisy@example.com",
-      "password": "daisy123",
-      "orders": [],
-      "balance": 7,
-      "basket": [],
-      "wishlist": [],
-      "isAdmin": false,
-      "comments": "Passionate about curating educational toys that foster creativity and learning in children.",
-      "reviews": "Impressive selection of educational toys. My kids love them!",
+      "basket": [
+        {
+          "id": "4",
+          "name": "Cotton rope storage bag",
+          "price": 39,
+          "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-9.jpg?v=1698814412&width=535",
+          "quantity": 5
+        },
+        {
+          "id": "8",
+          "name": "Teething rattle toy",
+          "price": 40,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-02.jpg?v=1698814462",
+          "quantity": 2
+        },
+        {
+          "id": "5",
+          "name": "Perk penguin stuffed",
+          "price": 39,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-12.jpg?v=1698814426&width=535",
+          "quantity": 1
+        }
+      ],
       "id": "4"
     },
     {
@@ -299,7 +311,7 @@
           "name": "Wooden stacking rings",
           "price": 52,
           "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-14.jpg?v=1698814441&width=535",
-          "quantity": 2
+          "quantity": 4
         },
         {
           "id": "1",
@@ -307,26 +319,39 @@
           "price": 49,
           "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-13.jpg?v=1698814434&width=720",
           "quantity": 1
+        },
+        {
+          "id": "4",
+          "name": "Cotton rope storage bag",
+          "price": 39,
+          "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-9.jpg?v=1698814412&width=535",
+          "quantity": 1
         }
       ],
       "wishlist": [
         {
-          "id": "1",
-          "name": "Cute teddy bear toy",
-          "price": 49,
-          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-13.jpg?v=1698814434&width=720"
+          "id": "8",
+          "name": "Teething rattle toy",
+          "price": 40,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-02.jpg?v=1698814462"
         },
         {
-          "id": "2",
-          "name": "Wooden stacking rings",
-          "price": 52,
-          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-14.jpg?v=1698814441&width=535"
+          "id": "9",
+          "name": "Unicorn blue soft toy",
+          "price": 34,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-15.jpg?v=1698814449&width=535"
         },
         {
-          "id": "3",
-          "name": "Tiger on wheels toy",
-          "price": 46,
-          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-07.jpg?v=1698814405&width=535"
+          "id": "7",
+          "name": "Soft dinosaur toy",
+          "price": 34,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-04_002bd689-de4b-459e-af7c-974cb9116516.jpg?v=1698814487&width=720"
+        },
+        {
+          "id": "4",
+          "name": "Cotton rope storage bag",
+          "price": 39,
+          "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-9.jpg?v=1698814412&width=535"
         }
       ],
       "isAdmin": false,

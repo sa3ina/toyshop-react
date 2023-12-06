@@ -16,11 +16,13 @@ function Footer() {
   return (
     <>
       <div className={style.footer}>
-        <div style={{ width: "100%" }}>
-          <img
-            src="https://hongotheme.myshopify.com/cdn/shop/files/demo-kids-toy-bg-img-03.jpg?v=1698815628"
-            alt=""
-          />
+        <div>
+          <div>
+            <img
+              src="https://hongotheme.myshopify.com/cdn/shop/files/demo-kids-toy-bg-img-03.jpg?v=1698815628"
+              alt=""
+            />
+          </div>
           <Container maxWidth="xl">
             <Box sx={{ flexGrow: 1 }}>
               <Grid
@@ -48,14 +50,17 @@ function Footer() {
                       sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
                       to="/"
                     >
-                      <img
-                        style={{
-                          width: "40%",
-                          height: "40%",
-                        }}
-                        src="https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-header-logo.svg?v=1698918200"
-                        alt=""
-                      />
+                      <div className={style.imgfooter}>
+                        <img
+                          style={{
+                            width: "40%",
+                            height: "40%",
+                          }}
+                          className={style.hongoimg}
+                          src="https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-header-logo.svg?v=1698918200"
+                          alt=""
+                        />
+                      </div>
                     </Link>
                     <p>
                       Explore our unique collection of limited editions. Find

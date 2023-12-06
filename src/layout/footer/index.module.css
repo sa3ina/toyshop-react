@@ -3,20 +3,22 @@
   /* width: 100vw; */
   background-color: #d8e9e8;
   margin: 0;
+  width: 100vw;
 }
 .footer img {
   margin-bottom: 15px;
-  padding-left: 20px;
+  /* padding-left: 20px; */
   width: 100%;
 }
 .footer .box1 {
   border-right: 1px solid #626262;
   padding: 20px;
+  height: 100%;
 }
 .footer .box1 p {
   color: #626262;
   word-break: break-all;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .footer .box1 .sosialIcon ul {
@@ -32,6 +34,11 @@
   border-right: 1px solid #626262;
   /* padding: 20px; */
   text-align: center;
+  height: 150px;
+  height: 100%;
+}
+.footer .box2 li {
+  margin-bottom: 15px;
 }
 .footer .box2 .information {
   color: #3f3f3f;
@@ -66,4 +73,10 @@
 }
 .linksPhone:hover {
   color: #3f3f3f;
+}
+
+.imgfooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

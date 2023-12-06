@@ -6,6 +6,7 @@ import { Typography, Grid } from "@mui/material";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import {
   faChevronRight,
   faStar,
@@ -24,61 +25,20 @@ import { cardProducts } from "../../../redux/slices/cardSlice";
 import { addToWishlist } from "../../../redux/slices/wishlistSlice";
 import { useEffect, useState } from "react";
 import styles from "./index.module.css";
-import { setCheck } from "../../../redux/slices/cardSlice";
+// import { setCheck } from "../../../redux/slices/cardSlice";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-// import { addToCart } from "../../../redux/slices/basketSlice";
-
+import { setWishCheck } from "../../../redux/slices/cardSlice";
+import { addToCart } from "../../../redux/slices/basketSlice";
 function Wishlist() {
-  const cardProd = useSelector((state) => state.products.posts);
-  const checkValue = useSelector((state) => state.products.check);
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(cardProducts());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(cardProducts());
+  }, [dispatch]);
   const [userBasket, setUserBasket] = useState([]);
   const [userWishlist, setUserWishlist] = useState([]);
-
+  const checkWishlist = useSelector((state) => state.products.wishCheck);
   let user = JSON.parse(localStorage.getItem("loggedInUser")) || [];
-
-  const handleIncrement = (index) => {
-    const updatedBasket = [...userBasket];
-    updatedBasket[index].quantity++;
-    setUserBasket(updatedBasket);
-  };
-
-  const handleDecrement = (index) => {
-    const updatedBasket = [...userBasket];
-    if (updatedBasket[index].quantity > 1) {
-      updatedBasket[index].quantity--;
-      setUserBasket(updatedBasket);
-    }
-  };
-
-  const handleAddToCart = async (productId) => {
-    try {
-      await dispatch(addToCart({ userId: user.id, productId }));
-      setUserBasket((prevBasket) => [...prevBasket, productId]);
-      dispatch(setCheck(true));
-    } catch (error) {
-      console.error("Error adding item to cart:", error);
-    }
-  };
-
-  // const handleAddToCart = async (userId, productId) => {
-  //   await dispatch(addToCart({ userId, productId }));
-  //   try {
-  //     const response = await fetch(`http://localhost:3000/users/${user.id}`);
-  //     const userData = await response.json();
-
-  //     if (userData && userData.basket) {
-  //       setUserBasket(userData.basket);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error fetching user basket:", error);
-  //   }
-  // };
-  const basketProd = useSelector((state) => state.basket.basketItems);
-  console.log(basketProd);
+  console.log(userBasket);
 
   useEffect(() => {
     const fetchUserBasket = async () => {
@@ -97,49 +57,31 @@ function Wishlist() {
     fetchUserBasket();
   }, [user.id]);
 
-  useEffect(() => {
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
-
-    if (loggedInUser && loggedInUser.basket) {
-      setUserBasket(loggedInUser.basket);
-    }
-  }, []);
-  // const calculateTotalPrice = () => {
-  //   let totalPrice = 0;
-  //   userBasket.forEach((item) => {
-  //     totalPrice += item.price * item.quantity;
-  //   });
-  //   return totalPrice;
-  // };
-  const calculateTotalPrice = () => {
-    return userBasket.reduce(
-      (total, item) => total + item.price * item.quantity,
-      0
-    );
-  };
-
-  const totalPrice = calculateTotalPrice();
-  const productIdToRemove = 1;
-
-  const handleCheckout = async () => {
+  const handleAddToCart = async (userId, productId) => {
+    await dispatch(addToCart({ userId, productId }));
     try {
-      await axios.put(`http://localhost:3000/users/${user.id}`, {
-        basket: [],
-      });
-      setUserBasket([]);
-      dispatch(clearCart());
-      // dispatch(setCheck(false));
+      const response = await fetch(`http://localhost:3000/users/${user.id}`);
+      const userData = await response.json();
+
+      if (userData && userData.basket) {
+        setUserBasket(userData.basket);
+      }
     } catch (error) {
-      console.error("Error during checkout:", error);
+      console.error("Error fetching user basket:", error);
     }
   };
+  // useEffect(() => {
+  //   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
 
-  const wishlistProd = useSelector((state) => state.wishlist.wishlistItem);
+  //   if (loggedInUser && loggedInUser.basket) {
+  //     setUserBasket(loggedInUser.basket);
+  //   }
+  // }, []);
 
-  console.log(wishlistProd);
+  // const wishlistProd = useSelector((state) => state.wishlist.wishlistItem);
 
   let arrWishlist = JSON.parse(localStorage.getItem("loggedInUser"));
-  console.log(arrWishlist?.wishlist);
+  // console.log(arrWishlist?.wishlist);
 
   const handleRemoveToWishlist = async (userId, productId) => {
     await dispatch(addToWishlist({ userId, productId }));
@@ -154,7 +96,42 @@ function Wishlist() {
     }
     setUserWishlist(currentUser.wishlist);
   };
+  const handleCheckout = async () => {
+    try {
+      await axios.put(`http://localhost:3000/users/${user.id}`, {
+        basket: [],
+      });
+      setUserBasket([]);
+      dispatch(clearCart());
+    } catch (error) {
+      console.error("Error during checkout:", error);
+    }
 
+    let arrWishlist = JSON.parse(localStorage.getItem("loggedInUser"));
+    console.log(arrWishlist.wishlist);
+  };
+  const handleIncrement = (index) => {
+    const updatedBasket = [...userBasket];
+    updatedBasket[index].quantity++;
+    setUserBasket(updatedBasket);
+  };
+  const handleDecrement = (index) => {
+    const updatedBasket = [...userBasket];
+    if (updatedBasket[index].quantity > 1) {
+      updatedBasket[index].quantity--;
+      setUserBasket(updatedBasket);
+    }
+  };
+
+  const calculateTotalPrice = () => {
+    let totalPrice = 0;
+    userBasket.forEach((item) => {
+      totalPrice += item.price * item.quantity;
+    });
+    return totalPrice;
+  };
+
+  const totalPrice = calculateTotalPrice();
   return (
     <>
       <Container>
@@ -254,7 +231,7 @@ function Wishlist() {
                           image: elem.image,
                           quantity: 1,
                         });
-                        dispatch(setCheck(true));
+                        dispatch(setWishCheck(true));
                       }}
                     >
                       ADD TO CART
@@ -325,7 +302,7 @@ function Wishlist() {
         md={4}
         xs={12}
         style={{
-          display: totalPrice > 0 ? "block" : "none",
+          display: checkWishlist ? "block" : "none",
           position: "fixed",
           top: "0",
           right: "0",
@@ -356,7 +333,7 @@ function Wishlist() {
               backgroundColor: "transparent",
             }}
             onClick={() => {
-              dispatch(setCheck(false));
+              dispatch(setWishCheck(false));
             }}
           >
             x
@@ -427,11 +404,47 @@ function Wishlist() {
                         padding: "0 5px",
                         cursor: "pointer",
                       }}
-                      onClick={() =>
-                        dispatch(
-                          removeFromCart({ id: user.id, prodId: item.id })
-                        )
-                      }
+                      onClick={() => {
+                        axios
+                          .get(`http://localhost:3000/users/${user.id}`)
+                          .then((response) => {
+                            const currentUserData = response.data;
+
+                            const productIndex =
+                              currentUserData.basket.findIndex(
+                                (basketItem) => basketItem.id === item.id
+                              );
+
+                            if (productIndex !== -1) {
+                              currentUserData.basket.splice(productIndex, 1);
+
+                              axios
+                                .put(`http://localhost:3000/users/${user.id}`, {
+                                  ...currentUserData,
+                                })
+                                .then((updateResponse) => {
+                                  console.log(
+                                    "Successfully updated user basket:",
+                                    updateResponse.data
+                                  );
+                                  setUserBasket([...currentUserData.basket]);
+                                })
+                                .catch((updateError) => {
+                                  console.error(
+                                    "Error updating user basket:",
+                                    updateError
+                                  );
+                                });
+                            } else {
+                              console.log(
+                                "Product not found in the user's basket"
+                              );
+                            }
+                          })
+                          .catch((error) => {
+                            console.error("Error fetching user data:", error);
+                          });
+                      }}
                     >
                       x
                     </button>
