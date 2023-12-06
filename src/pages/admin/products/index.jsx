@@ -15,14 +15,21 @@ import { cardProducts } from "../../../redux/slices/cardSlice";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Dashboard from "../dashboard";
+import { productItems } from "../../../redux/slices/productsSlice";
+import { deleteProduct } from "../../../redux/slices/cardSlice";
 function AdminProducts() {
   const cardProd = useSelector((state) => state.products.posts);
+  const products = useSelector((state) => state.products.products);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(cardProducts());
     console.log(cardProducts());
   }, [dispatch]);
+  const handleDelete = (productId) => {
+    dispatch(deleteProduct(productId));
+  };
+
   return (
     <Grid container>
       <Dashboard />
@@ -82,6 +89,7 @@ function AdminProducts() {
                           borderRadius: "5px",
                           cursor: "pointer",
                         }}
+                        onClick={() => handleDelete(product.id)}
                       >
                         delete
                       </button>

@@ -30,10 +30,10 @@
 .item2 {
   display: flex;
 }
-span {
+/* span {
   color: #f96835;
   font-size: 20px;
-}
+} */
 .item2 {
   padding-top: 100px;
 }
@@ -117,10 +117,10 @@ h4 {
   justify-content: center;
   color: black;
 }
-p {
+/* p {
   font-family: "Inter", sans-serif;
   color: #626262;
-}
+} */
 .imagess {
   transition: transform 0.8s ease-in-out;
 }

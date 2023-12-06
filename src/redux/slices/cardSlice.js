@@ -6,7 +6,15 @@ export const cardProducts = createAsyncThunk("posts/fetchPosts", async () => {
   const data = await response.json();
   return data;
 });
-
+export const deleteProduct = createAsyncThunk(
+  "products/deleteProduct",
+  async (productId) => {
+    await fetch(`http://localhost:3000/posts/${productId}`, {
+      method: "DELETE",
+    });
+    return productId; // Return the ID of the deleted product
+  }
+);
 const cardSlice = createSlice({
   name: "product",
   initialState: {
@@ -32,9 +40,14 @@ const cardSlice = createSlice({
       state.status = "failed";
       state.error = action.error.message;
     },
+    [deleteProduct.fulfilled]: (state, action) => {
+      state.posts = state.posts.filter((user) => user.id !== action.payload);
+      // Assuming users is an array in your state and you're removing the user by ID
+    },
   },
 });
 
 export default cardSlice.reducer;
 export const { setCheck } = cardSlice.actions;
+
 export { cardSlice };
