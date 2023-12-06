@@ -51,6 +51,7 @@ import {
 } from "../../../redux/slices/wishlistSlice";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import Wishlist from "../wishlist";
 function Home({ product }) {
   let user = JSON.parse(localStorage.getItem("loggedInUser")) || [];
 
@@ -75,6 +76,11 @@ function Home({ product }) {
       setUserBasket(updatedBasket);
     }
   };
+
+  // useEffect(() => {
+  //   dispatch(basketProducts());
+  // }, [dispatch]);
+  const [userWishlist, setUserWishlist] = useState([]);
 
   const handleAddToCart = async (userId, productId) => {
     await dispatch(addToCart({ userId, productId }));
@@ -136,6 +142,24 @@ function Home({ product }) {
 
     fetchUserBasket();
   }, []);
+
+  useEffect(() => {
+    const fetchUserWishlist = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/users/${user.id}`);
+        const userData = await response.json();
+
+        if (userData && userData.wishlist) {
+          setUserWishlist(userData.wishlist);
+        }
+      } catch (error) {
+        console.error("Error fetching user wishlist:", error);
+      }
+    };
+
+    fetchUserWishlist();
+  }, []);
+
   useEffect(() => {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
 
@@ -165,6 +189,14 @@ function Home({ product }) {
   //     console.error("Error during removal:", error);
   //   }
   // };
+
+  useEffect(() => {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
+
+    if (loggedInUser && loggedInUser) {
+      localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+    }
+  }, []);
 
   const handleCheckout = async () => {
     try {
@@ -652,6 +684,7 @@ function Home({ product }) {
                     }}
                   >
                     <button
+                      name={elem.id}
                       className={styles.heart}
                       style={{ cursor: "pointer", border: "none" }}
                       onClick={() => {

@@ -247,25 +247,7 @@
       "reviews": "Love the initiative to organize charity drives. Keep up the good work!",
       "id": "5"
     },
-    {
-      "basket": [
-        {
-          "id": "3",
-          "name": "Tiger on wheels toy",
-          "price": 46,
-          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-07.jpg?v=1698814405&width=535",
-          "quantity": 1
-        },
-        {
-          "id": "2",
-          "name": "Wooden stacking rings",
-          "price": 52,
-          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-14.jpg?v=1698814441&width=535",
-          "quantity": 1
-        }
-      ],
-      "id": "6"
-    },
+
     {
       "name": "Price",
       "surname": "Blankenship",
@@ -276,15 +258,16 @@
       "basket": [],
       "wishlist": [],
       "isAdmin": false,
-      "comments": "",
-      "reviews": "",
-      "id": "OYbA9yW"
+
+      "comments": "Actively involved in organizing charity drives and events to provide toys for less fortunate kids.",
+      "reviews": "Love the initiative to organize charity drives. Keep up the good work!",
+      "id": "6"
     },
     {
-      "name": "Patton",
-      "surname": "Garner",
-      "email": "Butler",
-      "password": "Pa$$w0rd!",
+      "name": "qurban",
+      "lastname": "qurban",
+      "email": "qurban",
+      "password": "qurban",
       "orders": [],
       "balance": 0,
       "basket": [],
@@ -292,7 +275,22 @@
       "isAdmin": false,
       "comments": "",
       "reviews": "",
-      "id": "2sLZAqk"
+      "id": "4KOffMw"
+    },
+    {
+      "name": "fatma",
+      "lastname": "fatma",
+      "email": "fatma",
+      "password": "123",
+      "orders": [],
+      "balance": 0,
+      "basket": [],
+      "wishlist": [],
+      "isAdmin": false,
+      "comments": "",
+      "reviews": "",
+      "id": "vxlib0q"
+
     },
     {
       "name": "Christensen",
@@ -335,6 +333,7 @@
       "comments": "",
       "reviews": "",
       "id": "rHtZgHD"
+
     }
   ]
 }

@@ -23,8 +23,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { cardProducts } from "../../../redux/slices/cardSlice";
 import { addToWishlist } from "../../../redux/slices/wishlistSlice";
 import { useEffect, useState } from "react";
+import { addToWishlist } from "../../../redux/slices/wishlistSlice";
+import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import { setCheck } from "../../../redux/slices/cardSlice";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 function Wishlist() {
   const cardProd = useSelector((state) => state.products.posts);
@@ -176,7 +179,56 @@ function Wishlist() {
                     <FontAwesomeIcon icon={faStar} />
                   </div>
                   <div> {elem.name}</div>
+                    <img
+                      className={styles.card}
+                      style={{
+                        height: "290px",
+                        width: "280px",
+                        objectFit: "cover",
+                      }}
+                      src={elem.image}
+                      alt=""
+                    />
+                  </CardContent>
+                </Card>
+                <Typography
+                  // align="center"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                  }}
+                >
+                  <div>
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                  </div>
+                  <div> {elem.name}</div>
 
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      gap: "8px",
+                    }}
+                  >
+                    <p style={{ textDecoration: "line-through" }}>
+                      {elem.price}.00$
+                    </p>{" "}
+                    <p>
+                      {Math.round(
+                        elem.price - (elem.discountPercent / 100) * elem.price
+                      )}
+                      .00$
+                    </p>
+                  </div>
+                </Typography>
+              </Grid>
+            ))}
                   <div
                     style={{
                       display: "flex",
