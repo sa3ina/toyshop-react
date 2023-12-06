@@ -26,6 +26,7 @@ import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import { setCheck } from "../../../redux/slices/cardSlice";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+// import { addToCart } from "../../../redux/slices/basketSlice";
 
 function Wishlist() {
   const cardProd = useSelector((state) => state.products.posts);
@@ -34,6 +35,8 @@ function Wishlist() {
   // useEffect(() => {
   //   dispatch(cardProducts());
   // }, [dispatch]);
+  const [userBasket, setUserBasket] = useState([]);
+  const [userWishlist, setUserWishlist] = useState([]);
 
   let user = JSON.parse(localStorage.getItem("loggedInUser")) || [];
 
@@ -51,22 +54,31 @@ function Wishlist() {
     }
   };
 
-  const handleAddToCart = async (userId, productId) => {
-    await dispatch(addToCart({ userId, productId }));
+  const handleAddToCart = async (productId) => {
     try {
-      const response = await fetch(`http://localhost:3000/users/${user.id}`);
-      const userData = await response.json();
-
-      if (userData && userData.basket) {
-        setUserBasket(userData.basket);
-      }
+      await dispatch(addToCart({ userId: user.id, productId }));
+      setUserBasket((prevBasket) => [...prevBasket, productId]);
+      dispatch(setCheck(true));
     } catch (error) {
-      console.error("Error fetching user basket:", error);
+      console.error("Error adding item to cart:", error);
     }
   };
-  const basketProd = useSelector((state) => state.basket.basketItems);
 
-  const [userBasket, setUserBasket] = useState([]);
+  // const handleAddToCart = async (userId, productId) => {
+  //   await dispatch(addToCart({ userId, productId }));
+  //   try {
+  //     const response = await fetch(`http://localhost:3000/users/${user.id}`);
+  //     const userData = await response.json();
+
+  //     if (userData && userData.basket) {
+  //       setUserBasket(userData.basket);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching user basket:", error);
+  //   }
+  // };
+  const basketProd = useSelector((state) => state.basket.basketItems);
+  console.log(basketProd);
 
   useEffect(() => {
     const fetchUserBasket = async () => {
@@ -83,7 +95,7 @@ function Wishlist() {
     };
 
     fetchUserBasket();
-  }, []);
+  }, [user.id]);
 
   useEffect(() => {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
@@ -92,12 +104,18 @@ function Wishlist() {
       setUserBasket(loggedInUser.basket);
     }
   }, []);
+  // const calculateTotalPrice = () => {
+  //   let totalPrice = 0;
+  //   userBasket.forEach((item) => {
+  //     totalPrice += item.price * item.quantity;
+  //   });
+  //   return totalPrice;
+  // };
   const calculateTotalPrice = () => {
-    let totalPrice = 0;
-    userBasket.forEach((item) => {
-      totalPrice += item.price * item.quantity;
-    });
-    return totalPrice;
+    return userBasket.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
   };
 
   const totalPrice = calculateTotalPrice();
@@ -110,6 +128,7 @@ function Wishlist() {
       });
       setUserBasket([]);
       dispatch(clearCart());
+      // dispatch(setCheck(false));
     } catch (error) {
       console.error("Error during checkout:", error);
     }
@@ -117,9 +136,7 @@ function Wishlist() {
 
   const wishlistProd = useSelector((state) => state.wishlist.wishlistItem);
 
-
   console.log(wishlistProd);
-
 
   let arrWishlist = JSON.parse(localStorage.getItem("loggedInUser"));
   console.log(arrWishlist?.wishlist);
@@ -135,7 +152,7 @@ function Wishlist() {
       currentUser.wishlist.splice(idx, 1);
       localStorage.setItem("loggedInUser", JSON.stringify(currentUser));
     }
-    // setUserWishlist(currentUser.wishlist);?
+    setUserWishlist(currentUser.wishlist);
   };
 
   return (
@@ -215,16 +232,12 @@ function Wishlist() {
                       name={elem.id}
                       className={styles.heart}
                       onClick={() => {
-
                         handleRemoveToWishlist(user.id, {
                           id: elem.id,
                           name: elem.name,
                           price: elem.price,
                           image: elem.image,
                         });
-
-          
-                        dispatch(setCheck(true));
                       }}
                     >
                       {" "}
@@ -312,7 +325,7 @@ function Wishlist() {
         md={4}
         xs={12}
         style={{
-          display: checkValue ? "block" : "none",
+          display: totalPrice > 0 ? "block" : "none",
           position: "fixed",
           top: "0",
           right: "0",

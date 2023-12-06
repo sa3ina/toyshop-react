@@ -33,6 +33,8 @@ function Navbar() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const checkValue = useSelector((state) => state.products.check);
 
+  const [log, setLog] = useState(false);
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -245,6 +247,7 @@ function Navbar() {
                   }}
                   onClick={() => {
                     localStorage.removeItem("loggedInUser");
+                    loggedInUser ? setLog(true) : setLog(false);
                   }}
                 >
                   {loggedInUser ? <LogoutOutlinedIcon /> : null}
