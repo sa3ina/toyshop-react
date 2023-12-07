@@ -191,7 +191,18 @@ function Navbar() {
                 fontFamily: "Bradley hand,cursive",
               }}
             >
-              About
+              <Link
+                to="/aboutUs"
+                style={{
+                  color: "black",
+                  display: "block",
+                  fontWeight: "800",
+                  fontFamily: "Bradley hand,cursive",
+                  textDecoration: "none",
+                }}
+              >
+                About
+              </Link>
             </Button>
             <Button
               className={style.button}

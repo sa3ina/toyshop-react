@@ -49,7 +49,7 @@ function AboutUs() {
       <section style={style.section3}>
         <Container>
           <Grid spacing={0} container className={style.text3}>
-            <Grid item sx={12}  lg={3} xl={3}>
+            <Grid item sx={12} lg={3} xl={3}>
               <div>
                 <h3>2250</h3>
                 <span
@@ -58,19 +58,19 @@ function AboutUs() {
                 ></span>
               </div>
 
-              <p style={{marginLeft:"25px"}}>STOCK PRODUCTS</p>
+              <p style={{ marginLeft: "25px" }}>STOCK PRODUCTS</p>
             </Grid>
-            <Grid item sx={12}  lg={3} xl={3}>
+            <Grid item sx={12} lg={3} xl={3}>
               <h3>9565</h3>
-              <p style={{marginLeft:"25px"}}>LAST YEAR’S SALES</p>
+              <p style={{ marginLeft: "25px" }}>LAST YEAR’S SALES</p>
             </Grid>
-            <Grid item sx={12}  lg={3} xl={3}>
+            <Grid item sx={12} lg={3} xl={3}>
               <h3>3640</h3>
-              <p style={{marginLeft:"25px"}}>HAPPY CUSTOMERS</p>
+              <p style={{ marginLeft: "25px" }}>HAPPY CUSTOMERS</p>
             </Grid>
-            <Grid item sx={12}  lg={3} xl={3}>
+            <Grid item sx={12} lg={3} xl={3}>
               <h3>9932</h3>
-              <p style={{marginLeft:"25px"}}>GOOGLE REVIEWS</p>
+              <p style={{ marginLeft: "25px" }}>GOOGLE REVIEWS</p>
             </Grid>
           </Grid>
         </Container>
@@ -120,7 +120,7 @@ function AboutUs() {
                     alt=""
                   />
                 </div>
-                <div  className={style.textt} style={{ marginLeft: "20px" }}>
+                <div className={style.textt} style={{ marginLeft: "20px" }}>
                   <h4>Premium toys products</h4>
                   <p>
                     Lorem ipsum is simply dummy text printing typesetting
@@ -128,9 +128,12 @@ function AboutUs() {
                   </p>
                 </div>
               </div>
-              <div className={style.textt} style={{ display: "flex", paddingTop: "30px" }}>
+              <div
+                className={style.textt}
+                style={{ display: "flex", paddingTop: "30px" }}
+              >
                 <div>
-                  <img 
+                  <img
                     src="//wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-about-icon-02.svg?v=1698815629"
                     alt=""
                   />
@@ -166,7 +169,11 @@ function AboutUs() {
       </section>
       <section>
         <Container>
-          <Grid spacing={0} container style={{ display: "flex", marginTop: "60px" }}>
+          <Grid
+            spacing={0}
+            container
+            style={{ display: "flex", marginTop: "60px" }}
+          >
             <Grid item lg={2} sx={5} className={style.items}>
               <img
                 className={style.imagess}
