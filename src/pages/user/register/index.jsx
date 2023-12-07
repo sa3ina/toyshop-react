@@ -173,7 +173,11 @@ function Register() {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <p>Forgot your password?</p>
-              <button type="submit" className={styles.signin}>
+              <button
+                type="submit"
+                className={styles.signin}
+                style={{ cursor: "pointer" }}
+              >
                 {" "}
                 Create now
               </button>

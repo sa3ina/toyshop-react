@@ -1,11 +1,10 @@
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 .section {
-  background-image: url( //1q0zh2ycw9dpybh2-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-contact-us-title-bg-01.jpg?v=1698815628 );
+  background-image: url(//1q0zh2ycw9dpybh2-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-contact-us-title-bg-01.jpg?v=1698815628);
   width: 100%;
   height: 300px;
   background-repeat: repeat-x;
@@ -32,20 +31,20 @@
   display: flex;
   justify-content: space-between;
 }
-.item2 h3{
+.item2 h3 {
   font-size: 40px;
 }
-.prg{
+.prg {
   width: 660px;
 }
-.prg p{
-font-size: 20px;
-font-family: 'Inter', sans-serif;
+.prg p {
+  font-size: 20px;
+  font-family: "Inter", sans-serif;
 }
-p{
-  font-family: 'Inter', sans-serif;
+p {
+  font-family: "Inter", sans-serif;
 }
-.image{
+.image {
   width: 100%;
   height: 500px;
   justify-content: center;
@@ -53,10 +52,8 @@ p{
   text-align: center;
   padding-top: 140px;
   background-color: #d9dcdf;
-  
-  
 }
-.borderlesss{
+.borderlesss {
   width: 200px;
   padding-top: 10px;
   width: 100%;
@@ -67,7 +64,7 @@ p{
   background-color: transparent;
   box-shadow: none;
 }
-.btns{
+.btns {
   margin-top: 20px;
   width: 150px;
   height: 40px;
@@ -75,13 +72,13 @@ p{
   color: white;
   background-color: black;
 }
-.btns:hover{
+.btns:hover {
   color: black;
   background-color: white;
 }
-h4{
+h4 {
   font-size: 40px;
 }
-h5{
+h5 {
   margin-left: 10px;
 }

@@ -467,12 +467,28 @@ function Home() {
         </SwiperSlide>
       </Swiper>
 
-      <Container maxWidth="xl">
-        <Box sx={{ flexGrow: 1 }}>
+      <Container maxWidth="xl" style={{ display: "flex" }}>
+        <Box
+          sx={{ flexGrow: 1 }}
+          style={{
+            width: "90vw",
+
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <Grid
             container
             className={style.container}
-            style={{ width: "100%", marginBottom: "120px" }}
+            style={{
+              width: "100%",
+              marginBottom: "120px",
+
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
             <Grid item className={style.items}>
               <Link to="/products" className={style.icons}>
@@ -491,7 +507,7 @@ function Home() {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        padding: "60px",
+                        padding: "65px",
                       }}
                     >
                       <div
@@ -502,8 +518,8 @@ function Home() {
                           alignItems: "center",
                           justifyContent: "center",
                           padding: "30px",
-                          width: "110px",
-                          height: "110px",
+                          width: "120px",
+                          height: "120px",
                         }}
                       >
                         <img
@@ -812,7 +828,7 @@ function Home() {
                     }}
                   >
                     SHOP NOW
-                    <span>
+                    <span style={{ color: "white" }}>
                       <EastIcon />
                     </span>
                   </button>
@@ -832,7 +848,7 @@ function Home() {
                     }}
                   >
                     SHOP NOW
-                    <span>
+                    <span style={{ color: "white" }}>
                       <EastIcon />
                     </span>
                   </button>
@@ -846,14 +862,14 @@ function Home() {
                     The best <br />
                     thing for kids
                   </h2>
-                  <p>Special ofter gift voucher</p>
+                  <p>Special ofter gift voucher for you</p>
                   <button
                     onClick={() => {
                       navigate("/products");
                     }}
                   >
                     SHOP NOW
-                    <span>
+                    <span style={{ color: "white" }}>
                       <EastIcon />
                     </span>
                   </button>

@@ -130,7 +130,22 @@ function Wishlist() {
     });
     return totalPrice;
   };
+  const StarRating = ({ rating }) => {
+    const stars = [];
 
+    // Assuming rating is out of 5 stars
+    for (let i = 0; i < 5; i++) {
+      stars.push(
+        <FontAwesomeIcon
+          icon={faStar}
+          key={i}
+          style={{ color: i < rating ? "gold" : "gray" }}
+        />
+      );
+    }
+
+    return <div>{stars}</div>;
+  };
   const totalPrice = calculateTotalPrice();
   return (
     <>
@@ -141,7 +156,7 @@ function Wishlist() {
           spacing={8}
           justifyContent="center"
           alignItems="center"
-          style={{ minHeight: "100vh" }}
+          style={{ minHeight: "90vh" }}
         >
           <Grid item xs={12}>
             <Typography
@@ -265,11 +280,7 @@ function Wishlist() {
                   }}
                 >
                   <div>
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
+                    <StarRating rating={elem.rating} />{" "}
                   </div>
                   <div> {elem.name}</div>
 

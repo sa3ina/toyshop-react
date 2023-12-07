@@ -126,11 +126,11 @@ h4 {
 .items:hover .imagess {
   transform: translateY(100px);
 }
-.textt h4{
-font-size: 20px;
+.textt h4 {
+  font-size: 20px;
 }
-@media only screen and (max-width:600px){
-  .image{
+@media only screen and (max-width: 600px) {
+  .image {
     width: 50%;
     height: auto;
   }
