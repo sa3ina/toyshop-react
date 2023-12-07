@@ -19,6 +19,9 @@
   width: 350px;
   text-align: center;
 }
+.text1 p{
+  font-weight: 300;
+}
 .tag {
   width: 200px;
 }
@@ -255,6 +258,7 @@ ul {
   width: 100px;
   height: 40px;
   margin-top: 15px;
+  border-radius: 8px;
 }
 .btn2:hover{
   color: white;

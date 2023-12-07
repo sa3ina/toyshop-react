@@ -375,11 +375,11 @@ function Products() {
             </div></div>
           </Toolbar>
           <Grid
-          lg={12}
+          lg={12} 
             spacing={0}
             style={{  width:"100%"}}
           >
-            <Grid item className={style.item} lg={12} xs={6} style={{ }}>
+            <Grid item className={style.item} lg={12} xs={6} md={12} style={{ }}>
               <div>
                 <span>Showing of 16 products</span>
                 <button className={style.zoom}>||</button>
@@ -388,7 +388,7 @@ function Products() {
               </div>
               <div className={style.sort}>
                 <span>Sort by: </span>
-                <span>Best selling <FontAwesomeIcon icon={faChevronDown} /></span>
+                <span style={{color:"#212529"}}>Best selling <FontAwesomeIcon icon={faChevronDown} /></span>
                 <span></span>
                 <span></span>
                 <span></span>

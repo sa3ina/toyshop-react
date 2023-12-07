@@ -3,6 +3,9 @@ import style from "./index.module.css";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
+import { faUser,faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhoneVolume,faComment} from "@fortawesome/free-solid-svg-icons";
 
 function ContactUs() {
   return( <> <section className={style.section}>
@@ -77,7 +80,7 @@ function ContactUs() {
         </Grid>
         <Grid style={{marginTop:"20px"}} item lg={6} sx={12}><h4>Let’s get in touch.</h4>
         <h5>Your name</h5>
-        <input 
+        <div style={{display:"flex"}}> <input 
     autoComplete="name"
     type="text"
     id="ContactForm-name"
@@ -85,10 +88,12 @@ function ContactUs() {
     value=""
     className={style.borderlesss}
     placeholder="What's your good name?"
-  />
+  /><FontAwesomeIcon icon={faUser} style={{marginTop:"10px"}}/></div>
+
+       
 <hr />
 <h5>Your email</h5>
-        <input 
+<div style={{display:"flex"}}><input 
     autoComplete="name"
     type="text"
     id="ContactForm-name"
@@ -96,21 +101,12 @@ function ContactUs() {
     value=""
     className={style.borderlesss}
     placeholder="Enter your email adress?"
-  />
-<hr />
-<h5>Your email</h5>
-        <input 
-    autoComplete="name"
-    type="text"
-    id="ContactForm-name"
-    name="contact[Name]"
-    value=""
-    className={style.borderlesss}
-    placeholder="Enter your email adress?"
-  />
+  /><FontAwesomeIcon icon={faEnvelope}  style={{marginTop:"10px"}}/>
+  </div>
+        
 <hr />
 <h5>Your phone number</h5>
-        <input 
+<div style={{display:"flex"}}><input 
     autoComplete="name"
     type="text"
     id="ContactForm-name"
@@ -118,12 +114,14 @@ function ContactUs() {
     value=""
     className={style.borderlesss}
     placeholder="Enter your phone number"
-  />
+  /><FontAwesomeIcon icon={faPhoneVolume}  style={{marginTop:"10px"}} />
+  </div>
+        
 <hr />
 <h5>Your message
 
 </h5>
-        <input 
+<div style={{display:"flex"}}><input 
     autoComplete="name"
     type="text"
     id="ContactForm-name"
@@ -131,12 +129,14 @@ function ContactUs() {
     value=""
     className={style.borderlesss}
     placeholder="Enter your message"
-  />
-<hr style={{border:"1px solid black"}} />
-<input type="checkbox" />
+  /><FontAwesomeIcon icon={faComment} style={{marginTop:"10px"}}  /></div>
+        
+<hr style={{marginRight:"20px"}} />
+<div style={{marginTop:"20px"}}><input type="checkbox" />
 <label htmlFor="">I agree with the terms & conditions
 
-</label> <br />
+</label></div>
+ <br />
 <button className={style.btns}>Send message</button>
         
 </Grid>

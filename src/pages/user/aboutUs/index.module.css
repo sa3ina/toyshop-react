@@ -97,7 +97,6 @@ h3 {
   font-family: "Mali", cursive;
 }
 h4 {
-  font-size: 20px;
   font-family: "Mali", cursive;
 }
 .items {
@@ -126,4 +125,13 @@ h4 {
 }
 .items:hover .imagess {
   transform: translateY(100px);
+}
+.textt h4{
+font-size: 20px;
+}
+@media only screen and (max-width:600px){
+  .image{
+    width: 50%;
+    height: auto;
+  }
 }

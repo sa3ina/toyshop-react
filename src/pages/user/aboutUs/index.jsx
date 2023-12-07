@@ -40,7 +40,7 @@ function AboutUs() {
                 <button className={style.btn}>EXPLORE PRODUCTS</button>
               </div>
             </Grid>
-            <Grid lg={6} sx={12} className={style.image}>
+            <Grid lg={6} sx={12} md={12} className={style.image}>
               <img src={img} alt="" />
             </Grid>
           </Grid>
@@ -120,7 +120,7 @@ function AboutUs() {
                     alt=""
                   />
                 </div>
-                <div style={{ marginLeft: "20px" }}>
+                <div  className={style.textt} style={{ marginLeft: "20px" }}>
                   <h4>Premium toys products</h4>
                   <p>
                     Lorem ipsum is simply dummy text printing typesetting
@@ -128,14 +128,14 @@ function AboutUs() {
                   </p>
                 </div>
               </div>
-              <div style={{ display: "flex", paddingTop: "30px" }}>
+              <div className={style.textt} style={{ display: "flex", paddingTop: "30px" }}>
                 <div>
-                  <img
+                  <img 
                     src="//wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-about-icon-02.svg?v=1698815629"
                     alt=""
                   />
                 </div>
-                <div style={{ marginLeft: "20px" }}>
+                <div className={style.textt} style={{ marginLeft: "20px" }}>
                   <h4>More than 60k+ unique product</h4>
                   <p>
                     Lorem ipsum is simply dummy text printing typesetting
@@ -151,7 +151,7 @@ function AboutUs() {
                       alt=""
                     />
                   </div>
-                  <div style={{ marginLeft: "20px" }}>
+                  <div className={style.textt} style={{ marginLeft: "20px" }}>
                     <h4>Free shipping available</h4>
                     <p>
                       Lorem ipsum is simply dummy text printing typesetting

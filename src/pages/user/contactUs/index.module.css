@@ -52,7 +52,7 @@ p{
   align-items: center;
   text-align: center;
   padding-top: 140px;
-  background-color: #ebf5fa;
+  background-color: #d9dcdf;
   
   
 }
@@ -78,4 +78,10 @@ p{
 .btns:hover{
   color: black;
   background-color: white;
+}
+h4{
+  font-size: 40px;
+}
+h5{
+  margin-left: 10px;
 }
