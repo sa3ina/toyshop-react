@@ -20,7 +20,7 @@
       "price": 39,
       "discountPercent": 21,
       "commentArray": [],
-      "rating": 4,
+      "rating": 5,
       "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
       "brand": "Hurry",
       "collection": "dolls",
@@ -48,7 +48,7 @@
       "price": 34,
       "discountPercent": 15,
       "commentArray": [],
-      "rating": 3,
+      "rating": 5,
       "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
       "brand": "Massive",
       "collection": "toys",
@@ -76,7 +76,7 @@
       "price": 34,
       "discountPercent": 15,
       "commentArray": [],
-      "rating": 4,
+      "rating": 5,
       "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
       "brand": "Acme",
       "collection": "babygear",
@@ -90,7 +90,7 @@
       "price": 34,
       "discountPercent": 15,
       "commentArray": [],
-      "rating": 4,
+      "rating": 5,
       "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
       "brand": "Hamofy",
       "collection": "babygear",
@@ -100,46 +100,48 @@
       "id": "10"
     },
     {
-      "name": "Isabella Slater",
-      "price": "551",
+      "name": "Jessamine Calderon",
+      "price": "Nita Goodwin",
       "discountPercent": 10,
       "commentArray": "",
-      "rating": 3,
+      "rating": "5",
       "description": "",
-      "brand": "Julian Gould",
-      "collection": "Roanna Patton",
-      "sold": 2,
+      "brand": "Martha England",
+      "collection": "Erin Walls",
+      "sold": "123",
       "availability": false,
-      "image": "https://images.unsplash.com/photo-1535572290543-960a8046f5af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dG95fHx8fHx8MTcwMTk1NzAwNA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-      "id": "Gx67KPz"
+      "image": "https://source.unsplash.com/random/?toy",
+      "id": "2T8E8Ed",
+      "balance": "122"
     },
     {
-      "name": "Randall Fields",
-      "price": "997",
+      "name": "Ethan  edit",
+      "price": "David Salas",
       "discountPercent": 10,
       "commentArray": "",
-      "rating": 3,
+      "rating": "4655",
       "description": "",
-      "brand": "Alea Lee",
-      "collection": "Moses Morse",
-      "sold": 1,
+      "brand": "Denton Oneil",
+      "collection": "Ryder Willis",
+      "sold": "234567",
       "availability": false,
-      "image": "https://images.unsplash.com/photo-1588774587756-2d190b67c56c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dG95fHx8fHx8MTcwMTk1NzAxNA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-      "id": "zmXeHBZ"
+      "image": "https://source.unsplash.com/random/?toy",
+      "id": "-MK5OcD"
     },
     {
-      "name": "Myra Hayden",
-      "price": "516",
+      "name": "Rogan Gamble",
+      "price": "Yvonne Pittman",
       "discountPercent": 10,
       "commentArray": "",
-      "rating": 2,
+      "rating": "",
       "description": "",
-      "brand": "Demetrius Allison",
-      "collection": "Malachi Padilla",
-      "sold": 4,
+      "brand": "Cain Meyer",
+      "collection": "Keane Kinney",
+      "sold": "",
       "availability": false,
-      "image": "https://images.unsplash.com/photo-1496354265829-17b1c7b7c363?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dG95fHx8fHx8MTcwMTk1NzAyOQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-      "id": "cgzKkQP"
+      "image": "https://source.unsplash.com/random/?toy",
+      "id": "rzSYDkJ",
+      "balance": "12"
     }
   ],
   "users": [
@@ -164,10 +166,6 @@
       "password": "daisy123",
       "orders": [],
       "balance": 7,
-      "wishlist": [],
-      "isAdmin": false,
-      "comments": "Passionate about curating educational toys that foster creativity and learning in children.",
-      "reviews": "Impressive selection of educational toys. My kids love them!",
       "basket": [
         {
           "id": "4",
@@ -190,7 +188,11 @@
           "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-12.jpg?v=1698814426&width=535",
           "quantity": 1
         }
-      ]
+      ],
+      "wishlist": [],
+      "isAdmin": false,
+      "comments": "Passionate about curating educational toys that foster creativity and learning in children.",
+      "reviews": "Impressive selection of educational toys. My kids love them!"
     },
     {
       "name": "Ethan",
@@ -204,7 +206,7 @@
       "isAdmin": false,
       "comments": "Actively involved in organizing charity drives and events to provide toys for less fortunate kids.",
       "reviews": "Love the initiative to organize charity drives. Keep up the good work!",
-      "id": 5
+      "id": "5"
     },
     {
       "name": "Price",
@@ -227,8 +229,58 @@
       "password": "qurban",
       "orders": [],
       "balance": "120",
-      "basket": [],
-      "wishlist": [],
+      "basket": [
+        {
+          "id": "1",
+          "name": "Cute teddy bear toy",
+          "price": 49,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-13.jpg?v=1698814434&width=720",
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "name": "Wooden stacking rings",
+          "price": 52,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-14.jpg?v=1698814441&width=535",
+          "quantity": 2
+        },
+        {
+          "id": "4",
+          "name": "Cotton rope storage bag",
+          "price": 39,
+          "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-9.jpg?v=1698814412&width=535",
+          "quantity": 1
+        },
+        {
+          "id": "7",
+          "name": "Soft dinosaur toy",
+          "price": 34,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-04_002bd689-de4b-459e-af7c-974cb9116516.jpg?v=1698814487&width=720",
+          "quantity": 1
+        },
+        {
+          "id": "9",
+          "name": "Unicorn blue soft toy",
+          "price": 34,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-15.jpg?v=1698814449&width=535",
+          "quantity": 2
+        },
+        {
+          "id": "10",
+          "name": "Soft stuffed monkey",
+          "price": 34,
+          "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-16.jpg?v=1698814455&width=535",
+          "quantity": 1
+        }
+      ],
+      "wishlist": [
+        {
+          "id": "5",
+          "name": "Perk penguin stuffed",
+          "price": 39,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-12.jpg?v=1698814426&width=535"
+        }
+      ],
       "isAdmin": false,
       "comments": "",
       "reviews": "",
@@ -369,12 +421,6 @@
           "name": "Cotton rope storage bag",
           "price": 39,
           "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-9.jpg?v=1698814412&width=535"
-        },
-        {
-          "id": "5",
-          "name": "Perk penguin stuffed",
-          "price": 39,
-          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-12.jpg?v=1698814426&width=535"
         }
       ],
       "isAdmin": false,
@@ -382,10 +428,6 @@
       "reviews": "",
       "id": "0F4ZLPF",
       "surname": "quliyeve"
-    },
-    {
-      "basket": [],
-      "id": "ug7RcT3"
     }
   ]
 }
