@@ -129,14 +129,12 @@
       "id": "3"
     },
     {
-
       "name": "Daisy",
       "surname": "Miller 2",
       "email": "daisy@example.com",
       "password": "daisy123",
       "orders": [],
       "balance": 7,
-      "basket": [],
       "wishlist": [],
       "isAdmin": false,
       "comments": "Passionate about curating educational toys that foster creativity and learning in children.",
@@ -163,7 +161,7 @@
           "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-12.jpg?v=1698814426&width=535",
           "quantity": 1
         }
-      ],
+      ]
     },
     {
       "name": "Ethan",
@@ -285,11 +283,11 @@
     },
     {
       "name": "Hinton",
-      "surname": "Murphy",
+      "surname": "Murphyyy",
       "email": "Rosario",
       "password": "Pa$$w0rd!",
       "orders": [],
-      "balance": 0,
+      "balance": "60",
       "basket": [],
       "wishlist": [],
       "isAdmin": false,
@@ -341,7 +339,6 @@
           "quantity": 1
         }
       ],
-
       "wishlist": [
         {
           "id": "8",

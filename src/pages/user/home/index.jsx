@@ -43,7 +43,7 @@ import ListItem from "@mui/material/ListItem";
 import { setCheck } from "../../../redux/slices/cardSlice";
 import { addToCart, removeFromCart } from "../../../redux/slices/basketSlice";
 import { clearCart } from "../../../redux/slices/basketSlice";
-
+import box1img from "../../../assets/image/bestchoice/bestchoiceImg1.webp";
 import {
   addToWishlist,
   removeFromWishlist,
@@ -242,7 +242,10 @@ function Home() {
                 md={12}
                 lg={3}
                 xl={3}
-                style={{ borderRight: "1px solid #F7FCF7", padding: "20px" }}
+                sx={{
+                  borderRight: { lg: "1px solid #F7FCF7", md: "none" },
+                  padding: "20px",
+                }}
               >
                 <p>Refer a Friend. Get 20% Off</p>
               </Grid>
@@ -252,12 +255,25 @@ function Home() {
                 md={12}
                 lg={3}
                 xl={3}
-                style={{ borderRight: "1px solid #F7FCF7", padding: "20px" }}
+                sx={{
+                  borderRight: { lg: "1px solid #F7FCF7", md: "none" },
+                  padding: "20px",
+                }}
               >
                 <p>Subscribe Today and Get $10</p>
               </Grid>
-              <Grid item sm={12} md={12} lg={3} xl={3}>
-                <p>Subscribe Today and Get $10</p>
+              <Grid
+                item
+                sm={12}
+                md={12}
+                lg={3}
+                xl={3}
+                sx={{
+                  borderRight: { lg: "1px solid #F7FCF7", md: "none" },
+                  padding: "20px",
+                }}
+              >
+                <p>Free Shipping +30 Day Returns</p>
               </Grid>
             </Grid>
           </Box>
@@ -268,8 +284,6 @@ function Home() {
         spaceBetween={0}
         slidesPerView={1}
         style={{ marginBottom: "150px" }}
-        // onSlideChange={() => console.log("slide change")}
-        // onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide>
           <div className={style.slider1}>
@@ -290,7 +304,14 @@ function Home() {
                 </div>
               </div>
               <div className={style.overlowHidden}>
-                <p>Get ready for playtime with our fun kids clothing.</p>
+                <p
+                  style={{
+                    fontFamily: "Mali",
+                    fontWeight: "400",
+                  }}
+                >
+                  Get ready for playtime with our fun kids clothing.
+                </p>
               </div>
               <div className={style.overlowHidden}>
                 <button
@@ -299,7 +320,7 @@ function Home() {
                   }}
                 >
                   Shop Now
-                  <span style={{ paddingLeft: "3px" }}>
+                  <span style={{ paddingLeft: "3px", color: "white" }}>
                     <EastIcon />
                   </span>
                 </button>
@@ -326,7 +347,14 @@ function Home() {
                 </div>
               </div>
               <div className={style.overlowHidden}>
-                <p>Our baby stuffs are cute, affordable, and stylish.</p>
+                <p
+                  style={{
+                    fontFamily: "Mali",
+                    fontWeight: "400",
+                  }}
+                >
+                  Our baby stuffs are cute, affordable, and stylish.
+                </p>
               </div>
               <div className={style.overlowHidden}>
                 <button
@@ -335,7 +363,7 @@ function Home() {
                   }}
                 >
                   Shop Now
-                  <span style={{ paddingLeft: "3px" }}>
+                  <span style={{ paddingLeft: "3px", color: "white" }}>
                     <EastIcon />
                   </span>
                 </button>
@@ -362,7 +390,14 @@ function Home() {
                 </div>
               </div>
               <div className={style.overlowHidden}>
-                <p>Explore a world of fun with our toy collection.</p>
+                <p
+                  style={{
+                    fontFamily: "Mali",
+                    fontWeight: "400",
+                  }}
+                >
+                  Explore a world of fun with our toy collection.
+                </p>
               </div>
               <div className={style.overlowHidden}>
                 <button
@@ -371,7 +406,7 @@ function Home() {
                   }}
                 >
                   Shop Now
-                  <span style={{ paddingLeft: "3px" }}>
+                  <span style={{ paddingLeft: "3px", color: "white" }}>
                     <EastIcon />
                   </span>
                 </button>
@@ -611,11 +646,10 @@ function Home() {
           </Grid>
         </Box>
       </Container>
-
       <Container maxWidth="xl">
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={5} style={{ marginBottom: "100px" }}>
-            <Grid tem xl={12} lg={12} md={12} sm={12} xs={12}>
+            <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
               <p
                 style={{
                   textAlign: "center",
@@ -722,14 +756,6 @@ function Home() {
                     >
                       ADD TO CART
                     </button>
-                    {/* <button style={{ cursor: "pointer", border: "none" }}>
-                      <Link
-                        className={styles.details}
-                        to={"/products/" + elem.id}
-                      >
-                        Quick view
-                      </Link>
-                    </button> */}
 
                     <img
                       className={styles.card}
@@ -744,7 +770,6 @@ function Home() {
                   </CardContent>
                 </Card>
                 <Typography
-                  // align="center"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -875,7 +900,7 @@ function Home() {
                 </p>
               </div>
             </Grid>
-            {/* {Array.from(Array(6)).map((_, index) => ( */}
+
             {cardProd.map((elem, i) => (
               <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
                 <Card
@@ -892,9 +917,6 @@ function Home() {
                       minHeight: "100%",
                     }}
                   >
-                    {/* <div className={styles.heart}>
-                      <FontAwesomeIcon icon={faHeart} />
-                    </div> */}
                     <button
                       className={styles.heart}
                       style={{ cursor: "pointer", border: "none" }}
@@ -943,7 +965,6 @@ function Home() {
                   </CardContent>
                 </Card>
                 <Typography
-                  // align="center"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -986,7 +1007,15 @@ function Home() {
 
       <Container maxWidth="xl">
         <Box sx={{ flexGrow: 1, marginBottom: "100px" }}>
-          <Grid container spacing={7}>
+          <Grid
+            container
+            spacing={7}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <Grid item>
               <Link to="/">
                 <img src={gucci} alt="" />
@@ -1074,47 +1103,66 @@ function Home() {
       <Container maxWidth="xl">
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={5} style={{ marginBottom: "100px" }}>
-            <Grid tem xl={12} lg={12} md={12} sm={12} xs={12}>
-              <p
-                style={{
-                  textAlign: "center",
-                  fontFamily: "cursive",
-                  fontWeight: "500",
-                  fontSize: "20px",
-                  color: "#1f3332;",
-                }}
-              >
-                Trusted by
-                <span
+            <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+              <Box>
+                <p
                   style={{
-                    color: "red",
-                    textDecoration: "underline",
-                    textDecorationThickness: "3px",
+                    textAlign: "center",
+                    fontFamily: "cursive",
+                    fontWeight: "500",
+                    fontSize: "20px",
+                    color: "#1f3332",
                   }}
                 >
-                  250.000+
-                </span>{" "}
-                happy customers are using crafto toys.
-              </p>
+                  Trusted by{" "}
+                  <span
+                    style={{
+                      color: "red",
+                      textDecoration: "underline",
+                      textDecorationThickness: "3px",
+                    }}
+                  >
+                    250.000+
+                  </span>{" "}
+                  happy customers are using crafto toys.
+                </p>
+              </Box>
             </Grid>
           </Grid>
         </Box>
       </Container>
 
       <Container maxWidth="xl">
-        <Box sx={{ flexGrow: 1 }}>
+        {" "}
+        <Box
+          sx={{
+            flexGrow: 1,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+
+            width: "80%",
+            margin: "0 auto",
+          }}
+        >
           <Grid
             container
-            spacing={5}
+            spacing={7}
             style={{
               marginBottom: "100px",
-              display: "flex",
-              justifyContent: "center",
               padding: "10%",
             }}
           >
-            <Grid tem xl={3} lg={3} md={6} sm={12} xs={12}>
-              <div className={style.freeShipping}>
+            <Grid item xl={3} lg={3} md={6} sm={12} xs={12}>
+              <Box
+                className={style.freeShipping}
+                sx={{
+                  justifyContent: { xs: "center" },
+                  alignItems: { xs: "center" },
+                  width: { lg: "100%", md: "100%", sm: "40%", xs: "30%" },
+                  gap: "10px",
+                }}
+              >
                 <div className={style.image}>
                   <FontAwesomeIcon icon={faBox} className={style.icons} />
                 </div>
@@ -1122,10 +1170,19 @@ function Home() {
                   <p className={style.paragraf}>Free shipping</p>
                   <p className={style.paragraf2}>Orders from all item</p>
                 </div>
-              </div>
+              </Box>
             </Grid>
-            <Grid tem xl={3} lg={3} md={6} sm={12} xs={12}>
-              <div className={style.freeShipping}>
+            <Grid item xl={3} lg={3} md={6} sm={12} xs={12}>
+              <Box
+                className={style.freeShipping}
+                sx={{
+                  justifyContent: { xs: "center" },
+                  alignItems: { xs: "center" },
+                  width: { lg: "100%", md: "100%", sm: "40%", xs: "30%" },
+
+                  gap: "10px",
+                }}
+              >
                 <div className={style.image}>
                   <FontAwesomeIcon icon={faCircleCheck} />
                 </div>
@@ -1133,10 +1190,18 @@ function Home() {
                   <p className={style.paragraf}>Secure payment</p>
                   <p className={style.paragraf2}>100% Secure payment.</p>
                 </div>
-              </div>
+              </Box>
             </Grid>
-            <Grid tem xl={3} lg={3} md={6} sm={12} xs={12}>
-              <div className={style.freeShipping}>
+            <Grid item xl={3} lg={3} md={6} sm={12} xs={12}>
+              <Box
+                className={style.freeShipping}
+                sx={{
+                  justifyContent: { xs: "center" },
+                  alignItems: { xs: "center" },
+                  width: { lg: "100%", md: "100%", sm: "40%", xs: "30%" },
+                  gap: "10px",
+                }}
+              >
                 <div className={style.image}>
                   <FontAwesomeIcon icon={faCommentDots} />
                 </div>
@@ -1144,10 +1209,19 @@ function Home() {
                   <p className={style.paragraf}>24/7 Support</p>
                   <p className={style.paragraf2}>Dedicated support.</p>
                 </div>
-              </div>
+              </Box>
             </Grid>
-            <Grid tem xl={3} lg={3} md={6} sm={12} xs={12}>
-              <div className={style.freeShipping}>
+            <Grid item xl={3} lg={3} md={6} sm={12} xs={12}>
+              <Box
+                className={style.freeShipping}
+                sx={{
+                  justifyContent: { xs: "center" },
+
+                  alignItems: { xs: "center" },
+                  width: { lg: "100%", md: "100%", sm: "40%", xs: "35%" },
+                  gap: "10px",
+                }}
+              >
                 <div className={style.image}>
                   <FontAwesomeIcon icon={faCalendar} />
                 </div>
@@ -1155,8 +1229,8 @@ function Home() {
                   <p className={style.paragraf}>90 days return</p>
                   <p className={style.paragraf2}>If goods have problems.</p>
                 </div>
-              </div>
-            </Grid>
+              </Box>
+            </Grid>{" "}
           </Grid>
         </Box>
       </Container>
