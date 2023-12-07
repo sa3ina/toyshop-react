@@ -171,17 +171,17 @@ function Footer() {
                           </Link>
                         </li>
                         <li>
-                          <Link to="/ourServices" className={style.links}>
+                          <Link to="/aboutUs" className={style.links}>
                             Our services
                           </Link>
                         </li>
                         <li>
-                          <Link to="/latestNews" className={style.links}>
+                          <Link to="/aboutUs" className={style.links}>
                             Latest news
                           </Link>
                         </li>
                         <li>
-                          <Link to="/bestSellers" className={style.links}>
+                          <Link to="/aboutUs" className={style.links}>
                             Best sellers
                           </Link>
                         </li>
