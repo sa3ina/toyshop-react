@@ -12,7 +12,8 @@
       "sold": 20,
       "availability": true,
       "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-9.jpg?v=1698814412&width=535",
-      "id": "4"
+      "id": "4",
+      "balance": "21"
     },
     {
       "name": "Perk penguin stuffed",
@@ -103,14 +104,44 @@
       "price": "Nita Goodwin",
       "discountPercent": 10,
       "commentArray": "",
-      "rating": "",
+      "rating": "5",
       "description": "",
       "brand": "Martha England",
       "collection": "Erin Walls",
+      "sold": "123",
+      "availability": false,
+      "image": "https://source.unsplash.com/random/?toy",
+      "id": "2T8E8Ed",
+      "balance": "122"
+    },
+    {
+      "name": "Ethan  edit",
+      "price": "David Salas",
+      "discountPercent": 10,
+      "commentArray": "",
+      "rating": "4655",
+      "description": "",
+      "brand": "Denton Oneil",
+      "collection": "Ryder Willis",
+      "sold": "234567",
+      "availability": false,
+      "image": "https://source.unsplash.com/random/?toy",
+      "id": "-MK5OcD"
+    },
+    {
+      "name": "Rogan Gamble",
+      "price": "Yvonne Pittman",
+      "discountPercent": 10,
+      "commentArray": "",
+      "rating": "",
+      "description": "",
+      "brand": "Cain Meyer",
+      "collection": "Keane Kinney",
       "sold": "",
       "availability": false,
       "image": "https://source.unsplash.com/random/?toy",
-      "id": "2T8E8Ed"
+      "id": "rzSYDkJ",
+      "balance": "12"
     }
   ],
   "users": [
@@ -135,6 +166,12 @@
       "password": "daisy123",
       "orders": [],
       "balance": 7,
+
+      "wishlist": [],
+      "isAdmin": false,
+      "comments": "Passionate about curating educational toys that foster creativity and learning in children.",
+      "reviews": "Impressive selection of educational toys. My kids love them!",
+
       "basket": [
         {
           "id": "4",
@@ -157,11 +194,15 @@
           "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-12.jpg?v=1698814426&width=535",
           "quantity": 1
         }
+
+      ]
+
       ],
       "wishlist": [],
       "isAdmin": false,
       "comments": "Passionate about curating educational toys that foster creativity and learning in children.",
       "reviews": "Impressive selection of educational toys. My kids love them!"
+
     },
     {
       "name": "Ethan",

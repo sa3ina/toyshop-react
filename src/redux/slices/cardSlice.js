@@ -16,11 +16,10 @@ export const deleteProduct = createAsyncThunk(
   }
 );
 
-
 export const editProductInDB = createAsyncThunk(
-  "users/editUser",
+  "products/editProduct",
   async ({ productId, updatedProduct }) => {
-    const response = await fetch(`http://localhost:3000/users/${productId}`, {
+    const response = await fetch(`http://localhost:3000/posts/${productId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +31,6 @@ export const editProductInDB = createAsyncThunk(
     return data;
   }
 );
-
 
 const cardSlice = createSlice({
   name: "product",
