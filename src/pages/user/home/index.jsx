@@ -469,7 +469,11 @@ function Home() {
 
       <Container maxWidth="xl">
         <Box sx={{ flexGrow: 1 }}>
-          <Grid container spacing={7} className={style.container}>
+          <Grid
+            container
+            className={style.container}
+            style={{ width: "100%", marginBottom: "120px" }}
+          >
             <Grid item className={style.items}>
               <Link to="/products" className={style.icons}>
                 <div
@@ -487,7 +491,7 @@ function Home() {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        padding: "70px",
+                        padding: "60px",
                       }}
                     >
                       <div
@@ -498,8 +502,8 @@ function Home() {
                           alignItems: "center",
                           justifyContent: "center",
                           padding: "30px",
-                          width: "130px",
-                          height: "130px",
+                          width: "110px",
+                          height: "110px",
                         }}
                       >
                         <img
@@ -532,7 +536,7 @@ function Home() {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        padding: "70px",
+                        padding: "65px",
                       }}
                     >
                       <div
@@ -543,8 +547,8 @@ function Home() {
                           alignItems: "center",
                           justifyContent: "center",
                           padding: "30px",
-                          width: "130px",
-                          height: "130px",
+                          width: "120px",
+                          height: "120px",
                         }}
                       >
                         <img
@@ -577,7 +581,7 @@ function Home() {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        padding: "70px",
+                        padding: "65px",
                       }}
                     >
                       <div
@@ -588,8 +592,8 @@ function Home() {
                           alignItems: "center",
                           justifyContent: "center",
                           padding: "30px",
-                          width: "130px",
-                          height: "130px",
+                          width: "120px",
+                          height: "120px",
                         }}
                       >
                         <img
@@ -605,17 +609,44 @@ function Home() {
                 Clothes
               </Link>
             </Grid>
-
             <Grid item className={style.items}>
               <Link to="/products" className={style.icons}>
-                <div className={style.hover}>
-                  <div className={style.icon}>
-                    <img
-                      src="https://176ghzqe7rspygq6-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-icon-04.svg?v=1698815628"
-                      alt=""
-                      width={78}
-                      height={67}
-                    />
+                <div
+                  className={style.row}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <div className={style.block} style={{ height: "100%" }}>
+                    <div
+                      className={style.hovicon}
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        padding: "65px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          backgroundColor: "#E5F1F0",
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          padding: "30px",
+                          width: "120px",
+                          height: "120px",
+                        }}
+                      >
+                        <img
+                          src="https://176ghzqe7rspygq6-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-icon-04.svg?v=1698815628"
+                          alt=""
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Link>
@@ -623,16 +654,45 @@ function Home() {
                 Sensory
               </Link>
             </Grid>
+
             <Grid item className={style.items}>
               <Link to="/products" className={style.icons}>
-                <div className={style.hover}>
-                  <div className={style.icon}>
-                    <img
-                      src="https://176ghzqe7rspygq6-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-icon-05.svg?v=1698815628"
-                      alt=""
-                      width={78}
-                      height={67}
-                    />
+                <div
+                  className={style.row}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <div className={style.block} style={{ height: "100%" }}>
+                    <div
+                      className={style.hovicon}
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        padding: "65px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          backgroundColor: "#E5F1F0",
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          padding: "30px",
+                          width: "120px",
+                          height: "120px",
+                        }}
+                      >
+                        <img
+                          src="https://176ghzqe7rspygq6-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-icon-05.svg?v=1698815628"
+                          alt=""
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Link>
@@ -642,14 +702,42 @@ function Home() {
             </Grid>
             <Grid item className={style.items}>
               <Link to="/products" className={style.icons}>
-                <div className={style.hover}>
-                  <div className={style.icon}>
-                    <img
-                      src="https://176ghzqe7rspygq6-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-icon-06.svg?v=1698815628"
-                      alt=""
-                      width={78}
-                      height={67}
-                    />
+                <div
+                  className={style.row}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <div className={style.block} style={{ height: "100%" }}>
+                    <div
+                      className={style.hovicon}
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        padding: "65px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          backgroundColor: "#E5F1F0",
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          padding: "30px",
+                          width: "120px",
+                          height: "120px",
+                        }}
+                      >
+                        <img
+                          src="https://176ghzqe7rspygq6-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-icon-06.svg?v=1698815628"
+                          alt=""
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Link>
@@ -657,21 +745,50 @@ function Home() {
                 Strollers
               </Link>
             </Grid>
+
             <Grid item className={style.items}>
               <Link to="/products" className={style.icons}>
-                <div className={style.hover}>
-                  <div className={style.icon}>
-                    <img
-                      src="https://176ghzqe7rspygq6-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-icon-07.svg?v=1698815628"
-                      alt=""
-                      width={78}
-                      height={67}
-                    />
+                <div
+                  className={style.row}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <div className={style.block} style={{ height: "100%" }}>
+                    <div
+                      className={style.hovicon}
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        padding: "65px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          backgroundColor: "#E5F1F0",
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          padding: "30px",
+                          width: "120px",
+                          height: "120px",
+                        }}
+                      >
+                        <img
+                          src="https://176ghzqe7rspygq6-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-icon-07.svg?v=1698815628"
+                          alt=""
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Link>
               <Link to="/products" className={style.categories}>
-                Dolls
+                Baby Gear
               </Link>
             </Grid>
           </Grid>
