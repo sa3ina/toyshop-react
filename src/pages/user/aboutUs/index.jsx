@@ -24,8 +24,8 @@ function AboutUs() {
       </section>
       <section className={style.section1}>
         <Container>
-          <Grid spacing={0} className={style.item2}>
-            <Grid item lg={6} sm={12}>
+          <Grid spacing={0} container className={style.item2}>
+            <Grid item lg={6} sx={12}>
               <div className={style.text2}>
                 <span style={{ color: "#f96835", fontSize: "20px" }}>
                   Start from since 1998
@@ -40,7 +40,7 @@ function AboutUs() {
                 <button className={style.btn}>EXPLORE PRODUCTS</button>
               </div>
             </Grid>
-            <Grid lg={6} sm={12} className={style.image}>
+            <Grid lg={6} sx={12} md={12} className={style.image}>
               <img src={img} alt="" />
             </Grid>
           </Grid>
@@ -48,8 +48,8 @@ function AboutUs() {
       </section>
       <section style={style.section3}>
         <Container>
-          <Grid spacing={0} className={style.text3}>
-            <Grid item sm={12} md={12} lg={3} xl={3}>
+          <Grid spacing={0} container className={style.text3}>
+            <Grid item sx={12}  lg={3} xl={3}>
               <div>
                 <h3>2250</h3>
                 <span
@@ -58,19 +58,19 @@ function AboutUs() {
                 ></span>
               </div>
 
-              <p>STOCK PRODUCTS</p>
+              <p style={{marginLeft:"25px"}}>STOCK PRODUCTS</p>
             </Grid>
-            <Grid item sm={12} md={12} lg={3} xl={3}>
+            <Grid item sx={12}  lg={3} xl={3}>
               <h3>9565</h3>
-              <p>LAST YEAR’S SALES</p>
+              <p style={{marginLeft:"25px"}}>LAST YEAR’S SALES</p>
             </Grid>
-            <Grid item sm={12} md={12} lg={3} xl={3}>
+            <Grid item sx={12}  lg={3} xl={3}>
               <h3>3640</h3>
-              <p>HAPPY CUSTOMERS</p>
+              <p style={{marginLeft:"25px"}}>HAPPY CUSTOMERS</p>
             </Grid>
-            <Grid item sm={12} md={12} lg={3} xl={3}>
+            <Grid item sx={12}  lg={3} xl={3}>
               <h3>9932</h3>
-              <p>GOOGLE REVIEWS</p>
+              <p style={{marginLeft:"25px"}}>GOOGLE REVIEWS</p>
             </Grid>
           </Grid>
         </Container>
@@ -78,10 +78,10 @@ function AboutUs() {
       <section className={style.section4}>
         <Container>
           <Grid spacing={0}>
-            <Grid lg={12} sm={12} item className={style.item3}>
+            <Grid lg={12} sx={12} item className={style.item3}>
               <span
                 className={style.videoIcon}
-                style={{ color: "#f96835", fontSize: "20px" }}
+                style={{ color: "black", fontSize: "20px" }}
               >
                 <FontAwesomeIcon icon={faPlay} />
               </span>
@@ -93,13 +93,14 @@ function AboutUs() {
         <Container>
           <Grid
             spacing={0}
+            container
             style={{
               display: "flex",
               marginTop: "40px",
               justifyContent: "space-between",
             }}
           >
-            <Grid item lg={6} sm={12}>
+            <Grid item lg={6} sx={12}>
               <img
                 src="//wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-about-img-03_535x.jpg?v=1698815628"
                 alt=""
@@ -109,7 +110,7 @@ function AboutUs() {
               item
               style={{ marginTop: "60px", width: "500px" }}
               lg={6}
-              sm={12}
+              sx={12}
             >
               <h3>Why choose hongo toys and games?</h3>
               <div style={{ display: "flex", paddingTop: "30px" }}>
@@ -119,7 +120,7 @@ function AboutUs() {
                     alt=""
                   />
                 </div>
-                <div style={{ marginLeft: "20px" }}>
+                <div  className={style.textt} style={{ marginLeft: "20px" }}>
                   <h4>Premium toys products</h4>
                   <p>
                     Lorem ipsum is simply dummy text printing typesetting
@@ -127,14 +128,14 @@ function AboutUs() {
                   </p>
                 </div>
               </div>
-              <div style={{ display: "flex", paddingTop: "30px" }}>
+              <div className={style.textt} style={{ display: "flex", paddingTop: "30px" }}>
                 <div>
-                  <img
+                  <img 
                     src="//wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-about-icon-02.svg?v=1698815629"
                     alt=""
                   />
                 </div>
-                <div style={{ marginLeft: "20px" }}>
+                <div className={style.textt} style={{ marginLeft: "20px" }}>
                   <h4>More than 60k+ unique product</h4>
                   <p>
                     Lorem ipsum is simply dummy text printing typesetting
@@ -150,7 +151,7 @@ function AboutUs() {
                       alt=""
                     />
                   </div>
-                  <div style={{ marginLeft: "20px" }}>
+                  <div className={style.textt} style={{ marginLeft: "20px" }}>
                     <h4>Free shipping available</h4>
                     <p>
                       Lorem ipsum is simply dummy text printing typesetting
@@ -165,36 +166,36 @@ function AboutUs() {
       </section>
       <section>
         <Container>
-          <Grid spacing={0} style={{ display: "flex", marginTop: "60px" }}>
-            <Grid item lg={5} sm={2} className={style.items}>
+          <Grid spacing={0} container style={{ display: "flex", marginTop: "60px" }}>
+            <Grid item lg={2} sx={5} className={style.items}>
               <img
                 className={style.imagess}
                 src="//wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-cloth-brand-06.jpg?v=1674023413"
                 alt=""
               />
             </Grid>
-            <Grid item lg={5} sm={2} className={style.items}>
+            <Grid item lg={2} sx={5} className={style.items}>
               <img
                 className={style.imagess}
                 src="//wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-cloth-brand-07.jpg?v=1674023413"
                 alt=""
               />
             </Grid>
-            <Grid item lg={5} sm={2} className={style.items}>
+            <Grid item lg={2} sx={5} className={style.items}>
               <img
                 className={style.imagess}
                 src="//wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-cloth-brand-08.jpg?v=1674023412"
                 alt=""
               />
             </Grid>
-            <Grid item lg={5} sm={2} className={style.items}>
+            <Grid item lg={2} sx={5} className={style.items}>
               <img
                 className={style.imagess}
                 src="//wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-cloth-brand-09.jpg?v=1674023412"
                 alt=""
               />
             </Grid>
-            <Grid item lg={5} sm={2} className={style.items}>
+            <Grid item lg={2} sx={5} className={style.items}>
               <Link to="/">
                 <img
                   className={style.imagess}

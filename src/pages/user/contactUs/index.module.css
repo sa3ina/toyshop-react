@@ -1,3 +1,87 @@
-.contantUs {
-  color: blue;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.section {
+  background-image: url( //1q0zh2ycw9dpybh2-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-contact-us-title-bg-01.jpg?v=1698815628 );
+  width: 100%;
+  height: 300px;
+  background-repeat: repeat-x;
+}
+.item1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+.text1 {
+  width: 350px;
+  text-align: center;
+}
+.text1 h3 {
+  font-size: 40px;
+  font-family: "Mali", cursive;
+}
+.text1 p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+.item2 {
+  display: flex;
+  justify-content: space-between;
+}
+.item2 h3{
+  font-size: 40px;
+}
+.prg{
+  width: 660px;
+}
+.prg p{
+font-size: 20px;
+font-family: 'Inter', sans-serif;
+}
+p{
+  font-family: 'Inter', sans-serif;
+}
+.image{
+  width: 100%;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 140px;
+  background-color: #d9dcdf;
+  
+  
+}
+.borderlesss{
+  width: 200px;
+  padding-top: 10px;
+  width: 100%;
+  padding: 20px 10px 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background-color: transparent;
+  box-shadow: none;
+}
+.btns{
+  margin-top: 20px;
+  width: 150px;
+  height: 40px;
+  border-radius: 50px;
+  color: white;
+  background-color: black;
+}
+.btns:hover{
+  color: black;
+  background-color: white;
+}
+h4{
+  font-size: 40px;
+}
+h5{
+  margin-left: 10px;
 }
