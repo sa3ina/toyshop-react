@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./index.module.css";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -23,13 +23,15 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { setWishCheck } from "../../redux/slices/cardSlice";
+import { logout } from "../../redux/slices/loginSlice";
+
 // import { Link } from "@mui/material";
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
   const checkWishlist = useSelector((state) => state.products.wishCheck);
-  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  const loggedInUser = useSelector((state) => state.login.user);
   const dispatch = useDispatch();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -220,8 +222,35 @@ function Navbar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               {/* <SearchOutlinedIcon /> */}
-              <Link to="/login" style={{ color: "grey" }}>
-                <PersonOutlineIcon />
+              <Link to="/login">
+                <button
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "none",
+                    color: "grey",
+                  }}
+                  onClick={() => {
+                    // loggedInUser ? setUser(loggedInUser) : setUser(null);
+                  }}
+                >
+                  {loggedInUser ? (
+                    <>
+                      <Avatar
+                        aria-label="recipe"
+                        style={{
+                          fontSize: "12px",
+                          width: "35px",
+                          height: "35px",
+                          backgroundColor: "#88A9A8",
+                        }}
+                      >
+                        {loggedInUser?.name}
+                      </Avatar>
+                    </>
+                  ) : (
+                    <PersonOutlineIcon />
+                  )}
+                </button>
               </Link>
               <Link to="/wishlist" style={{ color: "grey" }}>
                 <FavoriteBorderIcon />
@@ -250,11 +279,13 @@ function Navbar() {
                     color: "grey",
                   }}
                   onClick={() => {
-                    localStorage.removeItem("loggedInUser");
-                    loggedInUser ? setLog(true) : setLog(false);
+                    localStorage.setItem("loggedInUser", JSON.stringify({}));
+                    dispatch(logout());
                   }}
                 >
-                  {loggedInUser ? <LogoutOutlinedIcon /> : null}
+                  {Object.keys(loggedInUser).length > 0 ? (
+                    <LogoutOutlinedIcon />
+                  ) : null}
                 </button>
               </Link>
             </Tooltip>
