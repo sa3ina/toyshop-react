@@ -20,7 +20,7 @@
       "price": 39,
       "discountPercent": 21,
       "commentArray": [],
-      "rating": 5,
+      "rating": 4,
       "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
       "brand": "Hurry",
       "collection": "dolls",
@@ -48,7 +48,7 @@
       "price": 34,
       "discountPercent": 15,
       "commentArray": [],
-      "rating": 5,
+      "rating": 3,
       "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
       "brand": "Massive",
       "collection": "toys",
@@ -76,7 +76,7 @@
       "price": 34,
       "discountPercent": 15,
       "commentArray": [],
-      "rating": 5,
+      "rating": 4,
       "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
       "brand": "Acme",
       "collection": "babygear",
@@ -90,7 +90,7 @@
       "price": 34,
       "discountPercent": 15,
       "commentArray": [],
-      "rating": 5,
+      "rating": 4,
       "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
       "brand": "Hamofy",
       "collection": "babygear",
@@ -100,48 +100,46 @@
       "id": "10"
     },
     {
-      "name": "Jessamine Calderon",
-      "price": "Nita Goodwin",
+      "name": "Isabella Slater",
+      "price": "551",
       "discountPercent": 10,
       "commentArray": "",
-      "rating": "5",
+      "rating": 3,
       "description": "",
-      "brand": "Martha England",
-      "collection": "Erin Walls",
-      "sold": "123",
+      "brand": "Julian Gould",
+      "collection": "Roanna Patton",
+      "sold": 2,
       "availability": false,
-      "image": "https://source.unsplash.com/random/?toy",
-      "id": "2T8E8Ed",
-      "balance": "122"
+      "image": "https://images.unsplash.com/photo-1535572290543-960a8046f5af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dG95fHx8fHx8MTcwMTk1NzAwNA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+      "id": "Gx67KPz"
     },
     {
-      "name": "Ethan  edit",
-      "price": "David Salas",
+      "name": "Randall Fields",
+      "price": "997",
       "discountPercent": 10,
       "commentArray": "",
-      "rating": "4655",
+      "rating": 3,
       "description": "",
-      "brand": "Denton Oneil",
-      "collection": "Ryder Willis",
-      "sold": "234567",
+      "brand": "Alea Lee",
+      "collection": "Moses Morse",
+      "sold": 1,
       "availability": false,
-      "image": "https://source.unsplash.com/random/?toy",
-      "id": "-MK5OcD"
+      "image": "https://images.unsplash.com/photo-1588774587756-2d190b67c56c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dG95fHx8fHx8MTcwMTk1NzAxNA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+      "id": "zmXeHBZ"
     },
     {
-      "name": "Rogan Gamble",
-      "price": "Yvonne Pittman",
+      "name": "Myra Hayden",
+      "price": "516",
       "discountPercent": 10,
       "commentArray": "",
-      "rating": "",
+      "rating": 2,
       "description": "",
-      "brand": "Cain Meyer",
-      "collection": "Keane Kinney",
-      "sold": "",
+      "brand": "Demetrius Allison",
+      "collection": "Malachi Padilla",
+      "sold": 4,
       "availability": false,
-      "image": "https://source.unsplash.com/random/?toy",
-      "id": "rzSYDkJ",
-      "balance": "12"
+      "image": "https://images.unsplash.com/photo-1496354265829-17b1c7b7c363?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dG95fHx8fHx8MTcwMTk1NzAyOQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+      "id": "cgzKkQP"
     }
   ],
   "users": [
@@ -170,7 +168,6 @@
       "isAdmin": false,
       "comments": "Passionate about curating educational toys that foster creativity and learning in children.",
       "reviews": "Impressive selection of educational toys. My kids love them!",
-
       "basket": [
         {
           "id": "4",
@@ -193,12 +190,7 @@
           "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-12.jpg?v=1698814426&width=535",
           "quantity": 1
         }
-
-      ],
-      "wishlist": [],
-      "isAdmin": false,
-      "comments": "Passionate about curating educational toys that foster creativity and learning in children.",
-      "reviews": "Impressive selection of educational toys. My kids love them!"
+      ]
     },
     {
       "name": "Ethan",
@@ -212,7 +204,7 @@
       "isAdmin": false,
       "comments": "Actively involved in organizing charity drives and events to provide toys for less fortunate kids.",
       "reviews": "Love the initiative to organize charity drives. Keep up the good work!",
-      "id": "5"
+      "id": 5
     },
     {
       "name": "Price",
@@ -434,6 +426,10 @@
       "reviews": "",
       "id": "0F4ZLPF",
       "surname": "quliyeve"
+    },
+    {
+      "basket": [],
+      "id": "ug7RcT3"
     }
   ]
 }

@@ -12,7 +12,7 @@ export const deleteUserInDB = createAsyncThunk(
     await fetch(`http://localhost:3000/users/${userId}`, {
       method: "DELETE",
     });
-    return userId; // Return the ID of the deleted user
+    return userId;
   }
 );
 

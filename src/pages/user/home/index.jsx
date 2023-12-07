@@ -213,7 +213,22 @@ function Home() {
     let arrWishlist = JSON.parse(localStorage.getItem("loggedInUser"));
     console.log(arrWishlist.wishlist);
   };
+  const StarRating = ({ rating }) => {
+    const stars = [];
 
+    // Assuming rating is out of 5 stars
+    for (let i = 0; i < 5; i++) {
+      stars.push(
+        <FontAwesomeIcon
+          icon={faStar}
+          key={i}
+          style={{ color: i < rating ? "gold" : "gray" }}
+        />
+      );
+    }
+
+    return <div>{stars}</div>;
+  };
   return (
     <>
       <div style={{ backgroundColor: "#88A9A8" }}>
@@ -457,14 +472,42 @@ function Home() {
           <Grid container spacing={7} className={style.container}>
             <Grid item className={style.items}>
               <Link to="/products" className={style.icons}>
-                <div className={style.hover}>
-                  <div className={style.icon}>
-                    <img
-                      src="https://176ghzqe7rspygq6-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-icon-01.svg?v=1698815628"
-                      alt=""
-                      width={78}
-                      height={67}
-                    />
+                <div
+                  className={style.row}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <div className={style.block} style={{ height: "100%" }}>
+                    <div
+                      className={style.hovicon}
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        padding: "70px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          backgroundColor: "#E5F1F0",
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          padding: "30px",
+                          width: "130px",
+                          height: "130px",
+                        }}
+                      >
+                        <img
+                          src="https://176ghzqe7rspygq6-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-icon-01.svg?v=1698815628"
+                          alt=""
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Link>
@@ -474,14 +517,42 @@ function Home() {
             </Grid>
             <Grid item className={style.items}>
               <Link to="/products" className={style.icons}>
-                <div className={style.hover}>
-                  <div className={style.icon}>
-                    <img
-                      src="https://176ghzqe7rspygq6-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-icon-02.svg?v=1698815628"
-                      alt=""
-                      width={78}
-                      height={67}
-                    />
+                <div
+                  className={style.row}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <div className={style.block} style={{ height: "100%" }}>
+                    <div
+                      className={style.hovicon}
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        padding: "70px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          backgroundColor: "#E5F1F0",
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          padding: "30px",
+                          width: "130px",
+                          height: "130px",
+                        }}
+                      >
+                        <img
+                          src="https://176ghzqe7rspygq6-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-icon-02.svg?v=1698815628"
+                          alt=""
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Link>
@@ -491,14 +562,42 @@ function Home() {
             </Grid>
             <Grid item className={style.items}>
               <Link to="/products" className={style.icons}>
-                <div className={style.hover}>
-                  <div className={style.icon}>
-                    <img
-                      src="https://176ghzqe7rspygq6-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-icon-03.svg?v=1698815628"
-                      alt=""
-                      width={78}
-                      height={67}
-                    />
+                <div
+                  className={style.row}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <div className={style.block} style={{ height: "100%" }}>
+                    <div
+                      className={style.hovicon}
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        padding: "70px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          backgroundColor: "#E5F1F0",
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          padding: "30px",
+                          width: "130px",
+                          height: "130px",
+                        }}
+                      >
+                        <img
+                          src="https://176ghzqe7rspygq6-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-icon-03.svg?v=1698815628"
+                          alt=""
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Link>
@@ -506,6 +605,7 @@ function Home() {
                 Clothes
               </Link>
             </Grid>
+
             <Grid item className={style.items}>
               <Link to="/products" className={style.icons}>
                 <div className={style.hover}>
@@ -778,11 +878,7 @@ function Home() {
                   }}
                 >
                   <div>
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
+                    <StarRating rating={elem.rating} />{" "}
                   </div>
                   <div> {elem.name}</div>
 
@@ -973,11 +1069,7 @@ function Home() {
                   }}
                 >
                   <div>
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
+                    <StarRating rating={elem.rating} />{" "}
                   </div>
                   <div> {elem.name}</div>
 

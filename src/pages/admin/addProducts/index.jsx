@@ -6,7 +6,23 @@ import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Dashboard from "../dashboard";
+import axios from "axios";
 function AddProducts() {
+  function generateRatingNumber() {
+    return Math.floor(Math.random() * 5) + 1;
+  }
+  function generateRandomNumber() {
+    return Math.floor(Math.random() * 5) + 1;
+  }
+  const [img, setImg] = useState("");
+  useEffect(() => {
+    axios("https://source.unsplash.com/random/?toy").then((response) => {
+      setImg(response.request.responseURL);
+    });
+  }, []);
+
+  const randomNumber = generateRandomNumber();
+  const randomRatingNumber = generateRatingNumber();
   const [name, setName] = useState("");
   const [brand, setBrand] = useState("");
   const [collection, setCollection] = useState("");
@@ -25,13 +41,13 @@ function AddProducts() {
           price,
           discountPercent: 10,
           commentArray: "",
-          rating: "",
+          rating: randomRatingNumber,
           description: "",
           brand,
           collection,
-          sold: "",
+          sold: randomNumber,
           availability: false,
-          image: "https://source.unsplash.com/random/?toy",
+          image: img,
         }),
       });
 
@@ -101,7 +117,7 @@ function AddProducts() {
               <label htmlFor="">Price</label>
               <input
                 value={price}
-                type="text"
+                type="number"
                 style={{
                   height: "60px",
                   fontSize: "22px",
