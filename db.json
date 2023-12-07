@@ -232,10 +232,24 @@
           "name": "Unicorn blue soft toy",
           "price": 34,
           "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-15.jpg?v=1698814449&width=535",
+          "quantity": 2
+        },
+        {
+          "id": "10",
+          "name": "Soft stuffed monkey",
+          "price": 34,
+          "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-16.jpg?v=1698814455&width=535",
           "quantity": 1
         }
       ],
-      "wishlist": [],
+      "wishlist": [
+        {
+          "id": "5",
+          "name": "Perk penguin stuffed",
+          "price": 39,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-12.jpg?v=1698814426&width=535"
+        }
+      ],
       "isAdmin": false,
       "comments": "",
       "reviews": "",
