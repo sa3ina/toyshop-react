@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "name": "Wooden stacking rings",
+      "price": 52,
+      "discountPercent": 23,
+      "commentArray": [],
+      "rating": 5,
+      "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
+      "brand": "Massive",
+      "collection": "dolls",
+      "sold": 12,
+      "availability": true,
+      "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-14.jpg?v=1698814441&width=535",
+      "id": "2"
+    },
+    {
       "name": "Cotton rope storage bag",
       "price": 39,
       "discountPercent": 33,
@@ -12,8 +26,7 @@
       "sold": 20,
       "availability": true,
       "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-9.jpg?v=1698814412&width=535",
-      "id": "4",
-      "balance": "21"
+      "id": "4"
     },
     {
       "name": "Perk penguin stuffed",
@@ -98,50 +111,6 @@
       "availability": true,
       "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-16.jpg?v=1698814455&width=535",
       "id": "10"
-    },
-    {
-      "name": "Jessamine Calderon",
-      "price": "Nita Goodwin",
-      "discountPercent": 10,
-      "commentArray": "",
-      "rating": "5",
-      "description": "",
-      "brand": "Martha England",
-      "collection": "Erin Walls",
-      "sold": "123",
-      "availability": false,
-      "image": "https://source.unsplash.com/random/?toy",
-      "id": "2T8E8Ed",
-      "balance": "122"
-    },
-    {
-      "name": "Ethan  edit",
-      "price": "David Salas",
-      "discountPercent": 10,
-      "commentArray": "",
-      "rating": "4655",
-      "description": "",
-      "brand": "Denton Oneil",
-      "collection": "Ryder Willis",
-      "sold": "234567",
-      "availability": false,
-      "image": "https://source.unsplash.com/random/?toy",
-      "id": "-MK5OcD"
-    },
-    {
-      "name": "Rogan Gamble",
-      "price": "Yvonne Pittman",
-      "discountPercent": 10,
-      "commentArray": "",
-      "rating": "",
-      "description": "",
-      "brand": "Cain Meyer",
-      "collection": "Keane Kinney",
-      "sold": "",
-      "availability": false,
-      "image": "https://source.unsplash.com/random/?toy",
-      "id": "rzSYDkJ",
-      "balance": "12"
     }
   ],
   "users": [
