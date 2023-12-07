@@ -37,7 +37,7 @@ const style = {
 
 function Users() {
   const usersData = useSelector((state) => state.user.users);
-
+  const [search, setSearch] = useState("");
   const dispatch = useDispatch();
 
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -95,6 +95,9 @@ function Users() {
     }));
   };
   const [open, setOpen] = useState(false);
+  const filteredProducts = usersData.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <>
@@ -109,6 +112,17 @@ function Users() {
               width: "100%",
             }}
           >
+            <input
+              type="text"
+              placeholder="Type to search.."
+              value={search}
+              style={{ height: "30px", marginBottom: "20px" }}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                console.log(e.target.value);
+              }}
+            />
+
             <TableContainer component={Paper} style={{ height: "100vh" }}>
               <Table>
                 <TableHead>
@@ -123,7 +137,7 @@ function Users() {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {usersData.map((user) => (
+                  {filteredProducts.map((user) => (
                     <TableRow key={user.id}>
                       <TableCell>{user.id}</TableCell>
                       <TableCell>{user.name}</TableCell>

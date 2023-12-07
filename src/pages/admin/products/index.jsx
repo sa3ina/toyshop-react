@@ -50,7 +50,7 @@ function AdminProducts() {
   const handleDelete = (productId) => {
     dispatch(deleteProduct(productId));
   };
-
+  const [search, setSearch] = useState("");
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [editedProductData, setEditedProductData] = useState({
     name: "",
@@ -96,7 +96,9 @@ function AdminProducts() {
   };
 
   const [open, setOpen] = useState(false);
-
+  const filteredProducts = cardProd.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase())
+  );
   return (
     <>
       <Grid container>
@@ -110,6 +112,16 @@ function AdminProducts() {
               width: "100%",
             }}
           >
+            <input
+              type="text"
+              placeholder="Type to search.."
+              value={search}
+              style={{ height: "30px", marginBottom: "20px" }}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                console.log(e.target.value);
+              }}
+            />
             <TableContainer component={Paper} style={{ height: "100vh" }}>
               <Table>
                 <TableHead>
@@ -128,7 +140,7 @@ function AdminProducts() {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {cardProd.map((product) => (
+                  {filteredProducts.map((product) => (
                     <TableRow key={product.id}>
                       <TableCell>{product.id}</TableCell>
                       <TableCell>{product.name}</TableCell>

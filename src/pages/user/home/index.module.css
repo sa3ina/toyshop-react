@@ -67,8 +67,7 @@
   display: flex;
   justify-content: left;
   padding-left: 10%;
-  font-family: cursive;
-
+  font-family: "Mali";
   /* display: flex; */
   /* justify-content: center; */
   /* align-items: center;
@@ -103,7 +102,7 @@
   border-radius: 100px;
   border-width: 1px;
   padding: 16px 32px;
-  font-family: cursive;
+  font-style: italic;
   font-size: 20px;
   display: flex;
   cursor: pointer;
@@ -124,6 +123,7 @@
 .container .items {
   text-align: center;
 }
+
 .container .items .icons .hover {
   border-radius: 50%;
   /* z-index: 1; */
@@ -184,7 +184,7 @@
 .container .items .categories {
   text-decoration: none;
   color: #8d9494;
-  font-family: cursive;
+  font-style: cursive;
 }
 
 .box1 {
@@ -340,7 +340,7 @@
 }
 .titleBest {
   text-align: center;
-  font-family: cursive;
+  font-style: italic;
 }
 .titleBest h3 {
   color: #1f3332;
@@ -348,7 +348,7 @@
   margin-bottom: 10px;
 }
 .titleBest p {
-  font-family: cursive;
+  font-style: italic;
   color: #262626;
 }
 .containerAge {
@@ -357,7 +357,7 @@
   align-items: center;
   text-align: center;
   margin-bottom: 100px;
-  font-family: cursive;
+  font-style: italic;
 }
 .containerAge h3 {
   font-size: 25px;
@@ -646,6 +646,8 @@
 }
 .freeShipping {
   display: flex;
+  width: 100%;
+  margin: 0 auto;
 }
 .freeShipping .image {
   font-size: 40px;
@@ -653,7 +655,7 @@
 }
 .paragraf {
   font-size: 18px;
-
+  margin-bottom: 10px;
   color: #262626;
   font-weight: 600;
 }

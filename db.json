@@ -166,7 +166,6 @@
       "password": "daisy123",
       "orders": [],
       "balance": 7,
-
       "wishlist": [],
       "isAdmin": false,
       "comments": "Passionate about curating educational toys that foster creativity and learning in children.",
@@ -195,14 +194,11 @@
           "quantity": 1
         }
 
-      ]
-
       ],
       "wishlist": [],
       "isAdmin": false,
       "comments": "Passionate about curating educational toys that foster creativity and learning in children.",
       "reviews": "Impressive selection of educational toys. My kids love them!"
-
     },
     {
       "name": "Ethan",
@@ -351,11 +347,11 @@
     },
     {
       "name": "Hinton",
-      "surname": "Murphy",
+      "surname": "Murphyyy",
       "email": "Rosario",
       "password": "Pa$$w0rd!",
       "orders": [],
-      "balance": 0,
+      "balance": "60",
       "basket": [],
       "wishlist": [],
       "isAdmin": false,
