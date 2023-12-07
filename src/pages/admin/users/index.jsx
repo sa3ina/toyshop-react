@@ -22,6 +22,8 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import FilterListIcon from "@mui/icons-material/FilterList";
+import { visuallyHidden } from "@mui/utils";
 
 const style = {
   position: "absolute",
@@ -99,6 +101,62 @@ function Users() {
     item.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  //Sorted
+
+  const [sortNameDirection, setSortNameDirection] = useState("");
+  const [sortSurnameDirection, setSortSurnameDirection] = useState("");
+  const [sortBalanceDirection, setSortBalanceDirection] = useState("");
+
+  const handleSortName = () => {
+    if (sortNameDirection == "") {
+      setSortNameDirection("asc");
+    } else {
+      setSortNameDirection(sortNameDirection === "asc" ? "desc" : "asc");
+    }
+    setSortSurnameDirection("");
+    setSortBalanceDirection("");
+  };
+
+  const handleSortSurname = () => {
+    if (sortSurnameDirection == "") {
+      setSortSurnameDirection("asc");
+    } else {
+      setSortSurnameDirection(sortSurnameDirection === "asc" ? "desc" : "asc");
+    }
+    setSortNameDirection("");
+    setSortBalanceDirection("");
+  };
+
+  const handleSortBalance = () => {
+    if (sortBalanceDirection == "") {
+      setSortBalanceDirection("asc");
+    } else {
+      setSortBalanceDirection(sortBalanceDirection === "asc" ? "desc" : "asc");
+    }
+    setSortNameDirection("");
+    setSortSurnameDirection("");
+  };
+  const sortedData = filteredProducts.sort((a, b) => {
+    if (sortNameDirection === "asc") {
+      return a.name.localeCompare(b.name);
+    }
+    if (sortNameDirection === "desc") {
+      return b.name.localeCompare(a.name);
+    }
+    if (sortSurnameDirection === "asc") {
+      return a.surname.localeCompare(b.surname);
+    }
+    if (sortSurnameDirection === "desc") {
+      return b.surname.localeCompare(a.surname);
+    }
+    if (sortBalanceDirection === "asc") {
+      return a.balance - b.balance;
+    }
+    if (sortBalanceDirection === "desc") {
+      return b.balance - a.balance;
+    }
+  });
+
   return (
     <>
       <Grid container>
@@ -112,16 +170,62 @@ function Users() {
               width: "100%",
             }}
           >
-            <input
-              type="text"
-              placeholder="Type to search.."
-              value={search}
-              style={{ height: "30px", marginBottom: "20px" }}
-              onChange={(e) => {
-                setSearch(e.target.value);
-                console.log(e.target.value);
-              }}
-            />
+            <div style={{ textAlign: "center" }}>
+              <input
+                type="text"
+                placeholder="Type to search.."
+                value={search}
+                style={{
+                  width: "35%",
+                  minHeight: "40px",
+                  borderRadius: "10px",
+                  margin: "10px",
+                }}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                  console.log(e.target.value);
+                }}
+              />
+              <button
+                style={{
+                  marginLeft: "10px",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                  backgroundColor: "purple",
+                  color: "white",
+                  borderColor: "purple",
+                }}
+                onClick={handleSortName}
+              >
+                Sort by Name
+              </button>
+              <button
+                style={{
+                  marginLeft: "10px",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                  backgroundColor: "purple",
+                  color: "white",
+                  borderColor: "purple",
+                }}
+                onClick={handleSortSurname}
+              >
+                Sort by Surname
+              </button>
+              <button
+                style={{
+                  marginLeft: "10px",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                  backgroundColor: "purple",
+                  color: "white",
+                  borderColor: "purple",
+                }}
+                onClick={handleSortBalance}
+              >
+                Sort by Balance
+              </button>
+            </div>
 
             <TableContainer component={Paper} style={{ height: "100vh" }}>
               <Table>
@@ -137,7 +241,7 @@ function Users() {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {filteredProducts.map((user) => (
+                  {sortedData.map((user) => (
                     <TableRow key={user.id}>
                       <TableCell>{user.id}</TableCell>
                       <TableCell>{user.name}</TableCell>
