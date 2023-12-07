@@ -170,7 +170,6 @@
       "isAdmin": false,
       "comments": "Passionate about curating educational toys that foster creativity and learning in children.",
       "reviews": "Impressive selection of educational toys. My kids love them!",
-
       "basket": [
         {
           "id": "4",
@@ -372,6 +371,12 @@
           "name": "Cotton rope storage bag",
           "price": 39,
           "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-9.jpg?v=1698814412&width=535"
+        },
+        {
+          "id": "5",
+          "name": "Perk penguin stuffed",
+          "price": 39,
+          "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-12.jpg?v=1698814426&width=535"
         }
       ],
       "isAdmin": false,
