@@ -60,6 +60,9 @@ function AdminProducts() {
     rating: "",
     sold: "",
   });
+  const handleEdit = (product) => {
+    setIsEditModalOpen(true);
+  };
 
   const handleClose = () => {
     setOpen(false);
@@ -75,7 +78,7 @@ function AdminProducts() {
 
   const handleEditSubmit = (product) => {
     dispatch(
-      editedProductData({
+      editProductInDB({
         productId: product.id,
         updatedProduct: product,
       })
@@ -162,7 +165,7 @@ function AdminProducts() {
                       <TableCell>
                         <button
                           style={{
-                            backgroundColor: "#E5F993",
+                            backgroundColor: "#82CCFF",
                             color: "black",
                             border: "none",
                             padding: "10px",
@@ -231,11 +234,11 @@ function AdminProducts() {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <label htmlFor="editSurname">Price</label> <br />
+                  <label htmlFor="editPrice">Price</label> <br />
                   <input
-                    name="surname"
+                    name="price"
                     type="text"
-                    id="editSurname"
+                    id="editPrice"
                     defaultValue={editedProductData?.price}
                     style={{
                       borderRadius: "25px",
@@ -247,11 +250,11 @@ function AdminProducts() {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <label htmlFor="editEmail">Brand</label> <br />
+                  <label htmlFor="editBrand">Brand</label> <br />
                   <input
-                    name="email"
+                    name="brand"
                     type="text"
-                    id="editEmail"
+                    id="editBrand"
                     defaultValue={editedProductData?.brand}
                     style={{
                       borderRadius: "25px",
@@ -263,11 +266,11 @@ function AdminProducts() {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <label htmlFor="balance">Collection</label> <br />
+                  <label htmlFor="editCollrction">Collection</label> <br />
                   <input
-                    name="balance"
+                    name="collection"
                     type="text"
-                    id="balance"
+                    id="editCollection"
                     defaultValue={editedProductData?.collection}
                     style={{
                       borderRadius: "25px",
@@ -279,11 +282,11 @@ function AdminProducts() {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <label htmlFor="balance">Rating</label> <br />
+                  <label htmlFor="editRating">Rating</label> <br />
                   <input
-                    name="balance"
+                    name="rating"
                     type="number"
-                    id="balance"
+                    id="editRating"
                     defaultValue={editedProductData?.rating}
                     style={{
                       borderRadius: "25px",
@@ -295,11 +298,11 @@ function AdminProducts() {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <label htmlFor="balance">Sold</label> <br />
+                  <label htmlFor="editSold">Sold</label> <br />
                   <input
-                    name="balance"
+                    name="sold"
                     type="number"
-                    id="balance"
+                    id="editSold"
                     defaultValue={editedProductData?.sold}
                     style={{
                       borderRadius: "25px",
