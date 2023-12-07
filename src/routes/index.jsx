@@ -16,6 +16,7 @@ import AddUser from "../pages/admin/addUser";
 import Users from "../pages/admin/users";
 import AboutUs from "../pages/user/aboutUs";
 import ContactUs from "../pages/user/contactUs";
+import OurServices from "../pages/user/ourServices";
 
 export const routes = [
   {
@@ -53,8 +54,12 @@ export const routes = [
         element: <AboutUs />,
       },
       {
+        path: "/aboutUs",
+        element: <OurServices />,
+      },
+      {
         path: "/contactUS",
-        element: <ContactUs/>,
+        element: <ContactUs />,
       },
     ],
   },

@@ -99,6 +99,140 @@ function AdminProducts() {
   const filteredProducts = cardProd.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
   );
+
+  //Sorted product
+
+  const [sortNameDirection, setSortNameDirection] = useState("");
+  const [sortPriceDirection, setSortPriceDirection] = useState("");
+  const [sortBrandDirection, setSortBrandDirection] = useState("");
+  const [sortCollectionDirection, setSortCollectionDirection] = useState("");
+  const [sortRatingDirection, setSortRatingDirection] = useState("");
+  const [sortSoldDirection, setSortSoldDirection] = useState("");
+
+  const handleSortName = () => {
+    if (sortNameDirection == "") {
+      setSortNameDirection("asc");
+    } else {
+      setSortNameDirection(sortNameDirection === "asc" ? "desc" : "asc");
+    }
+    setSortPriceDirection("");
+    setSortBrandDirection("");
+    setSortCollectionDirection("");
+    setSortRatingDirection("");
+    setSortSoldDirection("");
+  };
+
+  const handleSortPrice = () => {
+    if (sortPriceDirection == "") {
+      setSortPriceDirection("asc");
+    } else {
+      setSortPriceDirection(sortPriceDirection === "asc" ? "desc" : "asc");
+    }
+    setSortNameDirection("");
+    setSortBrandDirection("");
+    setSortCollectionDirection("");
+    setSortRatingDirection("");
+    setSortSoldDirection("");
+  };
+
+  const handleSortBrand = () => {
+    if (sortBrandDirection == "") {
+      setSortBrandDirection("asc");
+    } else {
+      setSortBrandDirection(sortBrandDirection === "asc" ? "desc" : "asc");
+    }
+    setSortNameDirection("");
+    setSortPriceDirection("");
+    setSortCollectionDirection("");
+    setSortRatingDirection("");
+    setSortSoldDirection("");
+  };
+
+  const handleSortColletion = () => {
+    if (sortCollectionDirection == "") {
+      setSortCollectionDirection("asc");
+    } else {
+      setSortCollectionDirection(
+        sortCollectionDirection === "asc" ? "desc" : "asc"
+      );
+    }
+    setSortNameDirection("");
+    setSortPriceDirection("");
+    setSortBrandDirection("");
+    setSortRatingDirection("");
+    setSortSoldDirection("");
+  };
+
+  const handleSortRating = () => {
+    if (sortRatingDirection == "") {
+      setSortRatingDirection("asc");
+    } else {
+      setSortRatingDirection(sortRatingDirection === "asc" ? "desc" : "asc");
+    }
+    setSortNameDirection("");
+    setSortPriceDirection("");
+    setSortBrandDirection("");
+    setSortCollectionDirection("");
+    setSortSoldDirection("");
+  };
+
+  const handleSortSold = () => {
+    if (sortSoldDirection == "") {
+      setSortSoldDirection("asc");
+    } else {
+      setSortSoldDirection(sortSoldDirection === "asc" ? "desc" : "asc");
+    }
+    setSortNameDirection("");
+    setSortPriceDirection("");
+    setSortBrandDirection("");
+    setSortCollectionDirection("");
+    setSortRatingDirection("");
+  };
+
+  const sortedData = filteredProducts.sort((a, b) => {
+    if (sortNameDirection === "asc") {
+      return a.name.localeCompare(b.name);
+    }
+    if (sortNameDirection === "desc") {
+      return b.name.localeCompare(a.name);
+    }
+
+    if (sortPriceDirection === "asc") {
+      return a.price - b.price;
+    }
+    if (sortPriceDirection === "desc") {
+      return b.price - a.price;
+    }
+
+    if (sortBrandDirection === "asc") {
+      return a.brand.localeCompare(b.brand);
+    }
+    if (sortBrandDirection === "desc") {
+      return b.brand.localeCompare(a.brand);
+    }
+
+    if (sortCollectionDirection === "asc") {
+      return a.collection.localeCompare(b.collection);
+    }
+    if (sortCollectionDirection === "desc") {
+      return b.collection.localeCompare(a.collection);
+    }
+
+    if (sortRatingDirection === "asc") {
+      return a.rating - b.rating;
+    }
+    if (sortRatingDirection === "desc") {
+      return b.rating - a.rating;
+    }
+
+    if (sortSoldDirection === "asc") {
+      return a.sold - b.sold;
+    }
+    if (sortSoldDirection === "desc") {
+      return b.sold - a.sold;
+    }
+  });
+
   return (
     <>
       <Grid container>
@@ -112,16 +246,103 @@ function AdminProducts() {
               width: "100%",
             }}
           >
-            <input
-              type="text"
-              placeholder="Type to search.."
-              value={search}
-              style={{ height: "30px", marginBottom: "20px" }}
-              onChange={(e) => {
-                setSearch(e.target.value);
-                console.log(e.target.value);
-              }}
-            />
+            <div style={{ textAlign: "center" }}>
+              <input
+                type="text"
+                placeholder="Type to search.."
+                value={search}
+                style={{
+                  width: "35%",
+                  minHeight: "40px",
+                  borderRadius: "10px",
+                  margin: "10px",
+                }}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                  console.log(e.target.value);
+                }}
+              />
+              <button
+                style={{
+                  marginLeft: "10px",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                  backgroundColor: "purple",
+                  color: "white",
+                  borderColor: "purple",
+                }}
+                onClick={handleSortName}
+              >
+                Sort by Name
+              </button>
+              <button
+                style={{
+                  marginLeft: "10px",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                  backgroundColor: "purple",
+                  color: "white",
+                  borderColor: "purple",
+                }}
+                onClick={handleSortPrice}
+              >
+                Sort by Price
+              </button>
+              <button
+                style={{
+                  marginLeft: "10px",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                  backgroundColor: "purple",
+                  color: "white",
+                  borderColor: "purple",
+                }}
+                onClick={handleSortBrand}
+              >
+                Sort by Brand
+              </button>
+
+              <button
+                style={{
+                  marginLeft: "10px",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                  backgroundColor: "purple",
+                  color: "white",
+                  borderColor: "purple",
+                }}
+                onClick={handleSortColletion}
+              >
+                Sort by Collection
+              </button>
+              <button
+                style={{
+                  marginLeft: "10px",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                  backgroundColor: "purple",
+                  color: "white",
+                  borderColor: "purple",
+                }}
+                onClick={handleSortRating}
+              >
+                Sort by Rating
+              </button>
+              <button
+                style={{
+                  marginLeft: "10px",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                  backgroundColor: "purple",
+                  color: "white",
+                  borderColor: "purple",
+                }}
+                onClick={handleSortSold}
+              >
+                Sort by Sold
+              </button>
+            </div>
+
             <TableContainer component={Paper} style={{ height: "100vh" }}>
               <Table>
                 <TableHead>
