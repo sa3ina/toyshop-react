@@ -33,22 +33,26 @@ function Login() {
     event.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/users"); // Fetch user data from your mock server
+      const response = await fetch("http://localhost:3000/users");
       const users = await response.json();
-      const foundUser = users.find(
-        (user) => user.email == email && user.password === password
-      );
 
-      if (foundUser) {
-        dispatch(loginSuccess(foundUser)); // Dispatch login success action with user data
-        console.log(foundUser);
-        localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
-        navigate("/"); // Redirect to dashboard or any desired route
+      if (users && users.length > 0) {
+        const foundUser = users.find(
+          (user) => user.email === email && user.password === password
+        );
+
+        if (foundUser) {
+          dispatch(loginSuccess(foundUser));
+          localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
+          navigate("/");
+        } else {
+          dispatch(loginFailure("Invalid email or password"));
+        }
       } else {
-        dispatch(loginFailure("Invalid email or password")); // Dispatch login failure action
+        dispatch(loginFailure("No users found")); // Handle no users scenario
       }
     } catch (error) {
-      dispatch(loginFailure("An error occurred during login")); // Handle fetch error
+      dispatch(loginFailure("An error occurred during login"));
       console.error("Error during login:", error);
     }
   };

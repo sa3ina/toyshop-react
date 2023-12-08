@@ -239,6 +239,7 @@ function Navbar() {
                     backgroundColor: "transparent",
                     border: "none",
                     color: "grey",
+                    cursor: "pointer",
                   }}
                   onClick={() => {
                     // loggedInUser ? setUser(loggedInUser) : setUser(null);
@@ -272,6 +273,7 @@ function Navbar() {
                     backgroundColor: "transparent",
                     border: "none",
                     color: "grey",
+                    cursor: "pointer",
                   }}
                   onClick={(e) => {
                     e.preventDefault();
@@ -288,6 +290,7 @@ function Navbar() {
                     backgroundColor: "transparent",
                     border: "none",
                     color: "grey",
+                    cursor: "pointer",
                   }}
                   onClick={() => {
                     localStorage.setItem("loggedInUser", JSON.stringify({}));
