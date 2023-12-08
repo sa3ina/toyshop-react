@@ -232,7 +232,6 @@ function Wishlist() {
                         });
                       }}
                     >
-                      {" "}
                       <FavoriteIcon color="error" />
                     </button>
                     <button

@@ -989,6 +989,13 @@ function Home() {
                     >
                       ADD TO CART
                     </button>
+                    <Link
+                      to={"/products/" + elem.id}
+                      className={styles.details}
+                      style={{ cursor: "pointer", border: "none" }}
+                    >
+                      Details
+                    </Link>
 
                     <img
                       className={styles.card}
@@ -1180,6 +1187,13 @@ function Home() {
                     >
                       ADD TO CART
                     </button>
+                    <Link
+                      to={"/products/" + elem.id}
+                      className={styles.details}
+                      style={{ cursor: "pointer", border: "none" }}
+                    >
+                      Details
+                    </Link>
 
                     <img
                       className={styles.card}
