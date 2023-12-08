@@ -199,22 +199,16 @@ function Products() {
 
     let arrWishlist = JSON.parse(localStorage.getItem("loggedInUser"));
     console.log(arrWishlist.wishlist);
+
   };
-//   const [card,setCard]=useState([])
-//   const [category,setCategory]=useState(["Dolls","Toys","Clothes","Sensory","Games","Strolles"])
-//   const [choose, setChoose] = useState(null)
-//   useEffect(()=>{
-//     fetch('http://localhost:3000/users/posts')
-//     .then(response => response.json())
-//     .then(data => setCard(data))
-//     .catch(error => console.error('Kartlar yuklenmedi:', error));
-// }, [])
-// const filterCardByCategory = (selectedCategory) => {
-//   return card.filter(kart => kart.title.toLowerCase().includes(selectedCategory.toLowerCase()));
-// };
-// const handleCategoryClick = (clickedCategory) => {
-//   setChoose(clickedCategory);
-// };
+  const [zoom, setZoom] = useState(300);
+  const handleZoomClick = (level) => {
+    setZoom(level);
+  };
+  const [isChecked,setIsChecked]=useState(false)
+  const handleToggle=()=>{
+    setIsChecked(!isChecked)
+  }
   return (
     <>
       <section className={style.section}>
@@ -242,17 +236,7 @@ function Products() {
                     <span className={style.ctg}>Sensory</span>
                     <span  className={style.ctg}>Games</span>
                     <span className={style.ctg}>Strolles</span></div>
-                   
-        {/* {category.map(kategori => (
-          <span key={kategori} onClick={() => handleCategoryClick(kategori)}>{kategori}</span>
-        ))}
-      </div>
-                    {filterCardByCategory(choose).map(kart=>(
-                    <div key={kart.id}>
-            <h3>{kart.title}</h3>
-            <p>{kart.body}</p>
-          </div>
-        ))}</div> */}
+                  
                     
               
               <div
@@ -276,8 +260,8 @@ function Products() {
                 <h3>Brand</h3>
                 <ul className={style.list}>
                   <li className={style.check}>
-                    <input type="radio" name="" />
-                    <label htmlFor="Acme">Acme</label>
+                   <input type="radio" name=""  id="Acme" checked={isChecked} onChange={handleToggle}/>
+                    <label htmlFor="Acme">Acme</label> 
                     <span>(02)</span>
                   </li>
                   <li className={style.check}>
@@ -380,12 +364,33 @@ function Products() {
             style={{  width:"100%"}}
           >
             <Grid item className={style.item} lg={12} xs={6} md={12} style={{ }}>
-              <div>
-                <span>Showing of 16 products</span>
-                <button className={style.zoom}>||</button>
-                <button className={style.zoom}>|||</button>
-                <button className={style.zoom}>||||</button>
-              </div>
+            <div>
+                  <span>Showing of 16 products</span>
+                  <button
+                    onClick={() => {
+                      handleZoomClick(500);
+                    }}
+                    className={style.zoom}
+                  >
+                    ||
+                  </button>
+                  <button
+                    onClick={() => {
+                      handleZoomClick(400);
+                    }}
+                    className={style.zoom}
+                  >
+                    |||
+                  </button>
+                  <button
+                    onClick={() => {
+                      handleZoomClick(280);
+                    }}
+                    className={style.zoom}
+                  >
+                    ||||
+                  </button>
+                </div>
               <div className={style.sort}>
                 <span>Sort by: </span>
                 <span style={{color:"#212529"}}>Best selling <FontAwesomeIcon icon={faChevronDown} /></span>
@@ -401,7 +406,7 @@ function Products() {
                 <Card
                   className={style.cardd}
                   sx={{ minWidth: 275 }}
-                  style={{ marginBottom: "15px"}}
+                  style={{ marginBottom: "15px", width:`${zoom}px`}}
                 >
                   <CardContent
                     style={{

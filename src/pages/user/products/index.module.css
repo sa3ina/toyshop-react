@@ -124,12 +124,14 @@ li {
   height: 15px;
   border-radius: 50%;
   border: 1px solid #626262;
+  margin-right: 8px;
 }
 .check input[type="radio"]:checked {
   background-color: black;
   width: 10px;
   height: 10px;
   border-radius: 50%;
+  
 }
 ul {
   list-style: none;
@@ -162,6 +164,7 @@ ul {
 }
 .cardd {
   position: relative;
+  transition: transform 0.3s ease-in-out;
 }
 
 .cardd img {
