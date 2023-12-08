@@ -78,7 +78,7 @@
       "rating": 5,
       "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
       "brand": "Moschino",
-      "collection": "babygear",
+      "collection": "toys",
       "sold": 9,
       "availability": true,
       "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-02.jpg?v=1698814462",
@@ -92,7 +92,7 @@
       "rating": 3,
       "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
       "brand": "Acme",
-      "collection": "babygear",
+      "collection": "strolles",
       "sold": 2,
       "availability": true,
       "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-15.jpg?v=1698814449&width=535",
@@ -100,17 +100,73 @@
     },
     {
       "name": "Soft stuffed monkey",
-      "price": 34,
+      "price": 24,
       "discountPercent": 15,
       "commentArray": [],
       "rating": 5,
       "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
       "brand": "Hamofy",
-      "collection": "babygear",
+      "collection": "toys",
       "sold": 3,
       "availability": true,
       "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-16.jpg?v=1698814455&width=535",
       "id": "10"
+    },
+    {
+      "name": "Tiger on whells toy",
+      "price": 30,
+      "discountPercent": 20,
+      "commentArray": [],
+      "rating": 5,
+      "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
+      "brand": "Hamofy",
+      "collection": "games",
+      "sold": 3,
+      "availability": true,
+      "image": "//hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-07.jpg?v=1698814405",
+      "id": "11"
+    },
+    {
+      "name": "Soft Panda Teddy",
+      "price": 45,
+      "discountPercent": 20,
+      "commentArray": [],
+      "rating": 5,
+      "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
+      "brand": "Hamofy",
+      "collection": "games",
+      "sold": 3,
+      "availability": true,
+      "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-06.jpg?v=1698814397",
+      "id": "11"
+    },
+    {
+      "name": "Running deer soft toy",
+      "price": 32,
+      "discountPercent": 20,
+      "commentArray": [],
+      "rating": 5,
+      "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
+      "brand": "Hamofy",
+      "collection": "games",
+      "sold": 3,
+      "availability": true,
+      "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-10.jpg?v=1698814419",
+      "id": "12"
+    },
+    {
+      "name": "Running deer soft toy",
+      "price": 32,
+      "discountPercent": 20,
+      "commentArray": [],
+      "rating": 5,
+      "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
+      "brand": "Hamofy",
+      "collection": "games",
+      "sold": 3,
+      "availability": true,
+      "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-04.jpg?v=1698814390",
+      "id": "13"
     },
     {
       "name": "Iola Donovan",
@@ -297,8 +353,6 @@
       "comments": "",
       "reviews": "",
       "id": "rHtZgHD"
-
     }
-    
   ]
 }
