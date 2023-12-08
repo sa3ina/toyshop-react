@@ -5,12 +5,23 @@
 }
 .section {
   background-image: url(//wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-about-title-bg-01.jpg?v=1698815628);
-  width: 100%;
+  /* width: 100%; */
   height: 300px;
-  background-repeat: repeat-x;
+  /* background-repeat: repeat-x; */
 
   height: 30vh;
+  /* background-size: cover; */
+  margin-bottom: 30px;
+  background-position: center;
+  overflow: hidden;
+  background-repeat: no-repeat;
   background-size: cover;
+
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  text-align: center;
+  cursor: grab;
 }
 .slider1 {
   height: 90vh;
@@ -78,7 +89,7 @@
 .collection {
   margin-bottom: 30px;
   padding-bottom: 10px;
-  width: 200px;
+  /* width: 200px; */
 }
 .brand {
   margin-bottom: 30px;
@@ -162,17 +173,83 @@ ul {
   margin-left: 10px;
   border-radius: 5px;
 }
-.item {
+.filter {
   padding-left: 40px;
   padding-top: 20px;
   display: flex;
   justify-content: space-between;
 }
+.filterButton {
+  display: none;
+}
+@media only screen and (max-width: 320px) {
+  .buttonsGrid {
+    display: none;
+  }
+  .filter {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .sort {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .productsCount {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+  }
+}
 
+@media screen and (max-width: 425px) {
+  .filterButton {
+    display: block;
+  }
+  .showProd {
+    display: none;
+  }
+  .btnfil {
+    padding: 8px 15px;
+    background-color: #272727;
+    color: white;
+    border-radius: 7px;
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .buttonsGrid {
+    display: none;
+  }
+
+  .productsCount {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+  }
+  .sort {
+    display: flex;
+    flex-direction: column;
+  }
+  .filter {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .sortBy {
+    display: none;
+  }
+}
 .row {
   display: flex;
   flex-direction: column;
-  margin-right: 15px;
+  /* margin-right: 15px; */
+  align-items: start;
 }
 @media only screen and (max-width: 600px) {
   .row {
@@ -247,6 +324,10 @@ ul {
 }
 .cardd:hover .details {
   opacity: 1;
+}
+.details:hover {
+  background-color: black;
+  color: white;
 }
 
 .containerCards {

@@ -204,7 +204,7 @@ function Details() {
           spacing={8}
           justifyContent="center"
           alignItems="center"
-          style={{ minHeight: "100vh" }}
+          style={{ minHeight: "50vh" }}
         >
           <Grid item xs={12}>
             <Typography
