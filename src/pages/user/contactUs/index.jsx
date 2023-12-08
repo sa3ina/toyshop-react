@@ -7,8 +7,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 import { faPhoneVolume, faComment } from "@fortawesome/free-solid-svg-icons";
-
+import { useState } from "react";
 function ContactUs() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [message, setMessage] = useState('');
   return (
     <>
       {" "}
@@ -85,7 +89,8 @@ function ContactUs() {
         <Container maxWidth="xl" style={{ marginTop: "20px" }}>
           <Grid container spacing={0}>
             <Grid item className={style.image}>
-              <img
+              <img 
+              style={{paddingTop:"30px"}}
                 src="https://maps.gstatic.com/mapfiles/api-3/images/icon_error.png"
                 alt=""
               />
@@ -100,7 +105,7 @@ function ContactUs() {
         <Container>
           <Grid container spacing={0} style={{ display: "flex" }}>
             <Grid item lg={6} sx={12} style={{ marginTop: "20px" }}>
-              <img
+              <img className={style.imgg}
                 src="//1q0zh2ycw9dpybh2-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-contact-us-img-01_535x.jpg?v=1698815628"
                 alt=""
               />
@@ -111,13 +116,15 @@ function ContactUs() {
               <div style={{ display: "flex" }}>
                 {" "}
                 <input
+               
                   autoComplete="name"
                   type="text"
                   id="ContactForm-name"
                   name="contact[Name]"
-                  value=""
+                  value={name}
                   className={style.borderlesss}
                   placeholder="What's your good name?"
+                  onChange={(e) => setName(e.target.value)}
                 />
                 <FontAwesomeIcon icon={faUser} style={{ marginTop: "10px" }} />
               </div>
@@ -130,9 +137,13 @@ function ContactUs() {
                   type="text"
                   id="ContactForm-name"
                   name="contact[Name]"
-                  value=""
+                  value={email}
                   className={style.borderlesss}
                   placeholder="Enter your email adress?"
+                  onChange={(e)=>setEmail(e.target.value)}
+
+
+                  
                 />
                 <FontAwesomeIcon
                   icon={faEnvelope}
@@ -148,9 +159,10 @@ function ContactUs() {
                   type="text"
                   id="ContactForm-name"
                   name="contact[Name]"
-                  value=""
+                  value={phoneNumber}
                   className={style.borderlesss}
                   placeholder="Enter your phone number"
+                  onChange={(e)=>setPhoneNumber(e.target.value)}
                 />
                 <FontAwesomeIcon
                   icon={faPhoneVolume}
@@ -166,9 +178,10 @@ function ContactUs() {
                   type="text"
                   id="ContactForm-name"
                   name="contact[Name]"
-                  value=""
+                  value={message}
                   className={style.borderlesss}
                   placeholder="Enter your message"
+                  onChange={(e) => setMessage(e.target.value)}
                 />
                 <FontAwesomeIcon
                   icon={faComment}

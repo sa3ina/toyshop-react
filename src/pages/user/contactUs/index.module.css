@@ -52,6 +52,7 @@ p {
   text-align: center;
   padding-top: 140px;
   background-color: #d9dcdf;
+  
 }
 .borderlesss {
   width: 200px;
@@ -81,4 +82,13 @@ h4 {
 }
 h5 {
   margin-left: 10px;
+}
+.imgg{
+  max-width: 100%;
+  height: auto;
+}
+@media only screen and (max-width: 600px) {
+  .img {
+    max-width: 80%;
+  }
 }
