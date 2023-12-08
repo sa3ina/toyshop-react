@@ -239,6 +239,7 @@ function Navbar() {
                     backgroundColor: "transparent",
                     border: "none",
                     color: "grey",
+                    position: "relative",
                   }}
                   onClick={() => {
                     // loggedInUser ? setUser(loggedInUser) : setUser(null);
@@ -249,10 +250,16 @@ function Navbar() {
                       <Avatar
                         aria-label="recipe"
                         style={{
-                          fontSize: "12px",
-                          width: "35px",
-                          height: "35px",
-                          backgroundColor: "#88A9A8",
+                          fontSize: "15px",
+                          fontWeight: "700",
+                          fontFamily: "cursive",
+                          width: "88px",
+                          height: "60px",
+                          backgroundColor: "white",
+                          color: "#88A9A8",
+                          position: "absolute",
+                          bottom: "-17px",
+                          right: "5%",
                         }}
                       >
                         {loggedInUser?.name}
