@@ -39,6 +39,7 @@
 }
 .text2 {
   padding-top: 50px;
+  text-align: center;
 }
 .text2 h3 {
   margin-top: 20px;
@@ -80,21 +81,64 @@
   color: #626262;
 }
 .section4 {
-  margin-top: 40px;
+  margin-top: 15px;
 }
 .item3 {
   margin-top: 50px;
   background-image: url(//wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-about-img-02.jpg?v=1698815629);
   /* width: 100%; */
   /* height: 630px; */
+  height: 85vh;
 
   background-repeat: no-repeat;
   overflow: hidden;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media only screen and (max-width: 1024px) {
+  .section4 {
+    margin-top: 10px;
+  }
+  .item3 {
+    height: 60vh;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .section4 {
+    margin-top: 5px;
+  }
+  .item3 {
+    height: 45vh;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .section4 {
+    margin-top: 5px;
+  }
+  .item3 {
+    height: 30vh;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .section4 {
+    margin-top: 2px;
+  }
+  .item3 {
+    height: 20vh;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .section4 {
+    margin-top: 5px;
+  }
+  .item3 {
+    height: 18vh;
+  }
 }
 h3 {
   font-size: 40px;

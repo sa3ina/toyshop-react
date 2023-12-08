@@ -52,7 +52,6 @@ p {
   text-align: center;
   padding-top: 140px;
   background-color: #d9dcdf;
-  
 }
 .borderlesss {
   width: 200px;
@@ -83,7 +82,7 @@ h4 {
 h5 {
   margin-left: 10px;
 }
-.imgg{
+.imgg {
   max-width: 100%;
   height: auto;
 }

@@ -9,10 +9,10 @@ import { faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faPhoneVolume, faComment } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 function ContactUs() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [message, setMessage] = useState("");
   return (
     <>
       {" "}
@@ -37,7 +37,6 @@ function ContactUs() {
                   <h3>We would love to help for you how can help you?</h3>
                 </div>
                 <div className={style.prg}>
-                  {" "}
                   <p>
                     We're here to help and answer any question you might have.
                     we look forward to hearing from you. any need help you
@@ -46,7 +45,15 @@ function ContactUs() {
                   </p>
                 </div>
               </Grid>
-              <Grid item lg={3} xs={12} style={{ marginTop: "50px" }}>
+              <Grid
+                item
+                xl={3}
+                lg={3}
+                md={6}
+                sm={12}
+                xs={12}
+                style={{ marginTop: "50px" }}
+              >
                 <img
                   src="//1q0zh2ycw9dpybh2-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-contact-us-icon-01.svg?v=1698815628"
                   alt=""
@@ -56,7 +63,15 @@ function ContactUs() {
                 <p>401 Broadway, 24th Floor</p>
                 <p>New York, NY 10013</p>
               </Grid>
-              <Grid item lg={3} xs={12} style={{ marginTop: "50px" }}>
+              <Grid
+                item
+                xl={3}
+                lg={3}
+                md={6}
+                sm={12}
+                xs={12}
+                style={{ marginTop: "50px" }}
+              >
                 <img
                   src="//1q0zh2ycw9dpybh2-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-contact-us-icon-02.svg?v=1698815628"
                   alt=""
@@ -65,7 +80,15 @@ function ContactUs() {
                 <p>sales@yourdomain.com</p>
                 <p>info@yourdomain.com</p>
               </Grid>
-              <Grid item lg={3} xs={12} style={{ marginTop: "50px" }}>
+              <Grid
+                item
+                xl={3}
+                lg={3}
+                md={6}
+                sm={12}
+                xs={12}
+                style={{ marginTop: "50px" }}
+              >
                 <img
                   src="//1q0zh2ycw9dpybh2-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-contact-us-icon-03.svg?v=1698815627"
                   alt=""
@@ -74,7 +97,15 @@ function ContactUs() {
                 <p>Phone: 1-800-222-000</p>
                 <p>Fax: 1-800-222-002</p>
               </Grid>
-              <Grid item lg={3} xs={12} style={{ marginTop: "50px" }}>
+              <Grid
+                item
+                xl={3}
+                lg={3}
+                md={6}
+                sm={12}
+                xs={12}
+                style={{ marginTop: "50px" }}
+              >
                 <img
                   src="//1q0zh2ycw9dpybh2-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-contact-us-icon-04.svg?v=1698815628"
                   alt=""
@@ -89,8 +120,8 @@ function ContactUs() {
         <Container maxWidth="xl" style={{ marginTop: "20px" }}>
           <Grid container spacing={0}>
             <Grid item className={style.image}>
-              <img 
-              style={{paddingTop:"30px"}}
+              <img
+                style={{ paddingTop: "30px" }}
                 src="https://maps.gstatic.com/mapfiles/api-3/images/icon_error.png"
                 alt=""
               />
@@ -104,19 +135,42 @@ function ContactUs() {
         </Container>
         <Container>
           <Grid container spacing={0} style={{ display: "flex" }}>
-            <Grid item lg={6} sx={12} style={{ marginTop: "20px" }}>
-              <img className={style.imgg}
+            <Grid
+              item
+              xl={6}
+              lg={6}
+              md={12}
+              sm={12}
+              xs={12}
+              style={{
+                marginTop: "20px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <img
+                className={style.imgg}
                 src="//1q0zh2ycw9dpybh2-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-contact-us-img-01_535x.jpg?v=1698815628"
                 alt=""
               />
             </Grid>
-            <Grid style={{ marginTop: "20px" }} item lg={6} sx={12}>
+            <Grid
+              style={{
+                marginTop: "20px",
+                textAlign: "center",
+              }}
+              item
+              xl={6}
+              lg={6}
+              md={12}
+              sm={12}
+              sx={12}
+            >
               <h4>Let’s get in touch.</h4>
               <h5>Your name</h5>
               <div style={{ display: "flex" }}>
-                {" "}
                 <input
-               
                   autoComplete="name"
                   type="text"
                   id="ContactForm-name"
@@ -140,10 +194,7 @@ function ContactUs() {
                   value={email}
                   className={style.borderlesss}
                   placeholder="Enter your email adress?"
-                  onChange={(e)=>setEmail(e.target.value)}
-
-
-                  
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <FontAwesomeIcon
                   icon={faEnvelope}
@@ -162,7 +213,7 @@ function ContactUs() {
                   value={phoneNumber}
                   className={style.borderlesss}
                   placeholder="Enter your phone number"
-                  onChange={(e)=>setPhoneNumber(e.target.value)}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
                 />
                 <FontAwesomeIcon
                   icon={faPhoneVolume}
@@ -195,7 +246,9 @@ function ContactUs() {
                 <label htmlFor="">I agree with the terms & conditions</label>
               </div>
               <br />
-              <button className={style.btns}>Send message</button>
+              <div style={{ textAlign: "center" }}>
+                <button className={style.btns}>Send message</button>
+              </div>
             </Grid>
           </Grid>
         </Container>
