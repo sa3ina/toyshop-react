@@ -1,4 +1,3 @@
-
 import React from "react";
 import style from "./index.module.css";
 import Grid from "@mui/material/Grid";
@@ -199,20 +198,19 @@ function Products() {
 
     let arrWishlist = JSON.parse(localStorage.getItem("loggedInUser"));
     console.log(arrWishlist.wishlist);
-
   };
   const [zoom, setZoom] = useState(300);
   const handleZoomClick = (level) => {
     setZoom(level);
   };
-  const [isChecked,setIsChecked]=useState(false)
-  const handleToggle=()=>{
-    setIsChecked(!isChecked)
-  }
+  const [isChecked, setIsChecked] = useState(false);
+  const handleToggle = () => {
+    setIsChecked(!isChecked);
+  };
   return (
     <>
       <section className={style.section}>
-        <Container>
+        <Container maxWidth="xl">
           <Grid spacing={0}>
             <Grid item lg={12} sm={12} className={style.item1}>
               <div className={style.text1}>
@@ -229,143 +227,154 @@ function Products() {
             <div className={style.row}>
               <div className={style.collection}>
                 <h3>Collection</h3>
-                <div style={{display:"flex", flexDirection:"column"}}><span className={style.ctg}>Dolls</span>
-                    <span  className={style.ctg}>Toys</span>
-                    <span  className={style.ctg}>Toys</span>
-                    <span  className={style.ctg}>Clothes</span>
-                    <span className={style.ctg}>Sensory</span>
-                    <span  className={style.ctg}>Games</span>
-                    <span className={style.ctg}>Strolles</span></div>
-                  
-                    
-              
-              <div
-                className={style.price}
-                style={{ borderTop: "1px solid #626262" }}
-              >
-                <h3>Price</h3>
-                <Slider
-                  defaultValue={30}
-                  sx={{
-                    width: 200,
-                    color: "gray",
-                  }}
-                />
-                <p>Price:$1.00 - $30.00</p>
-              </div>
-              <div
-                className={style.brand}
-                style={{ borderTop: "1px solid  #626262" }}
-              >
-                <h3>Brand</h3>
-                <ul className={style.list}>
-                  <li className={style.check}>
-                   <input type="radio" name=""  id="Acme" checked={isChecked} onChange={handleToggle}/>
-                    <label htmlFor="Acme">Acme</label> 
-                    <span>(02)</span>
-                  </li>
-                  <li className={style.check}>
-                    <input type="radio" name="" />
-                    <label htmlFor="Haider Ackermann">Haider Ackermann</label>
-                    <span>(01)</span>
-                  </li>
-                  <li className={style.check}>
-                    <input type="radio" name="" />
-                    <label htmlFor="">Hamofy</label>
-                    <span>(02)</span>
-                  </li>
-                  <li className={style.check}>
-                    <input type="radio" name="" />
-                    <label htmlFor="">Helmut Lang</label>
-                    <span>(01)</span>
-                  </li>
-                  <li className={style.check}>
-                    <input type="radio" name="" />
-                    <label htmlFor="Hurry">Hurry</label>
-                    <span>(04)</span>
-                  </li>
-                  <li className={style.check}>
-                    <input type="radio" name="" />
-                    <label htmlFor="Maison Margiela">Maison Margiela</label>
-                    <span>(01)</span>
-                  </li>
-                  <li className={style.check}>
-                    <input type="radio" name="" />
-                    <label htmlFor="Massive">Massive</label>
-                    <span>(02)</span>
-                  </li>
-                  <li className={style.check}>
-                    <input type="radio" name="" />
-                    <label
-                      htmlFor="Moschino
-"
-                    >
-                      Moschino
-                    </label>
-                    <span>(01)</span>
-                  </li>
-                  <li className={style.check}>
-                    <input type="radio" name="" />
-                    <label htmlFor="Sandro">Sandro</label>
-                    <span>(01)</span>
-                  </li>
-                  <li className={style.check}>
-                    <input type="radio" name="" />
-                    <label htmlFor="Sandro">Sandro</label>
-                    <span>(01)</span>
-                  </li>
-                  <li className={style.check}>
-                    <input type="radio" name="" />
-                    <label htmlFor="Starwalks">Starwalks</label>
-                    <span>(01)</span>
-                  </li>
-                </ul>
-              </div>
-              <div
-                className={style.availability}
-                style={{ borderTop: "1px solid  #626262;" }}
-              >
-                <h3>Availability</h3>
-                <ul>
-                  <li className={style.check}>
-                    <input type="radio" name="" />
-                    <label htmlFor="">In stock</label>
-                    <span>(15)</span>
-                  </li>
-                </ul>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <span className={style.ctg}>Dolls</span>
+                  <span className={style.ctg}>Toys</span>
+                  <span className={style.ctg}>Toys</span>
+                  <span className={style.ctg}>Clothes</span>
+                  <span className={style.ctg}>Sensory</span>
+                  <span className={style.ctg}>Games</span>
+                  <span className={style.ctg}>Strolles</span>
+                </div>
 
-                <div className={style.disabled} style={{ marginTop: "5px" }}>
-                  <input type="radio" disabled />
-                  <label htmlFor="Out of stock">Out of stock</label>
+                <div
+                  className={style.price}
+                  style={{ borderTop: "1px solid #626262" }}
+                >
+                  <h3>Price</h3>
+                  <Slider
+                    defaultValue={30}
+                    sx={{
+                      width: 200,
+                      color: "gray",
+                    }}
+                  />
+                  <p>Price:$1.00 - $30.00</p>
+                </div>
+                <div
+                  className={style.brand}
+                  style={{ borderTop: "1px solid  #626262" }}
+                >
+                  <h3>Brand</h3>
+                  <ul className={style.list}>
+                    <li className={style.check}>
+                      <input
+                        type="radio"
+                        name=""
+                        id="Acme"
+                        checked={isChecked}
+                        onChange={handleToggle}
+                      />
+                      <label htmlFor="Acme">Acme</label>
+                      <span>(02)</span>
+                    </li>
+                    <li className={style.check}>
+                      <input type="radio" name="" />
+                      <label htmlFor="Haider Ackermann">Haider Ackermann</label>
+                      <span>(01)</span>
+                    </li>
+                    <li className={style.check}>
+                      <input type="radio" name="" />
+                      <label htmlFor="">Hamofy</label>
+                      <span>(02)</span>
+                    </li>
+                    <li className={style.check}>
+                      <input type="radio" name="" />
+                      <label htmlFor="">Helmut Lang</label>
+                      <span>(01)</span>
+                    </li>
+                    <li className={style.check}>
+                      <input type="radio" name="" />
+                      <label htmlFor="Hurry">Hurry</label>
+                      <span>(04)</span>
+                    </li>
+                    <li className={style.check}>
+                      <input type="radio" name="" />
+                      <label htmlFor="Maison Margiela">Maison Margiela</label>
+                      <span>(01)</span>
+                    </li>
+                    <li className={style.check}>
+                      <input type="radio" name="" />
+                      <label htmlFor="Massive">Massive</label>
+                      <span>(02)</span>
+                    </li>
+                    <li className={style.check}>
+                      <input type="radio" name="" />
+                      <label
+                        htmlFor="Moschino
+"
+                      >
+                        Moschino
+                      </label>
+                      <span>(01)</span>
+                    </li>
+                    <li className={style.check}>
+                      <input type="radio" name="" />
+                      <label htmlFor="Sandro">Sandro</label>
+                      <span>(01)</span>
+                    </li>
+                    <li className={style.check}>
+                      <input type="radio" name="" />
+                      <label htmlFor="Sandro">Sandro</label>
+                      <span>(01)</span>
+                    </li>
+                    <li className={style.check}>
+                      <input type="radio" name="" />
+                      <label htmlFor="Starwalks">Starwalks</label>
+                      <span>(01)</span>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  className={style.availability}
+                  style={{ borderTop: "1px solid  #626262;" }}
+                >
+                  <h3>Availability</h3>
+                  <ul>
+                    <li className={style.check}>
+                      <input type="radio" name="" />
+                      <label htmlFor="">In stock</label>
+                      <span>(15)</span>
+                    </li>
+                  </ul>
+
+                  <div className={style.disabled} style={{ marginTop: "5px" }}>
+                    <input type="radio" disabled />
+                    <label htmlFor="Out of stock">Out of stock</label>
+                  </div>
+                </div>
+                <div
+                  className={style.tag}
+                  style={{ borderTop: "1px solid  #626262;" }}
+                >
+                  <button className={style.btn}>Classik</button>
+                  <button className={style.btn}>Kids</button>
+                  <button className={style.btn}>Modern</button>
+                  <button className={style.btn}>Stylish</button>
+                  <button className={style.btn}>Toy</button>
+                </div>
+                <div className={style.image}>
+                  <img
+                    style={{ width: "200px" }}
+                    src="//hongotheme.myshopify.com/cdn/shop/files/demo-kids-toy-product-listing-banner.jpg?v=1698815628"
+                    alt=""
+                  />
                 </div>
               </div>
-              <div
-                className={style.tag}
-                style={{ borderTop: "1px solid  #626262;" }}
-              >
-                <button className={style.btn}>Classik</button>
-                <button className={style.btn}>Kids</button>
-                <button className={style.btn}>Modern</button>
-                <button className={style.btn}>Stylish</button>
-                <button className={style.btn}>Toy</button>
-              </div>
-              <div className={style.image}>
-                <img
-                  style={{ width: "200px" }}
-                  src="//hongotheme.myshopify.com/cdn/shop/files/demo-kids-toy-product-listing-banner.jpg?v=1698815628"
-                  alt=""
-                />
-              </div>
-            </div></div>
+            </div>
           </Toolbar>
-          <Grid
-          lg={12} 
-            spacing={0}
-            style={{  width:"100%"}}
-          >
-            <Grid item className={style.item} lg={12} xs={6} md={12} style={{ }}>
-            <div>
-                  <span>Showing of 16 products</span>
+          <Grid lg={12} spacing={0}>
+            {/* <Grid item className={style.item} lg={12} xs={6} md={12} style={{}}> */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <div style={{ display: "flex" }}>
+                <span>Showing of 16 products</span>
+                <div>
                   <button
                     onClick={() => {
                       handleZoomClick(500);
@@ -391,133 +400,165 @@ function Products() {
                     ||||
                   </button>
                 </div>
+              </div>
               <div className={style.sort}>
                 <span>Sort by: </span>
-                <span style={{color:"#212529"}}>Best selling <FontAwesomeIcon icon={faChevronDown} /></span>
+                <span style={{ color: "#212529" }}>
+                  Best selling <FontAwesomeIcon icon={faChevronDown} />
+                </span>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-              </div>
-            </Grid>
-            <Grid  spacing={0} lg={4} style={{display:"flex",flexWrap:"wrap",marginTop:"100px"}}>{cardProd.map((elem, i) => (
-              <Grid item lg={3} xs={2} key={i} style={{ marginRight:"5px",flexWrap:"wrap"}}>
-                <Card
-                  className={style.cardd}
-                  sx={{ minWidth: 275 }}
-                  style={{ marginBottom: "15px", width:`${zoom}px`}}
+              </div>{" "}
+            </div>
+            {/* </Grid> */}
+            <Grid
+              spacing={0}
+              lg={4}
+              style={{
+                display: "grid",
+
+                marginTop: "100px",
+              }}
+              sx={{ gridTemplateColumns: { lg: "1fr 1fr 1fr", md: "1fr 1fr" } }}
+            >
+              {cardProd.map((elem, i) => (
+                <Grid
+                  item
+                  lg={3}
+                  xs={2}
+                  key={i}
+                  style={{ marginRight: "5px", flexWrap: "wrap" }}
                 >
-                  <CardContent
+                  <Card
+                    className={style.cardd}
+                    sx={{ minWidth: 275 }}
+                    style={{
+                      marginBottom: "15px",
+                      width: `${zoom}px`,
+                    }}
+                  >
+                    <CardContent
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        minHeight: "100%",
+                      }}
+                    >
+                      <button
+                        name={elem.id}
+                        className={style.heart}
+                        style={{ cursor: "pointer", border: "none" }}
+                        onClick={() => {
+                          handleAddToWishlist(user.id, {
+                            id: elem.id,
+                            name: elem.name,
+                            price: elem.price,
+                            image: elem.image,
+                          });
+                        }}
+                      >
+                        {userWishlist.find((x) => x.id === elem.id) ? (
+                          <FavoriteIcon color="error" />
+                        ) : (
+                          <FavoriteBorderIcon color="error" />
+                        )}
+                      </button>
+                      <button
+                        className={style.addtoCart}
+                        style={{ cursor: "pointer", border: "none" }}
+                        onClick={() => {
+                          handleAddToCart(user.id, {
+                            id: elem.id,
+                            name: elem.name,
+                            price: elem.price,
+                            image: elem.image,
+                            quantity: 1,
+                          });
+                          dispatch(setCheck(true));
+                        }}
+                      >
+                        ADD TO CART
+                      </button>
+
+                      <img
+                        className={style.card}
+                        style={{
+                          height: "290px",
+                          width: "280px",
+                          objectFit: "cover",
+                        }}
+                        src={elem.image}
+                        alt=""
+                      />
+                    </CardContent>
+                  </Card>
+                  <Typography
+                    // align="center"
                     style={{
                       display: "flex",
-                      flexDirection: "column",
                       alignItems: "center",
                       justifyContent: "center",
-                      minHeight: "100%",
+                      flexDirection: "column",
                     }}
                   >
-                    <button
-                      name={elem.id}
-                      className={style.heart}
-                      style={{ cursor: "pointer", border: "none" }}
-                      onClick={() => {
-                        handleAddToWishlist(user.id, {
-                          id: elem.id,
-                          name: elem.name,
-                          price: elem.price,
-                          image: elem.image,
-                        });
-                      }}
-                    >
-                      {userWishlist.find((x) => x.id === elem.id) ? (
-                        <FavoriteIcon color="error" />
-                      ) : (
-                        <FavoriteBorderIcon color="error" />
-                      )}
-                    </button>
-                    <button
-                      className={style.addtoCart}
-                      style={{ cursor: "pointer", border: "none" }}
-                      onClick={() => {
-                        handleAddToCart(user.id, {
-                          id: elem.id,
-                          name: elem.name,
-                          price: elem.price,
-                          image: elem.image,
-                          quantity: 1,
-                        });
-                        dispatch(setCheck(true));
-                      }}
-                    >
-                      ADD TO CART
-                    </button>
+                    <div>
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                    </div>
+                    <div> {elem.name}</div>
 
-                    <img
-                      className={style.card}
+                    <div
                       style={{
-                        height: "290px",
-                        width: "280px",
-                        objectFit: "cover",
+                        display: "flex",
+                        flexDirection: "row",
+                        gap: "8px",
                       }}
-                      src={elem.image}
-                      alt=""
-                    />
-                  </CardContent>
-                </Card>
-                <Typography
-                  // align="center"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                  }}
-                >
-                  <div>
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                  </div>
-                  <div> {elem.name}</div>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      gap: "8px",
-                    }}
-                  >
-                    <p style={{ textDecoration: "line-through" }}>
-                      {elem.price}.00$
-                    </p>{" "}
-                    <p>
-                      {Math.round(
-                        elem.price - (elem.discountPercent / 100) * elem.price
-                      )}
-                      .00$
-                    </p>
-                  </div>
-                </Typography>
-              </Grid>
-            ))}
-            
+                    >
+                      <p style={{ textDecoration: "line-through" }}>
+                        {elem.price}.00$
+                      </p>{" "}
+                      <p>
+                        {Math.round(
+                          elem.price - (elem.discountPercent / 100) * elem.price
+                        )}
+                        .00$
+                      </p>
+                    </div>
+                  </Typography>
+                </Grid>
+              ))}
+            </Grid>
+            <Grid
+              item
+              lg={12}
+              xs={12}
+              style={{
+                marginTop: "50px",
+                display: "flex",
+                justifyContent: "center",
+                textAlign: "center",
+              }}
+            >
+              <div>
+                {" "}
+                <p>Showing 12 of 16 Product</p>
+                <div style={{ display: "flex", marginTop: "15px" }}>
+                  <div className={style.line}></div>
+                  <div className={style.lines}></div>
+                </div>
+                <button className={style.btn2}>Load More</button>
+              </div>
+            </Grid>
           </Grid>
-          <Grid item lg={12} xs={12} style={{marginTop:"50px", display:"flex", justifyContent:"center",textAlign:"center"}}>
-            <div> <p>Showing 12 of 16 Product</p>
-            <div style={{display:"flex",marginTop:"15px"}}><div className={style.line}></div>
-           <div className={style.lines}></div></div>
-          
-            <button className={style.btn2}>Load More</button></div>
-           
-          </Grid>
-          </Grid>
-          
-    
         </Container>
-  
       </section>
     </>
   );
