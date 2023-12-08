@@ -120,16 +120,25 @@ function ContactUs() {
         <Container maxWidth="xl" style={{ marginTop: "20px" }}>
           <Grid container spacing={0}>
             <Grid item className={style.image}>
-              <img
+              {/* <img
                 style={{ paddingTop: "30px" }}
                 src="https://maps.gstatic.com/mapfiles/api-3/images/icon_error.png"
                 alt=""
-              />
-              <p>Oops! Something went wrong.</p>
+              /> */}
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12155.36557618879!2d49.824043587158215!3d40.3902077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d73dfe28d61%3A0xad54f5e77802f44b!2sGallery%204%20Kids!5e0!3m2!1sen!2saz!4v1702053045740!5m2!1sen!2saz"
+                width="100%"
+                height="100%"
+                style={{ border: "0", paddingTop: "30px" }}
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+              {/* <p>Oops! Something went wrong.</p>
               <p>
                 This page didn't load Google Maps correctly. See the JavaScript
                 console for technical details.
-              </p>
+              </p> */}
             </Grid>
           </Grid>
         </Container>

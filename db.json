@@ -167,20 +167,6 @@
       "availability": true,
       "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-04.jpg?v=1698814390",
       "id": "13"
-    },
-    {
-      "name": "Iola Donovan",
-      "price": "892",
-      "discountPercent": 10,
-      "commentArray": "",
-      "rating": 3,
-      "description": "",
-      "brand": "Quynn Moon",
-      "collection": "Martina Little",
-      "sold": 3,
-      "availability": false,
-      "image": "https://images.unsplash.com/photo-1609741199743-341cf4ee3d02?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dG95fHx8fHx8MTcwMjAzMDk4OA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-      "id": "82MEYc3"
     }
   ],
   "users": [

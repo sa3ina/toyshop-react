@@ -508,6 +508,8 @@ function Home() {
                         justifyContent: "center",
                         alignItems: "center",
                         padding: "65px",
+                        paddingBottom: "67px",
+                        paddingRight: "67px",
                       }}
                     >
                       <div
@@ -553,6 +555,8 @@ function Home() {
                         justifyContent: "center",
                         alignItems: "center",
                         padding: "65px",
+                        paddingBottom: "67px",
+                        paddingRight: "67px",
                       }}
                     >
                       <div
@@ -598,6 +602,8 @@ function Home() {
                         justifyContent: "center",
                         alignItems: "center",
                         padding: "65px",
+                        paddingBottom: "67px",
+                        paddingRight: "67px",
                       }}
                     >
                       <div
@@ -643,6 +649,8 @@ function Home() {
                         justifyContent: "center",
                         alignItems: "center",
                         padding: "65px",
+                        paddingBottom: "67px",
+                        paddingRight: "67px",
                       }}
                     >
                       <div
@@ -689,6 +697,8 @@ function Home() {
                         justifyContent: "center",
                         alignItems: "center",
                         padding: "65px",
+                        paddingBottom: "67px",
+                        paddingRight: "67px",
                       }}
                     >
                       <div
@@ -734,6 +744,8 @@ function Home() {
                         justifyContent: "center",
                         alignItems: "center",
                         padding: "65px",
+                        paddingBottom: "67px",
+                        paddingRight: "67px",
                       }}
                     >
                       <div
@@ -780,6 +792,8 @@ function Home() {
                         justifyContent: "center",
                         alignItems: "center",
                         padding: "65px",
+                        paddingBottom: "67px",
+                        paddingRight: "67px",
                       }}
                     >
                       <div
