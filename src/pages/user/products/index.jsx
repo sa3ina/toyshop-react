@@ -226,6 +226,61 @@ function Products() {
   const handleToggle = () => {
     setIsChecked(!isChecked);
   };
+  const [items, setItems] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [sortOrder, setSortOrder] = useState("asc");
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/posts")
+      .then((response) => {
+        setItems(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+  const handleCategoryChange = (collection) => {
+    setSelectedCategory(collection);
+  };
+
+  const handleSortChange = (order) => {
+    setSortOrder(order);
+  };
+  // const filteredItems = items.filter((item) => {
+  //   if (selectedCategory === "all") {
+  //     return true;
+  //   } else {
+  //     return item.collection === selectedCategory;
+  //   }
+  // });
+
+  // const sortedItems = filteredItems.sort((a, b) => {
+  //   const priceA = a.price || 0;
+  //   const priceB = b.price || 0;
+
+  //   if (sortOrder === "asc") {
+  //     return priceA - priceB;
+  //   } else {
+  //     return priceB - priceA;
+  //   }
+  // });
+  const filteredItems = items.filter((item) => {
+    if (selectedCategory === "all") {
+      return true;
+    } else {
+      return item.collection === selectedCategory;
+    }
+  });
+
+  const sortedItems = filteredItems.sort((a, b) => {
+    if (sortOrder === "asc") {
+      return a.name.localeCompare(b.name);
+    } else {
+      return b.name.localeCompare(a.name);
+    }
+  });
+
   return (
     <>
       <div style={{ backgroundColor: "#88A9A8" }}>
@@ -252,7 +307,11 @@ function Products() {
       <section>
         <Container
           maxWidth="xl"
-          style={{ display: "flex", justifyContent: "space-between" }}
+          style={{
+            display: "flex",
+            width: "10px",
+            justifyContent: "space-between",
+          }}
         >
           <aside style={{ display: "flex", alignItems: "flex-start" }}>
             <Toolbar disableGutters>
@@ -260,13 +319,48 @@ function Products() {
                 <div className={style.collection} style={{}}>
                   <h3>Collection</h3>
                   <div style={{ display: "flex", flexDirection: "column" }}>
-                    <span className={style.ctg}>Dolls</span>
-                    <span className={style.ctg}>Toys</span>
-                    <span className={style.ctg}>Toys</span>
-                    <span className={style.ctg}>Clothes</span>
-                    <span className={style.ctg}>Sensory</span>
-                    <span className={style.ctg}>Games</span>
-                    <span className={style.ctg}>Strolles</span>
+                    <span
+                      onClick={() => {
+                        handleCategoryChange("dolls");
+                      }}
+                      className={style.ctg}
+                    >
+                      Dolls
+                    </span>
+                    <span
+                      onClick={() => handleCategoryChange("toys")}
+                      className={style.ctg}
+                    >
+                      Toys
+                    </span>
+                    <span
+                      onClick={() => handleCategoryChange("clothes")}
+                      className={style.ctg}
+                    >
+                      Clothes
+                    </span>
+                    <span
+                      onClick={() => handleCategoryChange("Sensory")}
+                      className={style.ctg}
+                    >
+                      Sensory
+                    </span>
+                    <span
+                      onClick={() => {
+                        handleCategoryChange("games");
+                      }}
+                      className={style.ctg}
+                    >
+                      Games
+                    </span>
+                    <span
+                      onClick={() => {
+                        handleCategoryChange("strolles");
+                      }}
+                      className={style.ctg}
+                    >
+                      Strolles
+                    </span>
                   </div>
 
                   <div
@@ -403,18 +497,7 @@ function Products() {
           </aside>
 
           <Grid lg={12} spacing={0} maxWidth="xl">
-            <Grid
-              item
-              className={style.filter}
-              lg={12}
-              xs={12}
-              md={12}
-              // style={{
-              //   display: "flex",
-
-              //   justifyContent: "space-between",
-              // }}
-            >
+            <Grid item className={style.filter} lg={12} xs={12} md={12}>
               <div style={{ display: "flex" }} className={style.productsCount}>
                 <div className={style.filterButton}>
                   <button className={style.btnfil}>
@@ -451,14 +534,19 @@ function Products() {
               </div>
               <div className={style.sort}>
                 <span className={style.sortBy}>Sort by: </span>
-                <span style={{ color: "#212529" }}>
-                  Best selling <FontAwesomeIcon icon={faChevronDown} />
-                </span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+                <select
+                  name=""
+                  id=""
+                  onChange={(e) => handleSortChange(e.target.value)}
+                >
+                  <option value="">Featured</option>
+                  <option value="">Best Selling</option>
+                  <option value="asc">Alphabetically, A-Z</option>
+                  <option value="desc">Alphabetically, Z-A</option>
+                  <option value="">Price, low to high</option>
+                  <option value="">Date, old to new</option>
+                  <option value="">Date, new to old</option>
+                </select>
               </div>
             </Grid>
             <Grid
@@ -471,7 +559,7 @@ function Products() {
               }}
               sx={{ gridTemplateColumns: { lg: "1fr 1fr 1fr", md: "1fr 1fr" } }}
             >
-              {cardProd.map((elem, i) => (
+              {sortedItems.map((elem, i) => (
                 <Grid item lg={3} xs={2} key={i} style={{ flexWrap: "wrap" }}>
                   <Card
                     className={style.cardd}
