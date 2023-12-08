@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { faPause } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { useState,useRef } from "react";
+import { useState, useRef } from "react";
 function AboutUs() {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
@@ -56,7 +56,7 @@ function AboutUs() {
               </div>
             </Grid>
             <Grid lg={6} sx={12} md={12} className={style.image}>
-              <img src={img} alt="" className={style.imgg}/>
+              <img src={img} alt="" className={style.imgg} />
             </Grid>
           </Grid>
         </Container>
@@ -93,12 +93,22 @@ function AboutUs() {
       <section className={style.section4}>
         <Container>
           <Grid spacing={0}>
-            <Grid lg={12} sx={12} item className={style.item3}>
-            <video ref={videoRef}>
-        <source src="https://youtu.be/Au63DyjBQ7k?feature=shared" type="video/mp4" />
-      </video>
-      <button  className={style.videoIcon} onClick={handleTogglePlay}>{isPlaying ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay}/>}</button>
-      
+            <Grid
+              lg={12}
+              sx={12}
+              xl={12}
+              md={12}
+              sm={12}
+              item
+              className={style.item3}
+            >
+              <video ref={videoRef}>
+                <source
+                  src="https://youtu.be/Au63DyjBQ7k?feature=shared"
+                  type="video/mp4"
+                />
+              </video>
+              {/* <button  className={style.videoIcon} onClick={handleTogglePlay}>{isPlaying ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay}/>}</button> */}
             </Grid>
           </Grid>
         </Container>
@@ -115,7 +125,8 @@ function AboutUs() {
             }}
           >
             <Grid item lg={6} sx={12}>
-              <img className={style.imgg}
+              <img
+                className={style.imgg}
                 src="//wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-about-img-03_535x.jpg?v=1698815628"
                 alt=""
               />
@@ -130,7 +141,7 @@ function AboutUs() {
               <div style={{ display: "flex", paddingTop: "30px" }}>
                 <div>
                   <img
-                    src="//wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-about-icon-01.svg?v=1698815629" 
+                    src="//wn9omz0g55pl0w56-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-toy-about-icon-01.svg?v=1698815629"
                     alt=""
                   />
                 </div>
