@@ -147,7 +147,7 @@
       "commentArray": [],
       "rating": 5,
       "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
-      "brand": "Hamofy",
+      "brand": "Sandro",
       "collection": "games",
       "sold": 3,
       "availability": true,
@@ -161,7 +161,7 @@
       "commentArray": [],
       "rating": 5,
       "description": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque...",
-      "brand": "Hamofy",
+      "brand": "Starwalks",
       "collection": "games",
       "sold": 3,
       "availability": true,
@@ -253,6 +253,13 @@
           "price": 39,
           "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-12.jpg?v=1698814426&width=535",
           "quantity": 1
+        },
+        {
+          "id": "12",
+          "name": "Running deer soft toy",
+          "price": 32,
+          "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-10.jpg?v=1698814419",
+          "quantity": 1
         }
       ],
       "wishlist": [
@@ -267,6 +274,12 @@
           "name": "Perk penguin stuffed",
           "price": 39,
           "image": "https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/products/kids-toy-product-12.jpg?v=1698814426&width=535"
+        },
+        {
+          "id": "12",
+          "name": "Running deer soft toy",
+          "price": 32,
+          "image": "https://hongotheme.myshopify.com/cdn/shop/products/kids-toy-product-10.jpg?v=1698814419"
         }
       ],
       "isAdmin": false,
