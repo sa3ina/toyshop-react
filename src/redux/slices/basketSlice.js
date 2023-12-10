@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
 
 export const addToCart = createAsyncThunk(
   "basket/addToCart",
@@ -79,8 +79,36 @@ const basketSlice = createSlice({
         (item) => item.id !== action.payload.productId
       );
     });
+    builder.addCase(incrementQuantity, (state, action) => {
+      let bask = state.basketItems;
+      console.log(state.basketItems);
+      console.log(action.payload);
+      const { index } = action.payload;
+      if (state.basketItems[index]) {
+        state.basketItems[index].quantity += 1;
+      }
+    });
+    builder.addCase(decrementQuantity, (state, action) => {
+      const { index } = action.payload;
+      if (state.basketItems[index] && state.basketItems[index].quantity > 1) {
+        state.basketItems[index].quantity -= 1;
+      }
+    });
   },
 });
+export const incrementQuantity = createAction(
+  "basket/incrementQuantity",
+  (index) => ({
+    payload: { index },
+  })
+);
+
+export const decrementQuantity = createAction(
+  "basket/decrementQuantity",
+  (index) => ({
+    payload: { index },
+  })
+);
 export const { clearCart } = basketSlice.actions;
 
 export default basketSlice.reducer;
