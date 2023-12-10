@@ -5,20 +5,13 @@ import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
 import Slider from "@mui/material/Slider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { Box, Typography } from "@mui/material";
 import { useState } from "react";
-import { Link, useNavigate, useNavigation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import {
-  faChevronRight,
   faStar,
-  faHeart,
-  faBox,
-  faCircleCheck,
-  faCommentDots,
-  faCalendar,
 } from "@fortawesome/free-solid-svg-icons";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import { cardProducts } from "../../../redux/slices/cardSlice";
@@ -32,18 +25,13 @@ import { clearCart } from "../../../redux/slices/basketSlice";
 
 import {
   addToWishlist,
-  removeFromWishlist,
 } from "../../../redux/slices/wishlistSlice";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import Wishlist from "../wishlist";
-
 function Products() {
   let user = JSON.parse(localStorage.getItem("loggedInUser")) || [];
 
-  const navigate = useNavigate();
   const cardProd = useSelector((state) => state.products.posts);
-  const checkValue = useSelector((state) => state.products.check);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(cardProducts());
@@ -226,9 +214,12 @@ function Products() {
   const handleToggle = () => {
     setIsChecked(!isChecked);
   };
+  const [visibleItems, setVisibleItems] = useState(8);
   const [items, setItems] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [sortOrder, setSortOrder] = useState("asc");
+  const [selectedBrand, setSelectedBrand] = useState("");
+  const[price,setPrice]=useState(0);
   useEffect(() => {
     axios
       .get("http://localhost:3000/posts")
@@ -243,42 +234,62 @@ function Products() {
   const handleCategoryChange = (collection) => {
     setSelectedCategory(collection);
   };
+  const handleLoadMore  = (data) => {
+    setVisibleItems(data)
+    console.log(data)
+  };
 
   const handleSortChange = (order) => {
     setSortOrder(order);
   };
+  const handleBrandChange = (brand) => {
+    setSelectedBrand(brand);
+  };
+  const handleInput=(e,pricee)=>{
+    e.preventDefault()
+    setPrice(pricee)
+    console.log(e.target.value)
+  }
+  
+  
   // const filteredItems = items.filter((item) => {
+   
   //   if (selectedCategory === "all") {
   //     return true;
   //   } else {
   //     return item.collection === selectedCategory;
   //   }
-  // });
-
-  // const sortedItems = filteredItems.sort((a, b) => {
-  //   const priceA = a.price || 0;
-  //   const priceB = b.price || 0;
-
-  //   if (sortOrder === "asc") {
-  //     return priceA - priceB;
-  //   } else {
-  //     return priceB - priceA;
-  //   }
-  // });
+  // })
+  
   const filteredItems = items.filter((item) => {
-    if (selectedCategory === "all") {
-      return true;
-    } else {
-      return item.collection === selectedCategory;
-    }
+    const categoryCondition = selectedCategory === "all" || item.collection === selectedCategory;
+    const brandCondition = selectedBrand === "" || item.brand === selectedBrand;
+    return categoryCondition && brandCondition;
   });
-
   const sortedItems = filteredItems.sort((a, b) => {
-    if (sortOrder === "asc") {
+    if (sortOrder === 'asc') {
       return a.name.localeCompare(b.name);
-    } else {
+    } else if (sortOrder === 'desc') {
       return b.name.localeCompare(a.name);
+    } else if (sortOrder === 'lowToHigh') {
+      return a.price - b.price;
+    } else if (sortOrder === 'highToLow') {
+      return b.price - a.price;
     }
+    else if (sortOrder === 'bestSelling') {
+
+      return b.rating - a.rating;
+    }
+    else if (sortOrder === 'sold') {
+      return b.sold - a.sold;
+    }
+    else if (sortOrder === 'idHigh') {
+      return b.id - a.id;
+    }
+    else if (sortOrder === 'idLow') {
+      return a.id - b.id;
+    }
+    return 0;
   });
 
   return (
@@ -369,13 +380,16 @@ function Products() {
                   >
                     <h3>Price</h3>
                     <Slider
+                    onChange={handleInput}
                       defaultValue={30}
                       sx={{
                         width: 200,
                         color: "gray",
+                        
                       }}
                     />
-                    <p>Price:$1.00 - $30.00</p>
+                    
+                    <p>Price:${price}</p>
                   </div>
                   <div
                     className={style.brand}
@@ -385,49 +399,65 @@ function Products() {
                     <ul className={style.list}>
                       <li className={style.check}>
                         <input
-                          type="radio"
-                          name=""
-                          id="Acme"
-                          checked={isChecked}
-                          onChange={handleToggle}
-                        />
+        type="radio"
+        name="brand"
+        id="Acme"
+        checked={selectedBrand === "Acme"} 
+        onChange={() => handleBrandChange("Acme")}
+      />
                         <label htmlFor="Acme">Acme</label>
                         <span>(02)</span>
                       </li>
                       <li className={style.check}>
-                        <input type="radio" name="" />
+                        <input type="radio" name="brand"
+        id="Haider Ackermann"
+        checked={selectedBrand === "Haider Ackermann"} 
+        onChange={() => handleBrandChange("Haider Ackermann")}
+       />
                         <label htmlFor="Haider Ackermann">
                           Haider Ackermann
                         </label>
                         <span>(01)</span>
                       </li>
                       <li className={style.check}>
-                        <input type="radio" name="" />
+                        <input type="radio" name="brand"
+        id="Hamofy"
+        checked={selectedBrand === "Hamofy"} onChange={() => handleBrandChange("Hamofy")}/>
                         <label htmlFor="">Hamofy</label>
                         <span>(02)</span>
                       </li>
                       <li className={style.check}>
-                        <input type="radio" name="" />
+                        <input type="radio" name="brand"
+        id="Helmut Lang"
+        checked={selectedBrand === "Helmut Lang"} onChange={() => handleBrandChange("Helmut Lang")}/>
                         <label htmlFor="">Helmut Lang</label>
                         <span>(01)</span>
                       </li>
                       <li className={style.check}>
-                        <input type="radio" name="" />
+                        <input type="radio" name="brand"
+        id="Hurry"
+        checked={selectedBrand === "Hurry"} onChange={() => handleBrandChange("Hurry")} />
                         <label htmlFor="Hurry">Hurry</label>
                         <span>(04)</span>
                       </li>
                       <li className={style.check}>
-                        <input type="radio" name="" />
+                        <input type="radio" name="brand"
+        id="Maison Margiela"
+        checked={selectedBrand === "Maison Margiela"} onChange={() => handleBrandChange("Maison Margiela")} />
                         <label htmlFor="Maison Margiela">Maison Margiela</label>
                         <span>(01)</span>
                       </li>
                       <li className={style.check}>
-                        <input type="radio" name="" />
+                        <input type="radio" name="brand"
+        id="Massive"
+        checked={selectedBrand === "Massive"} onChange={() => handleBrandChange("Massive")} />
                         <label htmlFor="Massive">Massive</label>
                         <span>(02)</span>
                       </li>
                       <li className={style.check}>
-                        <input type="radio" name="" />
+                        <input type="radio" name="brand"
+        id="Moschino"
+        checked={selectedBrand === "Moschino"} onChange={() => handleBrandChange("Moschino")}/>
                         <label
                           htmlFor="Moschino
 "
@@ -437,17 +467,16 @@ function Products() {
                         <span>(01)</span>
                       </li>
                       <li className={style.check}>
-                        <input type="radio" name="" />
+                        <input type="radio" name="brand"
+        id="Sandro"
+        checked={selectedBrand === "Sandro"} onChange={() => handleBrandChange("Sandro")} />
                         <label htmlFor="Sandro">Sandro</label>
                         <span>(01)</span>
                       </li>
                       <li className={style.check}>
-                        <input type="radio" name="" />
-                        <label htmlFor="Sandro">Sandro</label>
-                        <span>(01)</span>
-                      </li>
-                      <li className={style.check}>
-                        <input type="radio" name="" />
+                        <input type="radio" name="brand"
+        id="Starwalks"
+        checked={selectedBrand === "Starwalks"} onChange={() => handleBrandChange("Starwalks")} />
                         <label htmlFor="Starwalks">Starwalks</label>
                         <span>(01)</span>
                       </li>
@@ -539,13 +568,13 @@ function Products() {
                   id=""
                   onChange={(e) => handleSortChange(e.target.value)}
                 >
-                  <option value="">Featured</option>
-                  <option value="">Best Selling</option>
+                  <option value="sold">Featured</option>
+                  <option value="bestSelling">Best Selling</option>
                   <option value="asc">Alphabetically, A-Z</option>
                   <option value="desc">Alphabetically, Z-A</option>
-                  <option value="">Price, low to high</option>
-                  <option value="">Date, old to new</option>
-                  <option value="">Date, new to old</option>
+                  <option value="lowToHigh">Price, low to high</option>
+                  <option value="idHigh">Date, old to new</option>
+                  <option value="idLow">Date, new to old</option>
                 </select>
               </div>
             </Grid>
@@ -559,7 +588,7 @@ function Products() {
               }}
               sx={{ gridTemplateColumns: { lg: "1fr 1fr 1fr", md: "1fr 1fr" } }}
             >
-              {sortedItems.map((elem, i) => (
+              {sortedItems.slice(0, visibleItems).map((elem, i) => (
                 <Grid item lg={3} xs={2} key={i} style={{ flexWrap: "wrap" }}>
                   <Card
                     className={style.cardd}
@@ -641,6 +670,7 @@ function Products() {
                       justifyContent: "center",
                       flexDirection: "column",
                     }}
+                    
                   >
                     <div>
                       <StarRating rating={elem.rating} />{" "}
@@ -686,7 +716,8 @@ function Products() {
                   <div className={style.line}></div>
                   <div className={style.lines}></div>
                 </div>
-                <button className={style.btn2}>Load More</button>
+                {visibleItems < sortedItems.length && (
+                <button className={style.btn2} onClick={handleLoadMore}>Load More</button>)}
               </div>
             </Grid>
           </Grid>
