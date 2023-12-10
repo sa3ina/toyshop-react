@@ -51,6 +51,8 @@ import {
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Wishlist from "../wishlist";
+import { decrementQuantity } from "../../../redux/slices/basketSlice";
+import { incrementQuantity } from "../../../redux/slices/basketSlice";
 function Home() {
   let user = JSON.parse(localStorage.getItem("loggedInUser")) || [];
 
@@ -62,20 +64,54 @@ function Home() {
     dispatch(cardProducts());
   }, [dispatch]);
 
+  const updateApiBasket = async (updatedBasket) => {
+    try {
+      // Simulate API update, replace with actual API call
+      console.log("Updating API with:", updatedBasket);
+      // Example: await axios.patch(`http://localhost:3000/users/${userId}`, { basket: updatedBasket });
+      await axios.patch(`http://localhost:3000/users/${user.id}`, {
+        basket: updatedBasket,
+      });
+      // Update local state with API response
+      setUserBasket(updatedBasket);
+    } catch (error) {
+      console.error("Error updating API:", error);
+    }
+  };
+
   const handleIncrement = (index) => {
     const updatedBasket = [...userBasket];
     updatedBasket[index].quantity++;
-    setUserBasket(updatedBasket);
+    updateApiBasket(updatedBasket);
   };
 
   const handleDecrement = (index) => {
     const updatedBasket = [...userBasket];
     if (updatedBasket[index].quantity > 1) {
       updatedBasket[index].quantity--;
-      setUserBasket(updatedBasket);
+      updateApiBasket(updatedBasket);
     }
   };
+  // const handleIncrement = (index) => {
+  //   const updatedBasket = [...userBasket];
+  //   updatedBasket[index].quantity++;
+  //   setUserBasket(updatedBasket);
+  // };
 
+  // const handleDecrement = (index) => {
+  //   const updatedBasket = [...userBasket];
+  //   if (updatedBasket[index].quantity > 1) {
+  //     updatedBasket[index].quantity--;
+  //     setUserBasket(updatedBasket);
+  //   }
+  // };
+  // const handleIncrement = (index) => {
+  //   dispatch(incrementQuantity(index));
+  // };
+
+  // const handleDecrement = (index) => {
+  //   dispatch(decrementQuantity(index));
+  // };
   // useEffect(() => {
   //   dispatch(basketProducts());
   // }, [dispatch]);
@@ -1658,6 +1694,7 @@ function Home() {
                           cursor: "pointer",
                         }}
                         onClick={() => handleDecrement(index)}
+                        disabled={item.quantity <= 1} // Disable when quantity is 1 or less
                       >
                         -
                       </button>
